@@ -1,4 +1,5 @@
 import React from 'react'
+import DishesButton from '../../components/DishesButton/DishesButton'
 import logoSVG from '../../images/pizza-logo.svg'
 
 function DishesHeader() {
@@ -13,7 +14,7 @@ function DishesHeader() {
 				</div>
 			</div>
 			<div className="header__cart">
-				<a href="/cart.html" className="button button--cart">
+					<DishesButton className="button--cart">
 					<span>520 ₽</span>
 					<div className="button__delimiter"></div>
 					<svg
@@ -46,7 +47,7 @@ function DishesHeader() {
 						/>
 					</svg>
 					<span>3</span>
-				</a>
+					</DishesButton>
 			</div>
 		</div>
 	</div>

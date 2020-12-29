@@ -1,9 +1,12 @@
 import React from 'react'
+import classNames from 'classnames'
 
-function DishesButton() {
+function DishesButton({onClick, className, outline, children}) {
 	return (
-		<button className="button button--cart">
-			
+		<button className={classNames('button', className, {
+			'button--outline': outline,
+		})}>
+			{children}
 		</button>
 	)
 }
