@@ -1,5 +1,5 @@
 import React from 'react'
-import DishesButton from '../../components/DishesButton/DishesButton'
+import {DishesButton} from '../../components'
 import logoSVG from '../../images/pizza-logo.svg'
 
 function DishesHeader() {
