@@ -1,9 +1,10 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function main() {
 	return (
 		<div>
-			Main
+		 <Link to='/'>Main</Link>
 		</div>
 	)
 }
