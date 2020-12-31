@@ -3,7 +3,7 @@ import React, {useState, useEffect, useRef} from 'react'
 function DishesSort({items}) {
 	const [visiblePopup, setVisiblePopup] = useState(false)
 	const [activeItem, setActiveItem] = useState(0)
-	const activeSortLabel = items[activeItem]
+	const activeSortLabel = items[activeItem].name
 	const sortRef = useRef()
 
 	const toggleVisiblePopup = () => {
@@ -46,7 +46,7 @@ function DishesSort({items}) {
 		{visiblePopup && <div className="sort__popup">
 			<ul>
 				{items && items.map( (elem, index) => {
-					return <li onClick={() => onSelectItem(index)} className={activeItem === index ? 'active' : ''} key={`${elem}_${index}`}>{elem}</li>
+					return <li onClick={() => onSelectItem(index)} className={activeItem === index ? 'active' : ''} key={`${elem.type}_${index}`}>{elem.name}</li>
 				})}
 			</ul>
 		</div>}

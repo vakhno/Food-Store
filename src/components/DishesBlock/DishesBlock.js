@@ -1,6 +1,21 @@
-import React from 'react'
+import React, {useState} from 'react'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
-function DishesBlock({name, imageUrl, price, }) {
+function DishesBlock({name, imageUrl, price, types, sizes}) {
+	const [activeType, setActiveType] = useState(types[0])
+	const availableTypes = ['тонкое', 'традиционное']
+	const [activeSize, setActiveSize] = useState(sizes[0])
+	const availableSizes = [25, 30, 40]
+
+	const onSelectType = (index) => {
+		setActiveType(index)
+	}
+
+	const onSelectSize = (index) => {
+		setActiveSize(index)
+	}
+
 	return (
 		<div className="pizza-block">
 		<img
@@ -11,13 +26,28 @@ function DishesBlock({name, imageUrl, price, }) {
 		<h4 className="pizza-block__title">{name}</h4>
 		<div className="pizza-block__selector">
 			<ul>
-				<li className="active">тонкое</li>
-				<li>традиционное</li>
+				{availableTypes.map((type, index) => 
+					<li 
+						onClick={() => onSelectType(index)} 
+						className={classNames({ 
+							'active': activeType === index,
+							'disabled': !types.includes(index),
+						})} 
+						key={type}>
+						{type}
+					</li>)}
 			</ul>
 			<ul>
-				<li className="active">26 см.</li>
-				<li className="disabled">30 см.</li>
-				<li>40 см.</li>
+			{availableSizes.map((size, index) => 
+					<li 
+						onClick={() => onSelectSize(index)} 
+						className={classNames({ 
+							'active': activeSize === index,
+							'disabled': !sizes.includes(size),
+						})} 
+						key={size}>
+						{size} см.
+					</li>)}
 			</ul>
 		</div>
 		<div className="pizza-block__bottom">
@@ -41,6 +71,22 @@ function DishesBlock({name, imageUrl, price, }) {
 		</div>
 	</div>
 	)
+}
+
+DishesBlock.propTypes = {
+	name: PropTypes.string.isRequired,
+	imageUrl: PropTypes.string.isRequired,
+	price: PropTypes.number.isRequired,
+	types: PropTypes.arrayOf(PropTypes.number).isRequired,
+	sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
+}
+
+DishesBlock.defaultProps = {
+	name: '------',
+	imageUrl: '',
+	price: 0,
+	types: [],
+	sizes: [],
 }
 
 export default DishesBlock
