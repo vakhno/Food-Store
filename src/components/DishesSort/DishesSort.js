@@ -1,6 +1,6 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, memo} from 'react'
 
-function DishesSort({items}) {
+const DishesSort = memo(function DishesSort({items}) {
 	const [visiblePopup, setVisiblePopup] = useState(false)
 	const [activeItem, setActiveItem] = useState(0)
 	const activeSortLabel = items[activeItem].name
@@ -52,6 +52,6 @@ function DishesSort({items}) {
 		</div>}
 	</div>
 	)
-}
+})
 
 export default DishesSort
