@@ -12,7 +12,7 @@ function App() {
 
 
 	useEffect(() => {
-		axios.get('http://localhost:3001/pizzas').then( ({data}) => {
+		axios.get('http://localhost:3001/dishes').then( ({data}) => {
 			dispatch(setDishes(data))
 		})
 	}, [])

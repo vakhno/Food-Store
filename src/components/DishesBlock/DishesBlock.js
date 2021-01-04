@@ -43,7 +43,7 @@ function DishesBlock({name, imageUrl, price, types, sizes}) {
 						onClick={() => onSelectSize(index)} 
 						className={classNames({ 
 							'active': activeSize === index,
-							'disabled': !sizes.includes(size),
+							'disabled': !sizes.includes(index),
 						})} 
 						key={size}>
 						{size} см.
