@@ -1,31 +1,36 @@
 import React from 'react'
 import {DishesHeader, Categories, DishesSort, DishesBlock} from '../../components'
+import {useSelector, useDispatch} from 'react-redux'
+import {setCategory} from '../../redux/actions/filters'
 
+const categoryItems = ['Мясные', 'Вегатерисанские', 'Гриль', 'Острые', 'Закрытые' ]
+const sortItems = [
+	{name: 'популярности', type: 'popular'},
+	{name: 'цене', type: 'price'},
+	{name: 'алфавиту', type: 'alphabet'},
+]
 
+function Dishes() {
+	const dispatch = useDispatch()
+	const dishes =  useSelector( ({dishes}) => dishes.items )
 
-function Dishes({items}) {
+	const onSelectCategory = (index) => {
+		dispatch(setCategory(index))
+	}
+
 	return (
 <div className="wrapper">
 		<DishesHeader />
 			<div className="content">
 				<div className="container">
 					<div className="content__top">
-						<Categories items={[
-							'Мясные',
-							'Вегатерисанские',
-							'Гриль',
-							'Острые',
-							'Закрытые',
-						]}/>
-						<DishesSort items={[
-							{name: 'популярности', type: 'popular'},
-							{name: 'цене', type: 'price'},
-							{name: 'алфавиту', type: 'alphabet'},
-						]}/>
+						<Categories items={categoryItems}
+						onClickItem={onSelectCategory}/>
+						<DishesSort items={sortItems}/>
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
-						{items.map( (elem) => <DishesBlock key={elem.id} {...elem}/>)}
+						{dishes && dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>)}
 					</div>
 				</div>
 			</div>

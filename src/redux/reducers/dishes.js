@@ -4,13 +4,15 @@ const initialState = {
 }
 
 const dishes = (state = initialState, action) => {
-	if(action.type === 'SET_DISHES'){
-		return {
-			...state,
-			items: action.paylaod,
-		}
+	switch(action.type){
+		case 'SET_DISHES': 
+			return {
+				...state,
+				items: action.payload,
+			}
+		default: 
+			return state
 	}
-	return state
 }
 
 export default dishes
