@@ -9,6 +9,7 @@ const dishes = (state = initialState, action) => {
 			return {
 				...state,
 				items: action.payload,
+				isLoaded: true,
 			}
 		default: 
 			return state

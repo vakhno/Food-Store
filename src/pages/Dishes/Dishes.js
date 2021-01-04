@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import {DishesHeader, Categories, DishesSort, DishesBlock} from '../../components'
+import {DishesHeader, Categories, DishesSort, DishesBlock, DishesLoadingBlock} from '../../components'
 import {useSelector, useDispatch} from 'react-redux'
 import {setCategory} from '../../redux/actions/filters'
 import {fetchDishes} from '../../redux/actions/dishesRequest'
@@ -14,6 +14,7 @@ const sortItems = [
 function Dishes() {
 	const dispatch = useDispatch()
 	const dishes =  useSelector( ({dishes}) => dishes.items )
+	const isLoaded =  useSelector( ({dishes}) => dishes.isLoaded )
 
 	useEffect(() => {
 		dispatch(fetchDishes())
@@ -25,7 +26,6 @@ function Dishes() {
 	// const onSelectCategory = React.useCallback((index) => {
 	// 	dispatch(setCategory(index))
 	// })
-
 
 
 	return (
@@ -40,7 +40,7 @@ function Dishes() {
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
-						{dishes && dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>)}
+						{isLoaded ? dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>) : <DishesLoadingBlock/>}
 					</div>
 				</div>
 			</div>
