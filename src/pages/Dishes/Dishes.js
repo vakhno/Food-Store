@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {DishesHeader, Categories, DishesSort, DishesBlock} from '../../components'
 import {useSelector, useDispatch} from 'react-redux'
 import {setCategory} from '../../redux/actions/filters'
+import {fetchDishes} from '../../redux/actions/dishesRequest'
 
 const categoryItems = ['Мясные', 'Вегатерисанские', 'Гриль', 'Острые', 'Закрытые' ]
 const sortItems = [
@@ -14,9 +15,18 @@ function Dishes() {
 	const dispatch = useDispatch()
 	const dishes =  useSelector( ({dishes}) => dishes.items )
 
+	useEffect(() => {
+		dispatch(fetchDishes())
+	}, [])
+	
 	const onSelectCategory = (index) => {
 		dispatch(setCategory(index))
 	}
+	// const onSelectCategory = React.useCallback((index) => {
+	// 	dispatch(setCategory(index))
+	// })
+
+
 
 	return (
 <div className="wrapper">
