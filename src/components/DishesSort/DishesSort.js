@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 const DishesSort = memo(function DishesSort({items, onClickSortType, activeSortType}) {
 	const [visiblePopup, setVisiblePopup] = useState(false)
-	// const [activeItem, setActiveItem] = useState(0)
-	// const activeSortLabel = items[activeSortType].name
 	const activeSortLabel = items.find(elem => elem.type === activeSortType).name
 	const sortRef = useRef()
 
