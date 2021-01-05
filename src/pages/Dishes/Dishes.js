@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {DishesHeader, Categories, DishesSort, DishesBlock, DishesLoadingBlock} from '../../components'
 import {useSelector, useDispatch} from 'react-redux'
-import {setCategory} from '../../redux/actions/filters'
+import {setCategory, setSortBy} from '../../redux/actions/filters'
 import {fetchDishes} from '../../redux/actions/dishesRequest'
 
 const categoryItems = ['Мясные', 'Вегатерисанские', 'Гриль', 'Острые', 'Закрытые' ]
@@ -15,18 +15,18 @@ function Dishes() {
 	const dispatch = useDispatch()
 	const dishes =  useSelector( ({dishes}) => dishes.items )
 	const isLoaded =  useSelector( ({dishes}) => dishes.isLoaded )
+	const {category, sortBy} = useSelector(({filter}) => filter)
+
+
+	console.log(category, sortBy)
 
 	useEffect(() => {
 		dispatch(fetchDishes())
-	}, [])
-	
-	const onSelectCategory = (index) => {
-		dispatch(setCategory(index))
-	}
-	// const onSelectCategory = React.useCallback((index) => {
-	// 	dispatch(setCategory(index))
-	// })
+	}, [category])
 
+	const onSelectCategory = React.useCallback((index) => {
+		dispatch(setCategory(index))
+	}, [])
 
 	return (
 <div className="wrapper">
@@ -40,7 +40,7 @@ function Dishes() {
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
-						{isLoaded ? dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>) : <DishesLoadingBlock/>}
+						{isLoaded ? dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 const initialState = {
 	items: [],
-	isLoaded: false
+	isLoaded: false,
 }
 
 const dishes = (state = initialState, action) => {
@@ -10,6 +10,11 @@ const dishes = (state = initialState, action) => {
 				...state,
 				items: action.payload,
 				isLoaded: true,
+			}
+		case 'SET_LOADING': 
+			return {
+				...state,
+				isLoaded: action.payload,
 			}
 		default: 
 			return state
