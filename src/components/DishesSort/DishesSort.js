@@ -1,9 +1,11 @@
 import React, {useState, useEffect, useRef, memo} from 'react'
+import PropTypes from 'prop-types'
 
-const DishesSort = memo(function DishesSort({items}) {
+const DishesSort = memo(function DishesSort({items, onClickSortType, activeSortType}) {
 	const [visiblePopup, setVisiblePopup] = useState(false)
-	const [activeItem, setActiveItem] = useState(0)
-	const activeSortLabel = items[activeItem].name
+	// const [activeItem, setActiveItem] = useState(0)
+	// const activeSortLabel = items[activeSortType].name
+	const activeSortLabel = items.find(elem => elem.type === activeSortType).name
 	const sortRef = useRef()
 
 	const toggleVisiblePopup = () => {
@@ -17,7 +19,7 @@ const DishesSort = memo(function DishesSort({items}) {
 	}  
 
 	const onSelectItem = (index) => {
-		setActiveItem(index)
+		onClickSortType(index)
 		setVisiblePopup(false)
 	}
 
@@ -46,12 +48,23 @@ const DishesSort = memo(function DishesSort({items}) {
 		{visiblePopup && <div className="sort__popup">
 			<ul>
 				{items && items.map( (elem, index) => {
-					return <li onClick={() => onSelectItem(index)} className={activeItem === index ? 'active' : ''} key={`${elem.type}_${index}`}>{elem.name}</li>
+					return <li onClick={() => onSelectItem(elem.type)} className={activeSortType === index ? 'active' : ''} key={`${elem.type}_${index}`}>{elem.name}</li>
 				})}
 			</ul>
 		</div>}
 	</div>
 	)
 })
+
+DishesSort.propTypes = {
+	items: PropTypes.arrayOf(PropTypes.object).isRequired,
+	onClickSortType: PropTypes.func.isRequired, 
+	activeSortType: PropTypes.string.isRequired,
+}
+
+DishesSort.defaultProps = {
+	items: [],
+	activeSortType: 0,
+}
 
 export default DishesSort

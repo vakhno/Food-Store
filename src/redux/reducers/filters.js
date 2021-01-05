@@ -8,7 +8,7 @@ const filters = (state = initialState, action) => {
 		case 'SET_SORT_BY':
 			return {
 				...state,
-				sortBy: action.paylaod,
+				sortBy: action.payload,
 			}
 		case 'SET_CATEGORY':
 			return {

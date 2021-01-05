@@ -17,9 +17,6 @@ function Dishes() {
 	const isLoaded =  useSelector( ({dishes}) => dishes.isLoaded )
 	const {category, sortBy} = useSelector(({filter}) => filter)
 
-
-	console.log(category, sortBy)
-
 	useEffect(() => {
 		dispatch(fetchDishes())
 	}, [category])
@@ -28,15 +25,19 @@ function Dishes() {
 		dispatch(setCategory(index))
 	}, [])
 
+	const onSelectSortType = React.useCallback((name) => {
+		dispatch(setSortBy(name))
+	}, [])
+
 	return (
 <div className="wrapper">
 		<DishesHeader />
 			<div className="content">
 				<div className="container">
 					<div className="content__top">
-						<Categories items={categoryItems}
-						onClickItem={onSelectCategory}/>
-						<DishesSort items={sortItems}/>
+						<Categories activeCategory={category} items={categoryItems}
+						selectCategory={onSelectCategory}/>
+						<DishesSort activeSortType={sortBy} items={sortItems} onClickSortType={onSelectSortType} />
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
