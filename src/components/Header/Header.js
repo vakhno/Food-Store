@@ -5,10 +5,8 @@ import logoSVG from '../../images/pizza-logo.svg'
 import {useSelector} from 'react-redux'
 
 function Header() {
-	const {totalPrice, totalCount} = useSelector(({cart}) =>({
-		totalPrice: cart.totalPrice,
-		totalCount: cart.totalCount,
-	}))
+	const {totalPrice, totalCount} = useSelector(({cart}) => cart)
+
 	return (
 		<div className="header">
 		<div className="container">
