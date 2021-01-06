@@ -30,9 +30,6 @@ function Dishes() {
 	}, [])
 
 	return (
-<div className="wrapper">
-		<DishesHeader />
-			<div className="content">
 				<div className="container">
 					<div className="content__top">
 						<Categories activeCategory={category} items={categoryItems}
@@ -44,8 +41,6 @@ function Dishes() {
 						{isLoaded ? dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
 					</div>
 				</div>
-			</div>
-		</div>
 	)
 }
 

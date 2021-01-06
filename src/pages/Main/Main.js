@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 function main() {
 	return (
 		<div>
-		 <Link to='/'>Main</Link>
+		 <Link to='/dishes'>Main</Link>
 		</div>
 	)
 }

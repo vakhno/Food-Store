@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 function DishesButton({onClick, className, outline, children}) {
 	return (
-		<Link to='/m'>
+		<Link to='/cart'>
 		<button className={classNames('button', className, {
 			'button--outline': outline,
 		})}>

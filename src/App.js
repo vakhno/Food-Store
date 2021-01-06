@@ -3,18 +3,23 @@ import {useDispatch} from 'react-redux'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import {Main, Dishes, Contacts} from './pages'
+import {Main, Dishes, Contacts, Cart} from './pages'
 
 function App() {
 	const dispatch = useDispatch()
 
 	return (
 		<Router basename="/Food-Store">
+			<div className="wrapper">
 			<Header/>
-				<Route path ='/m' exact component={Main} />
-				<Route path ='/' exact component={Dishes} />
+			<div className="content">
+				<Route path ='/' exact component={Main} />
+				<Route path ='/dishes' exact component={Dishes} />
+				<Route path ='/cart' exact component={Cart} />
 				<Route path ='/contacts' component={Contacts} />
+			</div>
 			<Footer/>
+			</div>
 		</Router>
 	);
 }
