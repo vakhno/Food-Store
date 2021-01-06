@@ -46,7 +46,7 @@ const DishesSort = memo(function DishesSort({items, onClickSortType, activeSortT
 		{visiblePopup && <div className="sort__popup">
 			<ul>
 				{items && items.map( (elem, index) => {
-					return <li onClick={() => onSelectItem(elem.type)} className={activeSortType === index ? 'active' : ''} key={`${elem.type}_${index}`}>{elem.name}</li>
+					return <li onClick={() => onSelectItem(elem)} className={activeSortType === index ? 'active' : ''} key={`${elem.type}_${index}`}>{elem.name}</li>
 				})}
 			</ul>
 		</div>}

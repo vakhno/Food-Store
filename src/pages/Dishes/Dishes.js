@@ -6,9 +6,9 @@ import {fetchDishes} from '../../redux/actions/dishesRequest'
 
 const categoryItems = ['Мясные', 'Вегатерисанские', 'Гриль', 'Острые', 'Закрытые' ]
 const sortItems = [
-	{name: 'популярности', type: 'popular'},
-	{name: 'цене', type: 'price'},
-	{name: 'алфавиту', type: 'alphabet'},
+	{name: 'популярности', type: 'popular', order: 'desc'},
+	{name: 'цене', type: 'price', order: 'desc'},
+	{name: 'алфавиту', type: 'name', order: 'asc'},
 ]
 
 function Dishes() {
@@ -18,8 +18,8 @@ function Dishes() {
 	const {category, sortBy} = useSelector(({filter}) => filter)
 
 	useEffect(() => {
-		dispatch(fetchDishes())
-	}, [category])
+		dispatch(fetchDishes(sortBy, category))
+	}, [category, sortBy])
 
 	const onSelectCategory = React.useCallback((index) => {
 		dispatch(setCategory(index))
@@ -37,7 +37,7 @@ function Dishes() {
 					<div className="content__top">
 						<Categories activeCategory={category} items={categoryItems}
 						selectCategory={onSelectCategory}/>
-						<DishesSort activeSortType={sortBy} items={sortItems} onClickSortType={onSelectSortType} />
+						<DishesSort activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
