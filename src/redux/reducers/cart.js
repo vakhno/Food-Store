@@ -9,7 +9,11 @@ const cart = (state = initialState, action) => {
 		case 'ADD_DISH_CART':
 			return {
 				...state,
-				totalPrice: action.payload
+				items:{
+					[action.payload.id]: !state.items[action.payload.id] 
+					? [action.payload] 
+					: [...state.items[action.payload.id], action.payload, ] 
+					}
 			}
 		// case 'SET_TOTAL_COUNT':
 		// 	return {

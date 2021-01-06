@@ -1,8 +1,9 @@
 import React, {useEffect} from 'react'
-import {DishesHeader, Categories, DishesSort, DishesBlock, DishesLoadingBlock} from '../../components'
+import {Categories, DishesSort, DishesBlock, DishesLoadingBlock} from '../../components'
 import {useSelector, useDispatch} from 'react-redux'
 import {setCategory, setSortBy} from '../../redux/actions/filters'
 import {fetchDishes} from '../../redux/actions/dishesRequest'
+import {addDisheToCart} from '../../redux/actions/cart'
 
 const categoryItems = ['Мясные', 'Вегатерисанские', 'Гриль', 'Острые', 'Закрытые' ]
 const sortItems = [
@@ -29,6 +30,11 @@ function Dishes() {
 		dispatch(setSortBy(name))
 	}, [])
 
+	const handleAddDishToCart = (dishInfo) => {
+		dispatch(addDisheToCart(dishInfo))
+		console.log(dishInfo)
+	}
+
 	return (
 				<div className="container">
 					<div className="content__top">
@@ -38,7 +44,7 @@ function Dishes() {
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
-						{isLoaded ? dishes.map( (elem) => <DishesBlock key={elem.id} {...elem}/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
+						{isLoaded ? dishes.map( (elem) => <DishesBlock onClickAddDish={handleAddDishToCart} key={elem.id} {...elem}/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
 					</div>
 				</div>
 	)
