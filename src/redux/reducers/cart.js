@@ -5,14 +5,19 @@ const initialState = {
 }
 
 const cart = (state = initialState, action) => {
+	// console.log(state.items)
+	// console.log(action.payload)
+	// console.log(state.items[action.payload])
 	switch(action.type){
 		case 'ADD_DISH_CART': {
 			const newItems = {
 					...state.items,
-					[action.payload.id]: !state.items[action.payload.id] 
+					[action.payload.id]: !state.items[action.payload.id]
 					? [action.payload] 
 					: [...state.items[action.payload.id], action.payload, ] 
 			}
+			// console.log(action.payload)
+			// console.log(newItems)
 
 			return {
 				...state,
