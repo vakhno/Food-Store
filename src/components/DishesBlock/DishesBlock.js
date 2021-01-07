@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import Button from '../DishesButton/DishesButton'
 
-function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish}) {
+function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, addedCount}) {
 	const [activeType, setActiveType] = useState(types[0])
 	const availableTypes = ['тонкое', 'традиционное']
 	const [activeSize, setActiveSize] = useState(sizes[0])
@@ -79,7 +79,7 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish}) 
 					/>
 				</svg>
 				<span>Добавить</span>
-				<i>2</i>
+				{addedCount && <i>{addedCount}</i>}
 			</Button>
 		</div>
 	</div>
@@ -93,6 +93,7 @@ DishesBlock.propTypes = {
 	types: PropTypes.arrayOf(PropTypes.number).isRequired,
 	sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
 	onClickAddDish: PropTypes.func,
+	addedCount: PropTypes.number,
 }
 
 DishesBlock.defaultProps = {

@@ -15,6 +15,7 @@ const sortItems = [
 function Dishes() {
 	const dispatch = useDispatch()
 	const dishes =  useSelector( ({dishes}) => dishes.items )
+	const cartItems =  useSelector( ({cart}) => cart.items )
 	const isLoaded =  useSelector( ({dishes}) => dishes.isLoaded )
 	const {category, sortBy} = useSelector(({filter}) => filter)
 
@@ -32,7 +33,6 @@ function Dishes() {
 
 	const handleAddDishToCart = (dishInfo) => {
 		dispatch(addDisheToCart(dishInfo))
-		console.log(dishInfo)
 	}
 
 	return (
@@ -44,7 +44,7 @@ function Dishes() {
 					</div>
 					<h2 className="content__title">Все пиццы</h2>
 					<div className="content__items">
-						{isLoaded ? dishes.map( (elem) => <DishesBlock onClickAddDish={handleAddDishToCart} key={elem.id} {...elem}/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
+						{isLoaded ? dishes.map( (elem) => <DishesBlock onClickAddDish={handleAddDishToCart} addedCount={cartItems[elem.id] && cartItems[elem.id].length} key={elem.id} {...elem}/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
 					</div>
 				</div>
 	)
