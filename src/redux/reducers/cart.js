@@ -8,20 +8,18 @@ const placeNewDish = (state, payload) => {
 	console.log(state.items[payload.id])
 	console.log(payload)
 	console.log(Object.values(state.items[payload.id]).filter( elem => elem.some(elem => elem.type === payload.type && elem.size === payload.size)))
-	if(Object.values(state.items[payload.id]).every( elem => elem.every(elem => elem.type === payload.type && elem.size === payload.size))){
-		console.log(1)
-		let lengthDishesTypes = Object.keys(state.items[payload.id]).length
-		let k = Object.values(state.items[payload.id]).map( (elem, index) => elem[0].type === payload.type && elem[0].size === payload.size ? index : null)  
+	
+	let lengthDishesTypes = Object.keys(state.items[payload.id]).length
+	let	sameTypeIndex = Object.values(state.items[payload.id]).map( (elem, index) => elem[0].type === payload.type && elem[0].size === payload.size ? index : null)
 
-		if(k){
-			state.items[payload.id][`${payload.id}.${++k[0]}`].push(payload)
-			return state.items[payload.id]
-		}else{
-			return  {...state.items[payload.id], [payload.id+(++lengthDishesTypes/10)]: [payload]}
-		}
+	if(sameTypeIndex){
+		console.log(1)
+		state.items[payload.id][`${payload.id}.${++sameTypeIndex[0]}`].push(payload)
+		return state.items[payload.id]
 	}else{
 		console.log(2)
 		return [...state.items[payload.id], payload]
+
 	}
 
 	// return [...state.items[payload.id], payload]
