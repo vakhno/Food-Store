@@ -17,6 +17,14 @@ const placeNewDish = (state, payload) => {
 	return state.items[payload.id]
 }
 
+const calculateTotalPrice = (items) => {
+	return Object.values(items).reduce( (accum, cur) => Object.values(cur).reduce( (accum, cur) => Object.values(cur).reduce( (accum, cur) => cur.price + +accum, 0) + +accum, 0 ) + +accum, 0)
+}
+
+const calculateTotalCount = (newItems) => {
+	return Object.values(newItems).reduce( (accum, current) => accum.concat(Object.values(current).reduce( (accum, current) => accum.concat(Object.values(current)), []) ), []).length
+}
+
 const cart = (state = initialState, action) => {
 	switch(action.type){
 		case 'ADD_DISH_CART': {
@@ -26,10 +34,12 @@ const cart = (state = initialState, action) => {
 					? {[action.payload.id+0.1]: [action.payload]} 
 					: placeNewDish(state, action.payload) 
 			}
-			console.log(newItems)
+	
 			return {
 				...state,
 				items: newItems,
+				totalPrice: calculateTotalPrice(newItems),
+				totalCount: calculateTotalCount(newItems),
 			}
 		}
 		default:
@@ -38,13 +48,6 @@ const cart = (state = initialState, action) => {
 }
 
 export default cart
-
-
-
-
-
-
-
 
 
 // const initialState = {
