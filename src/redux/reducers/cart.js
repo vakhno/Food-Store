@@ -34,7 +34,6 @@ const cart = (state = initialState, action) => {
 					? {[action.payload.id+0.1]: [action.payload]} 
 					: placeNewDish(state, action.payload) 
 			}
-	
 			return {
 				...state,
 				items: newItems,
@@ -42,6 +41,18 @@ const cart = (state = initialState, action) => {
 				totalCount: calculateTotalCount(newItems),
 			}
 		}
+		case 'CLEAR_CART':
+			return {
+				...state,
+				items: {},
+				totalPrice: 0,
+				totalCount: 0,
+			}
+		case 'REMOVE_CART_ITEM':
+			return {
+				...state,
+				// items: Object.values(items).filter()
+			}
 		default:
 			return state
 	}
