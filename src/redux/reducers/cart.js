@@ -85,6 +85,22 @@ const cart = (state = initialState, action) => {
 				totalCount: calculateTotalCount(newItems),
 			}
 		}
+		case 'MINUS_CART_ITEM':{
+			const newItems = {
+				...state.items,
+			}
+
+			if (newItems[Math.trunc(action.payload)][action.payload].length > 1){
+				newItems[Math.trunc(action.payload)][action.payload].splice(0, 1)
+			}
+
+			return {
+				...state,
+				items: newItems,
+				totalPrice: calculateTotalPrice(newItems),
+				totalCount: calculateTotalCount(newItems),
+			}
+		}
 		default:
 			return state
 	}
