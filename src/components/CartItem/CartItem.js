@@ -4,6 +4,7 @@ import Button from '../DishesButton/DishesButton'
 function CartItem({id, name, type, size, count, price, removeDish}) {
 
 	const deleteDishFromList = () => {
+		console.log(id)
 		removeDish(id)
 	}
 
