@@ -56,20 +56,35 @@ const cart = (state = initialState, action) => {
 				totalPrice: 0,
 				totalCount: 0,
 			}
-		case 'REMOVE_CART_ITEM':
+		case 'REMOVE_CART_ITEM':{
 			const newItems = {
 				...state.items,
 			}
 			delete newItems[Math.trunc(action.payload)][action.payload]
 
-			const currentTotalPrice = calculateTotalPrice(newItems)
-			const currentTotalCount = calculateTotalCount(newItems)
 			return {
 				...state,
 				items: newItems,
-				totalPrice: currentTotalPrice,
-				totalCount: currentTotalCount,
+				totalPrice: calculateTotalPrice(newItems),
+				totalCount: calculateTotalCount(newItems),
 			}
+		}
+		case 'PLUS_CART_ITEM':{
+			const newItems = {
+				...state.items,
+			}
+			
+			if (newItems[Math.trunc(action.payload)][action.payload].length < 99){
+				newItems[Math.trunc(action.payload)][action.payload].push(newItems[Math.trunc(action.payload)][action.payload][0])
+			}
+
+			return {
+				...state,
+				items: newItems,
+				totalPrice: calculateTotalPrice(newItems),
+				totalCount: calculateTotalCount(newItems),
+			}
+		}
 		default:
 			return state
 	}

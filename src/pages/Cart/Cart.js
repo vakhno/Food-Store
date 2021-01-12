@@ -1,7 +1,7 @@
 import React from 'react'
 import emptyImage from '../../images/empty-cart.png'
 import {CartItem} from '../../components'
-import {clearCart, removeCartItem} from '../../redux/actions/cart'
+import {clearCart, removeCartItem, plusCartItem} from '../../redux/actions/cart'
 import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -20,6 +20,16 @@ function Cart() {
 		if(window.confirm('Удалить?')){
 			dispatch(removeCartItem(id))
 		}
+	}
+
+	const onPlusCartItem = (id) => {
+		dispatch(plusCartItem(id))
+	}
+
+	const onMinusCartItem = (id) => {
+		// if(window.confirm('Удалить?')){
+		// 	dispatch(removeCartItem(id))
+		// }
 	}
 
 	return (
@@ -47,7 +57,7 @@ function Cart() {
 				</div>
 				<div className="content__items">
 				  {
-					  addedDishes.map(elem => elem.map( (elem, index) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} ></CartItem> ))
+					  addedDishes.map(elem => elem.map( (elem) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} ></CartItem> ))
 				  }
 				</div>
 				<div className="cart__bottom">
