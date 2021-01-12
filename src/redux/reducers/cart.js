@@ -4,17 +4,24 @@ const initialState = {
 	totalCount: 0,
 }
 
-const placeNewDish = (state, payload) => {
+const placeNewCategoryDish = (state, payload) => {
 	let lengthDishesTypes = Object.keys(state.items[payload.id]).length
 	let	sameTypeIndex = Object.values(state.items[payload.id]).findIndex( elem => elem[0].type === payload.type && elem[0].size === payload.size)
 
 	if(sameTypeIndex !== -1){
-		state.items[payload.id][`${payload.id}.${++sameTypeIndex}`].push(payload)
+		payload.categoryId = +`${payload.id}.${++sameTypeIndex}`
+		state.items[payload.id][`${payload.id}.${sameTypeIndex}`].push(payload)
 	}else{
-		state.items[payload.id][`${payload.id}.${++lengthDishesTypes}`] = [payload]
+		payload.categoryId = +`${payload.id}.${++lengthDishesTypes}`
+		state.items[payload.id][`${payload.id}.${lengthDishesTypes}`] = [payload]
 	}
 
 	return state.items[payload.id]
+}
+
+const placeNewDish = (payload) => {
+	payload.categoryId = +payload.id+0.1 
+	return {[payload.id+0.1]: [payload]}
 }
 
 const calculateTotalPrice = (items) => {
@@ -31,9 +38,10 @@ const cart = (state = initialState, action) => {
 			const newItems = {
 					...state.items,
 					[action.payload.id]: !state.items[action.payload.id]
-					? {[action.payload.id+0.1]: [action.payload]} 
-					: placeNewDish(state, action.payload) 
+					? placeNewDish(action.payload)
+					: placeNewCategoryDish(state, action.payload) 
 			}
+
 			return {
 				...state,
 				items: newItems,
@@ -52,7 +60,7 @@ const cart = (state = initialState, action) => {
 			const newItems = {
 				...state.items,
 			}
-			delete state.items[action.payload.split('.')[0]][action.payload]
+			delete newItems[Math.trunc(action.payload)][action.payload]
 
 			const currentTotalPrice = calculateTotalPrice(newItems)
 			const currentTotalCount = calculateTotalCount(newItems)

@@ -47,7 +47,7 @@ function Cart() {
 				</div>
 				<div className="content__items">
 				  {
-					  addedDishes.map(elem => elem.map( (elem, index) => <CartItem id={`${elem[0].id}.${++index}`} name={elem[0].name} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} ></CartItem> ))
+					  addedDishes.map(elem => elem.map( (elem, index) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} ></CartItem> ))
 				  }
 				</div>
 				<div className="cart__bottom">
