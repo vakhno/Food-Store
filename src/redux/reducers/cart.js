@@ -76,13 +76,12 @@ const cart = (state = initialState, action) => {
 			
 			if (newItems[Math.trunc(action.payload)][action.payload].length < 99){
 				newItems[Math.trunc(action.payload)][action.payload].push(newItems[Math.trunc(action.payload)][action.payload][0])
-			}
-
-			return {
-				...state,
-				items: newItems,
-				totalPrice: calculateTotalPrice(newItems),
-				totalCount: calculateTotalCount(newItems),
+				return {
+					...state,
+					items: newItems,
+					totalPrice: calculateTotalPrice(newItems),
+					totalCount: calculateTotalCount(newItems),
+				}
 			}
 		}
 		case 'MINUS_CART_ITEM':{
@@ -92,13 +91,12 @@ const cart = (state = initialState, action) => {
 
 			if (newItems[Math.trunc(action.payload)][action.payload].length > 1){
 				newItems[Math.trunc(action.payload)][action.payload].splice(0, 1)
-			}
-
-			return {
-				...state,
-				items: newItems,
-				totalPrice: calculateTotalPrice(newItems),
-				totalCount: calculateTotalCount(newItems),
+				return {
+					...state,
+					items: newItems,
+					totalPrice: calculateTotalPrice(newItems),
+					totalCount: calculateTotalCount(newItems),
+				}
 			}
 		}
 		default:
@@ -107,37 +105,3 @@ const cart = (state = initialState, action) => {
 }
 
 export default cart
-
-
-// const initialState = {
-// 	items: {},
-// 	totalPrice: 0,
-// 	totalCount: 0,
-// }
-
-// const cart = (state = initialState, action) => {
-// 	switch(action.type){
-// 		case 'ADD_DISH_CART': {
-// 			const currentItems = !state.items[action.payload.id] 
-// 			? [action.payload] 
-// 			: [...state.items[action.payload.id], action.payload, ] 
-			
-// 			const newItems = {
-// 					...state.items,
-// 					[action.payload.id]: !state.items[action.payload.id] 
-// 					? [action.payload] 
-// 					: [...state.items[action.payload.id], action.payload, ] 
-// 				}
-// 				return {
-// 					...state,
-// 					items: newItems,
-// 					// totalCount: [].concat.apply([], Object.values(items)).length,
-// 					totalCount: Object.values(newItems).reduce( (accum, current) => accum.concat(current), []).length,
-// 					totalPrice: Object.values(newItems).reduce( (accum, current) =>  current.reduce( (accum, current) => current.price + accum, 0) + accum, 0)  
-// 				}
-// 			}
-// 			default:
-// 				return state
-// 		}
-// 	}
-// 	export default cart
