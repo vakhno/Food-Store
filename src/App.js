@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {useDispatch} from 'react-redux'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Header, Footer} from './components'
 import {Main, Dishes, Contacts, Cart} from './pages'
 
 function App() {
@@ -10,16 +9,16 @@ function App() {
 
 	return (
 		<Router basename="/Food-Store">
-			<div className="wrapper">
 			<Header/>
-			<div className="content">
-				<Route path ='/' exact component={Main} />
-				<Route path ='/dishes' exact component={Dishes} />
-				<Route path ='/cart' exact component={Cart} />
-				<Route path ='/contacts' component={Contacts} />
-			</div>
+				<div className="wrapper content">
+					<Switch>
+						<Route exact path ='/' component={Main} />
+						<Route exact path ='/dishes' component={Dishes} />
+						<Route exact path ='/cart' component={Cart} />
+						<Route exact path ='/contacts' component={Contacts} />
+					</Switch>
+				</div>
 			<Footer/>
-			</div>
 		</Router>
 	);
 }

@@ -1,0 +1,31 @@
+@import '../../sass/_variables'
+
+.logo
+	width: fit-content
+	display: flex
+	align-items: center
+	text-decoration: none
+	&:hover
+		h1
+			color: $orange
+		.logo__image
+			backface-visibility: hidden
+			transform: scale(1) translateZ(0)
+	&__image
+		transition: 0.5s
+		margin-right: 10px
+		backface-visibility: hidden
+		transform: scale(0.8) translateZ(0)
+	&__losung
+		overflow: auto
+	h1
+		transition: 0.3s
+		color: $white
+		font-size: 24px
+		letter-spacing: 1%
+		text-transform: uppercase
+		font-weight: 800
+		white-space: nowrap
+	p
+		color: $white
+		white-space: nowrap

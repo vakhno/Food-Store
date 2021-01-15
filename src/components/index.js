@@ -7,3 +7,6 @@ export { default as DishesLoadingBlock} from './DishesBlock/DishesLoadingBlock.j
 export { default as CartItem} from './CartItem/CartItem.js'
 export { default as Footer} from './Footer/Footer'
 export { default as Header} from './Header/Header'
+export { default as Navbar} from './Navbar/Navbar'
+export { default as Logo} from './Logo/Logo'
+export { default as HeaderContacts} from './HeaderContacts/HeaderContacts'

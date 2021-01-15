@@ -1,0 +1,31 @@
+@import '../../sass/_variables'
+
+.header-contacts
+	background-color: $black
+	width: 100%
+	padding: 0 20px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	height: 30px
+	&__locations
+		display: flex
+		justify-content: space-between
+	&__location
+		display: flex
+		&:not(:last-of-type)
+			margin-right: 20px
+	&__logo
+		margin-right: 6px
+		path
+			fill: $orange
+	&__title
+		color: $white
+	&__social
+	&__social-link
+		&:not(:last-of-type)
+			margin-right: 8px
+		svg
+			font-size: 22px
+			path
+				fill: $orange
