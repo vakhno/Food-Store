@@ -1,1 +1,20 @@
+@import '../../sass/_variables'
 
+.header
+	width: 100%
+	position: fixed
+	left: 0
+	top: 0
+	background: rgba($black, 0.5)
+	z-index: 10
+	&__wrapper
+		display: flex
+		flex-direction: column
+	&__container
+		display: grid
+		grid-template-columns: 1fr auto auto
+		grid-gap: 20px
+		align-items: center
+		padding: 5px 30px
+	&__cart
+		justify-self: end

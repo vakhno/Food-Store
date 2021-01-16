@@ -16,6 +16,7 @@
 		&:not(:last-of-type)
 			margin-right: 20px
 	&__logo
+		height: auto
 		margin-right: 6px
 		path
 			fill: $orange
@@ -25,7 +26,12 @@
 	&__social-link
 		&:not(:last-of-type)
 			margin-right: 8px
+		&:hover
+			svg
+				path
+					fill: darken($orange, 15%)
 		svg
 			font-size: 22px
+			transition: 0.3s
 			path
 				fill: $orange

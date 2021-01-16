@@ -10,14 +10,14 @@ function App() {
 	return (
 		<Router basename="/Food-Store">
 			<Header/>
-				<div className="wrapper content">
 					<Switch>
 						<Route exact path ='/' component={Main} />
-						<Route exact path ='/dishes' component={Dishes} />
-						<Route exact path ='/cart' component={Cart} />
-						<Route exact path ='/contacts' component={Contacts} />
+						<div className="wrapper content">
+							<Route exact path ='/dishes' component={Dishes} />
+							<Route exact path ='/cart' component={Cart} />
+							<Route exact path ='/contacts' component={Contacts} />
+						</div>
 					</Switch>
-				</div>
 			<Footer/>
 		</Router>
 	);

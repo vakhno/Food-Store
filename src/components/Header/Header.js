@@ -1,17 +1,19 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState} from 'react'
+import './Header.sass'
+import {Link, withRouter} from 'react-router-dom'
 import {DishesButton} from '../../components'
 import logoSVG from '../../images/pizza-logo.svg'
 import {useSelector} from 'react-redux'
 import {Navbar, Logo, HeaderContacts} from '../index'
 
-function Header() {
+function Header({location}) {
 	const {totalPrice, totalCount} = useSelector(({cart}) => cart)
+	const ifMainPage = location.pathname === '/'
 
 	return (
 		<div className="header">
 			<div className="header__wrapper">
-			<HeaderContacts/>
+			{ifMainPage ? <HeaderContacts/> : ''}
 			<div className="header__container">
 				<Logo image={logoSVG} title='React Pizza' subtitle='самая вкусная пицца во вселенной'/>
 				<Navbar/>
@@ -59,4 +61,4 @@ function Header() {
 	)
 }
 
-export default Header
+export default withRouter(Header)
