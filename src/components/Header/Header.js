@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './Header.sass'
 import {Link, withRouter} from 'react-router-dom'
 import {DishesButton} from '../../components'
-import logoSVG from '../../images/pizza-logo.svg'
+import logoSVG from '../../images/logo2.svg'
 import {useSelector} from 'react-redux'
 import {Navbar, Logo, HeaderContacts} from '../index'
 
@@ -15,7 +15,7 @@ function Header({location}) {
 			<div className="header__wrapper">
 			{ifMainPage ? <HeaderContacts/> : ''}
 			<div className="header__container">
-				<Logo image={logoSVG} title='React Pizza' subtitle='самая вкусная пицца во вселенной'/>
+				<Logo image={logoSVG} title='Ресторан' subtitle='італійської кухні'/>
 				<Navbar/>
 				<div className="header__cart">
 					<Link to='/cart'>

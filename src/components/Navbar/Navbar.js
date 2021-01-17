@@ -5,7 +5,7 @@ import './Navbar.sass'
 function Navbar() {
 	const availablePages = [
 		{ 
-			title: 'Главная',
+			title: 'Головна',
 			link: '/'
 		}, 
 		{
@@ -13,7 +13,7 @@ function Navbar() {
 			link: '/dishes'
 		}, 
 		{ 
-			title: 'Контакты',
+			title: 'Контакти',
 			link: '/contacts'
 		}, 
 		{ 
