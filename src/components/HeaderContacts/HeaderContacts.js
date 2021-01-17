@@ -40,11 +40,11 @@ function HeaderContacts() {
 			<div className="header-contacts__locations">
 				<div className="header-contacts__location">
 					<FontAwesomeIcon className="header-contacts__logo" icon={faMapMarkerAlt}/>
-					<div className="header-contacts__title">123 Main Street, Uni 21, New York City</div>
+					<div className="header-contacts__title">Одеса, вул. Дерибасівська, 99</div>
 				</div>
 				<div className="header-contacts__location">
 					<FontAwesomeIcon className="header-contacts__logo fa-rotate-90" icon={faPhone}/>
-					<div className="header-contacts__title">+38 (012) 34 56 789</div>
+					<div className="header-contacts__title">+095 34 56 789</div>
 				</div>
 			</div>
 			<div className="header-contacts__social">
