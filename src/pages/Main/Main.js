@@ -5,7 +5,7 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/effect-fade/effect-fade.min.css'
 import {Link} from 'react-router-dom'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import SwiperCore, {Navigation, Pagination, EffectFade} from 'swiper'
+import SwiperCore, {Navigation, Pagination, EffectFade, Autoplay} from 'swiper'
 import MainImage from '../../images/main_first_image.jpg'
 import MainImage2 from '../../images/main_second_image.png'
 import MainImage3 from '../../images/main_third_image.jpg'
@@ -15,8 +15,7 @@ import Logo from '../../images/logo2.svg'
 import Frame from '../../images/frame.svg'
 import {Button} from '../../components/DishesButton/DishesButton'
 
-SwiperCore.use([Navigation, Pagination])
-SwiperCore.use([EffectFade]);
+SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
 function main() {
 	const mainSlides = [
@@ -57,6 +56,7 @@ function main() {
 		loop={true}
 		pagination={{ clickable: true }}
 		draggable={false}
+		autoplay={{ delay: 2000 }}
 		>
 			{
 				mainSlides.map( (dish, index) => {
