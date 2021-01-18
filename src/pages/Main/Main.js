@@ -12,6 +12,7 @@ import MainImage3 from '../../images/main_third_image.jpg'
 import MainImage4 from '../../images/main_fourth_image.jpg'
 import MainImage5 from '../../images/main_fifth_image.jpg'
 import Logo from '../../images/logo2.svg'
+import Signature from '../../images/signature.svg'
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
@@ -70,9 +71,9 @@ function main() {
 		</div>
 
 		<div className="quote">
-			<div className="quote__text">UNTIL I DISCOVERED COOKING I WAS NEVER REALLY INTERESTED IN ANYTHING</div>
-			<div className="quoute__author">OUR FOUNDER JOHN DALE</div>
-			<img src="" alt=""/>
+			<div className="quote__text">ПЕРЕД ТИМ, ЯК ВІДКРИТИ ДЛЯ СЕБЕ КУЛІНАРІЮ, МЕНЕ НІКОЛИ НІЧОГО НЕ ЦІКАВИЛО</div>
+			<div className="quote__author">НАШ ШЕФ-КУХАР Дейл Ернхардт</div>
+			<img src={Signature} alt=""/>
 		</div>
 
 		</>
