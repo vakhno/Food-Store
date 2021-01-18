@@ -12,8 +12,6 @@ import MainImage3 from '../../images/main_third_image.jpg'
 import MainImage4 from '../../images/main_fourth_image.jpg'
 import MainImage5 from '../../images/main_fifth_image.jpg'
 import Logo from '../../images/logo2.svg'
-import Frame from '../../images/frame.svg'
-import {Button} from '../../components/DishesButton/DishesButton'
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
@@ -21,7 +19,7 @@ function main() {
 	const mainSlides = [
 		{
 			image: {MainImage},
-			title: 'Домашня піца з томатами',
+			title: 'Чиказька піца з томатами',
 		},
 		{
 			image: {MainImage2},
@@ -29,7 +27,7 @@ function main() {
 		},
 		{
 			image: {MainImage3},
-			title: 'Домашня піца з хамоном',
+			title: 'Піца з хамоном',
 		},
 		{
 			image: {MainImage4},
@@ -41,7 +39,7 @@ function main() {
 		},
 	]
 	return (
-
+<>
 
 <div className="main">
 	<div className="main__losung">
@@ -70,6 +68,14 @@ function main() {
 			}
 		</Swiper>
 		</div>
+
+		<div className="quote">
+			<div className="quote__text">UNTIL I DISCOVERED COOKING I WAS NEVER REALLY INTERESTED IN ANYTHING</div>
+			<div className="quoute__author">OUR FOUNDER JOHN DALE</div>
+			<img src="" alt=""/>
+		</div>
+
+		</>
 	)
 }
 
