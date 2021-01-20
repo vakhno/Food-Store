@@ -3,3 +3,7 @@ export const setDishes = (items) => ({
 	payload: items,
 })
 
+export const setMenuDishes = (items) => ({
+	type: 'SET_MENU_DISHES',
+	payload: items,
+})

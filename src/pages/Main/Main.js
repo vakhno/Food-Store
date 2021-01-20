@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Main.sass'
 import 'swiper/swiper-bundle.css'
 import 'swiper/components/pagination/pagination.scss';
@@ -17,9 +17,17 @@ import About1  from '../../images/about1.jpg'
 import About2  from '../../images/about2.jpg'
 import Chef from '../../images/chef.png'
 
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
+
+
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
-function main() {
+function Main() {
+	const dispatch = useDispatch()
+	const menuDishes = useSelector( ({menu}) => menu.items  )
+	console.log(menuDishes)
+
 	const mainSlides = [
 		{
 			image: {MainImage},
@@ -42,6 +50,12 @@ function main() {
 			title: 'Равіолі з чорнилами каракатиці',
 		},
 	]
+
+	useEffect(() => {
+		dispatch(fetchMainMenuDishes())
+	}, [])
+
+
 	return (
 <>
 
@@ -100,6 +114,41 @@ function main() {
 			</div>
 		</div>
 
+		
+		<div className="menu">
+			<div className="menu__wrapper">
+				<div className="menu__title">МЕНЮ</div>
+				<div className="menu__categories">
+					{
+						menuDishes.slice(0, 4).map( (elem, index) => {
+							const newElem = Object.values(elem);
+						
+						return	<div className="menu__category">
+								<div className="menu__category-title">{newElem[0]}</div>
+								<div className="menu__category-items">
+
+									{newElem[1].slice(0, 4).map( elem => {
+										
+										return <div className="menu__category-item">
+											<div className="menu__category-item-info">
+												<div className="menu__category-item-name">{elem.name}</div>
+												<div className="menu__category-item-price">{elem.price} грн.</div>
+											</div>
+											<div className="menu__category-item-description">{elem.description}</div>
+										</div>
+									})}
+									
+								</div>
+							</div>
+						
+						})
+					}
+					
+				</div>
+			</div>
+		</div>
+
+
 <div style={{paddingTop:'160px'}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, cupiditate at vitae molestiae doloribus quidem. Commodi est impedit ipsa ratione non magni, ab, at illo fugiat neque aut repudiandae mollitia?
 Fuga aliquam repellendus, molestias minima obcaecati iusto tempore eaque ullam sequi quo, eum molestiae atque labore a. Exercitationem, atque ipsam, itaque quod hic id aliquid, perferendis dolorem maxime at dolor.
 Vero, neque! Cupiditate, molestias! Optio ducimus facere consequuntur quidem aut, repudiandae doloremque ut hic similique sunt soluta nihil expedita! Numquam magnam natus tempora necessitatibus! Autem dolorem ipsam esse quia facere!
@@ -134,4 +183,4 @@ Voluptatibus doloremque illo dolores deserunt numquam dicta quibusdam qui invent
 	)
 }
 
-export default main
+export default Main

@@ -100,8 +100,9 @@
 		&:not(.swiper-slide-active)
 			opacity: 0
 		&::after
-			// background: radial-gradient(circle, rgba(255,255,255,0) 10%, rgba(0,0,0,1) 90%)
-			background: linear-gradient(180deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 100%)
+			background: linear-gradient(0deg, rgba(0,0,0,1) 5%, rgba(156,72,74,0) 50%, rgba(0,0,0,1) 100%)
+			// background: radial-gradient(circle, rgba(255,255,255,0) 45%, rgba(0,0,0,1) 70%)
+			// background: linear-gradient(180deg, rgba(255,255,255,0) 20%, rgba(0,0,0,1) 100%)
 			position: absolute
 			top: 0
 			left: 0
@@ -230,3 +231,50 @@
 			height: 1px
 			transition: 0.3s
 			background-color: $orange
+
+.menu
+	&__wrapper
+		max-width: 1440px
+		margin: 0 auto
+		text-align: center
+		padding: 0 20px
+	&__title
+		color: white
+		font-size: 38px
+		margin-bottom: 56px
+	&__categories
+		// border: 1px solid white
+		padding: 10px
+		color: white
+		display: flex
+		justify-content: space-around
+	&__category
+		&:not(:last-of-type)
+			margin-right: 20px
+		// border: 1px solid $white
+		// padding: 10px
+	&__category-title
+		font-size: 36px
+		margin-bottom: 30px
+		// text-align: left
+	&__category-items
+		// height: 100%
+		text-align: left
+		padding: 20px
+		border: 1px solid darken(white, 80%)
+		border-radius: 5px
+		max-width: 320px
+	&__category-item
+		margin-bottom: 40px
+	&__category-item-info
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+	&__category-item-name
+		margin-right: 15px
+	&__category-item-price
+		min-width: fit-content
+	&__category-item-description
+		font-style: italic
+		font-size: 14px
+		margin-top: 10px
