@@ -120,15 +120,12 @@ function Main() {
 				<div className="menu__title">МЕНЮ</div>
 				<div className="menu__categories">
 					{
-						menuDishes.slice(0, 4).map( (elem, index) => {
-							const newElem = Object.values(elem);
-						
+						menuDishes.slice(0, 4).map( (elem, index) => {					
 						return	<div className="menu__category">
-								<div className="menu__category-title">{newElem[0]}</div>
+								<div className="menu__category-title">{elem.title}</div>
 								<div className="menu__category-items">
 
-									{newElem[1].slice(0, 4).map( elem => {
-										
+									{elem.dishes.slice(0, 4).map( elem => {
 										return <div className="menu__category-item">
 											<div className="menu__category-item-info">
 												<div className="menu__category-item-name">{elem.name}</div>
