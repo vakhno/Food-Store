@@ -20,6 +20,7 @@ import Chef from '../../images/chef.png'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
 
+import {DishesButton} from '../../components'
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
@@ -117,7 +118,9 @@ function Main() {
 		
 		<div className="menu">
 			<div className="menu__wrapper">
+
 				<div className="menu__title">МЕНЮ</div>
+				<div className="menu__subtitle">найцікавіші страви нашого ресторану</div>
 				<div className="menu__categories">
 					{
 						menuDishes.slice(0, 4).map( (elem, index) => {					
@@ -125,11 +128,11 @@ function Main() {
 								<div className="menu__category-title">{elem.title}</div>
 								<div className="menu__category-items">
 
-									{elem.dishes.slice(0, 4).map( elem => {
+									{elem.dishes.filter( (elem) => elem.type === 'popular').map( elem => {
 										return <div className="menu__category-item">
 											<div className="menu__category-item-info">
 												<div className="menu__category-item-name">{elem.name}</div>
-												<div className="menu__category-item-price">{elem.price} грн.</div>
+												<div className="menu__category-item-price">{elem.price}₴</div>
 											</div>
 											<div className="menu__category-item-description">{elem.description}</div>
 										</div>
@@ -142,8 +145,13 @@ function Main() {
 					}
 					
 				</div>
+				<DishesButton className="menu__button button--cart">
+					перейти до повного меню
+				</DishesButton>
 			</div>
 		</div>
+
+
 
 
 <div style={{paddingTop:'160px'}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, cupiditate at vitae molestiae doloribus quidem. Commodi est impedit ipsa ratione non magni, ab, at illo fugiat neque aut repudiandae mollitia?
