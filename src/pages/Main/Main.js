@@ -22,6 +22,12 @@ import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
 
 import {DishesButton} from '../../components'
 
+import ReservationBG from '../../images/reservation.jpg'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {faPhone} from "@fortawesome/free-solid-svg-icons";
+import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
+import {faClock} from "@fortawesome/free-solid-svg-icons";
+
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
 function Main() {
@@ -118,7 +124,6 @@ function Main() {
 		
 		<div className="menu">
 			<div className="menu__wrapper">
-
 				<div className="menu__title">МЕНЮ</div>
 				<div className="menu__subtitle">найцікавіші страви нашого ресторану</div>
 				<div className="menu__categories">
@@ -150,6 +155,59 @@ function Main() {
 				</DishesButton>
 			</div>
 		</div>
+
+
+<div className="reservation" style={{backgroundImage:`url(${ReservationBG})`}}>
+	<div className="reservation__wrapper">
+		<div className="reservation__info-block">
+			<div className="reservation__block">
+				<div className="reservation__title">
+					<FontAwesomeIcon className="reservation__title-logo" icon={faPhone}/>
+					095 222 81 56
+				</div>
+				<div className="reservation__description">
+					Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.
+				</div>
+			</div>
+			<div className="reservation__block">
+				<div className="reservation__title">
+				<FontAwesomeIcon className="reservation__title-logo" icon={faMapMarkerAlt}/>
+					Одеса, вул. Дерибасівська, 20
+				</div>
+				<div className="reservation__description">
+					Перш ніж приходити до ресторану, подзвоніть та переконайтесь, що є вільні місця.
+				</div>
+			</div>
+			<div className="reservation__block">
+				<div className="reservation__title">
+					<FontAwesomeIcon className="reservation__title-logo" icon={faClock}/>
+					Відкрито з 10:00 до 22:00
+				</div>
+				<div className="reservation__description">
+					Ресторан працює кожний день, крім неділі.
+				</div>
+			</div>
+		</div>
+		<div className="reservation__table">
+			<div className="reservation__table-title">
+				Резервування столику
+			</div>
+			<form action="">
+				<div className="reservation__table-data">
+					<input type="text" placeholder='Ім`я'/>
+					<input type="text" placeholder='Прізвище'/>
+				</div>
+				<div className="reservation__table-data">
+					<input type="datetime-local"/>
+					<textarea name="" id="" cols="30" rows="10" placeholder='Повідомлення'></textarea>
+				</div>
+					<DishesButton className="reservation__table-button button--cart">
+						Зарезервувати
+					</DishesButton>
+			</form>
+		</div>
+	</div>
+</div>
 
 
 
