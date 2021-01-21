@@ -20,7 +20,7 @@ import Chef from '../../images/chef.png'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
 
-import {DishesButton} from '../../components'
+import {DishesButton, Title} from '../../components'
 
 import ReservationBG from '../../images/reservation.jpg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -94,12 +94,9 @@ function Main() {
 		</Swiper>
 		</div>
 
-		<div className="quote">
-			<div className="quote__text">ПЕРЕД ТИМ, ЯК ВІДКРИТИ ДЛЯ СЕБЕ КУЛІНАРІЮ, МЕНЕ НІКОЛИ НІЧОГО НЕ ЦІКАВИЛО</div>
-			<div className="quote__author">НАШ ШЕФ-КУХАР Дейл Ернхардт</div>
-			<img src={Signature} alt=""/>
-		</div>
 
+			<Title className='main__title' title='перед тим, як відкрити для себе кулінарію, мене ніколи нічого не цікавило' subtitle='наш шеф-кухар Дейл Ернхардт' light/>
+			<img src={Signature} alt=""/>
 
 		<div className="about">
 			<div className="about__wrapper">
