@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../DishesButton/DishesButton'
+import Button from '../Common/Button/Button'
 
 function CartItem({id, categoryId, name, type, size, count, price, removeDish, plusCartItem, minusCartItem}) {
 

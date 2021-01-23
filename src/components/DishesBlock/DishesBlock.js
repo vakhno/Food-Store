@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import Button from '../DishesButton/DishesButton'
+import {Button} from '../index'
 
 function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, addedCount}) {
 	const [activeType, setActiveType] = useState(types[0])

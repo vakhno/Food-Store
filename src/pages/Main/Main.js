@@ -20,7 +20,7 @@ import Chef from '../../images/chef.png'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
 
-import {DishesButton, Title} from '../../components'
+import {Button, Title} from '../../components'
 
 import ReservationBG from '../../images/reservation.jpg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -111,7 +111,10 @@ function Main() {
 					<div className="about__subtitle--accent">Магнус Веттерхольм</div>
 					<div className="about__subtitle">Магнус Веттерхольм, засновник ресторану</div>
 					<Link>
-						<div className="about__button">перейти до меню</div>
+					<Button className="about__button" skeleton dark>
+						перейти до меню
+					</Button>
+						{/* <div className="about__button">перейти до меню</div> */}
 					</Link>
 				</div>
 				</div>
@@ -121,8 +124,7 @@ function Main() {
 		
 		<div className="menu">
 			<div className="menu__wrapper">
-				<div className="menu__title">МЕНЮ</div>
-				<div className="menu__subtitle">найцікавіші страви нашого ресторану</div>
+			<Title className='menu__title' title='меню' subtitle='найцікавіші страви нашого ресторану' light/>
 				<div className="menu__categories">
 					{
 						menuDishes.slice(0, 4).map( (elem, index) => {					
@@ -147,9 +149,9 @@ function Main() {
 					}
 					
 				</div>
-				<DishesButton className="menu__button button--cart">
+				<Button className="menu__button button__solid" light>
 					перейти до повного меню
-				</DishesButton>
+				</Button>
 			</div>
 		</div>
 
@@ -198,9 +200,9 @@ function Main() {
 					<input type="datetime-local"/>
 					<textarea name="" id="" cols="30" rows="10" placeholder='Повідомлення'></textarea>
 				</div>
-					<DishesButton className="reservation__table-button button--cart">
+					<Button className="reservation__table-button button__solid" dark>
 						Зарезервувати
-					</DishesButton>
+					</Button>
 			</form>
 		</div>
 	</div>

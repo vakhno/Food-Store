@@ -1,0 +1,257 @@
+@import '../../../sass/_variables.sass'
+
+// .button
+// 	border-radius: 5px
+// 	padding: 10px 15px
+// 	// min-width: 100px
+// 	text-align: center
+// 	display: inline-block
+// 	cursor: pointer
+// 	transition: background-color $duration ease-in-out, border-color $duration ease-in-out
+// 	border: 1px solid transparent
+// 	// @include noselect()
+// 	&,
+// 	span
+// 		color: #fff
+// 	// i,
+// 	// span,
+// 	// path,
+// 	// svg
+// 	// 	transition: all $duration ease-in-out
+// 	// &:hover
+// 	// 	background-color: darken($orange, 8%)
+// 	// &:active
+// 	// 	background-color: darken($orange, 30%)
+
+// 	&__delimiter
+// 		width: 1px
+// 		height: 25px
+// 		background-color: $white
+// 		margin-left: 14px
+// 		margin-right: 14px
+
+// 	&__cart
+// 		display: flex
+// 		align-items: center
+// 		line-height: 23px
+// 		svg
+// 			&:first-of-type
+// 				margin-left: 8px
+// 			&:last-of-type
+// 				margin-right: 8px
+// 		span
+// 			font-family: 'Commissioner'
+// 			font-weight: 600
+// 			font-size: 12px
+
+// 	&__skeleton
+// 		width: fit-content
+// 		transition: 0.3s
+// 		padding-right: 100px
+// 		padding-bottom: 15px
+// 		position: relative
+// 		font-size: 18px
+// 		font-weight: 200
+// 		color: $white
+// 		&:hover
+// 			color: darken($white, 5%)
+// 			&::after
+// 				transform: rotate(90deg)
+// 		&::before
+// 			content: ''
+// 			position: absolute
+// 			bottom: 0
+// 			left: 0
+// 			width: 100%
+// 			height: 1px
+// 			background-color: $orange
+// 		&::after
+// 			content: ''
+// 			position: absolute
+// 			top: 35%
+// 			right: 0
+// 			width: 70px
+// 			height: 1px
+// 			transition: 0.3s
+// 			background-color: $orange
+
+// 	&__outline
+// 		background-color: #fff
+// 		border-color: $orange
+// 		&,
+// 		span
+// 			color: $orange
+// 		svg
+// 			path
+// 				fill: $orange
+// 		&:hover
+// 			background-color: $orange
+// 			&,
+// 			span
+// 				color: #fff
+// 			svg
+// 				path
+// 					fill: #fff
+// 		&:active
+// 			background-color: darken($orange, 8%)
+
+// 	&--dark
+// 		background-color: lighten(black, 15%)
+// 		&,
+// 		span
+// 			color: #fff
+// 		&:hover
+// 			background-color: $orange
+// 		&:active
+// 			background-color: darken($orange, 15%)
+// 	&--light
+// 		background-color: #fff
+// 		&,
+// 		span
+// 			color: lighten(black, 15%)
+// 		&:hover
+// 			background-color: darken($orange, 10%)
+// 		&:active
+// 			background-color: darken($orange, 20%)
+
+.button
+	border-radius: 5px
+	padding: 10px 15px
+	text-align: center
+	text-decoration: none
+	display: inline-block
+	cursor: pointer
+	transition: background-color $duration ease-in-out, border-color $duration ease-in-out
+	border: 1px solid transparent
+	// @include noselect()
+
+	&__delimiter
+		width: 1px
+		height: 25px
+		background-color: $white
+		margin-left: 14px
+		margin-right: 14px
+
+	&__solid
+		display: flex
+		align-items: center
+		line-height: 23px
+		svg
+			&:first-of-type
+				margin-left: 8px
+			&:last-of-type
+				margin-right: 8px
+		span
+			font-family: 'Commissioner'
+			font-weight: 600
+			font-size: 12px
+		&.button--dark
+			background-color: lighten(black, 15%)
+			color: white
+			&,
+			span
+				color: #fff
+			&:hover
+				background-color: $orange
+			&:active
+				background-color: darken($orange, 15%)
+		&.button--light
+			background-color: darken(white, 5%)
+			color: $black
+			&,
+			span
+				color: $black
+			&:hover
+				background-color: $orange
+			&:active
+				background-color: darken($orange, 15%)
+
+	&__skeleton
+		width: fit-content
+		transition: 0.3s
+		padding-right: 100px
+		padding-bottom: 15px
+		position: relative
+		font-size: 18px
+		font-weight: 200
+		&:hover
+			&::after
+				transform: rotate(90deg)
+		&::before
+			content: ''
+			position: absolute
+			bottom: 0
+			left: 0
+			width: 100%
+			height: 1px
+		&::after
+			content: ''
+			position: absolute
+			top: 35%
+			right: 0
+			width: 70px
+			height: 1px
+			transition: 0.3s
+		&.button--dark
+			color: $white
+			background-color: rgba(black, 0)
+			&,
+			span
+				color: $white
+			&::before
+				background-color: $orange
+			&::after
+				background-color: $orange
+			&:hover
+				color: darken(white, 30%)
+		&.button--light
+			color: $black
+			background-color: rgba(black, 0)
+			&,
+			span
+				color: $black
+			&::before
+				background-color: $orange
+			&::after
+				background-color: $orange
+			&:hover
+				color: lighten($black, 10%)
+
+	&__outline
+		background-color: #fff
+		border-color: $orange
+		&,
+		span
+			color: $orange
+		svg
+			path
+				fill: $orange
+		&:hover
+			background-color: $orange
+			&,
+			span
+				color: #fff
+			svg
+				path
+					fill: #fff
+		&:active
+			background-color: darken($orange, 8%)
+
+	// &--dark
+	// 	background-color: lighten(black, 15%)
+	// 	&,
+	// 	span
+	// 		color: #fff
+	// 	&:hover
+	// 		background-color: $orange
+	// 	&:active
+	// 		background-color: darken($orange, 15%)
+	// &--light
+	// 	background-color: black
+	// 	&,
+	// 	span
+	// 		color: lighten(black, 15%)
+	// 	&:hover
+	// 		background-color: darken($orange, 10%)
+	// 	&:active
+	// 		background-color: darken($orange, 20%)

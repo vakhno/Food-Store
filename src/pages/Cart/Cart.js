@@ -4,7 +4,7 @@ import {CartItem} from '../../components'
 import {clearCart, removeCartItem, plusCartItem, minusCartItem} from '../../redux/actions/cart'
 import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
-import Button from '../../components/DishesButton/DishesButton'
+import {Button} from '../../components'
 
 function Cart() {
 	const {totalPrice, totalCount, items } = useSelector( ({cart}) => cart)

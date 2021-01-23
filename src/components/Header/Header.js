@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import './Header.sass'
 import {Link, withRouter} from 'react-router-dom'
-import {DishesButton} from '../../components'
+import {Button} from '../../components'
 import logoSVG from '../../images/logo2.svg'
 import {useSelector} from 'react-redux'
 import {Navbar, Logo, HeaderContacts} from '../index'
@@ -22,12 +22,12 @@ function Header({location}) {
 				<Navbar/>
 				<div className="header__cart">
 					<Link to='/cart'>
-						<DishesButton className="button--cart">
+						<Button className="button__solid" dark>
 						<span>{totalPrice}</span><FontAwesomeIcon icon={faHryvnia}/>
 						<div className="button__delimiter"></div>
 						<FontAwesomeIcon icon={faShoppingBasket}/>
 						<span>{totalCount}</span>
-						</DishesButton>
+						</Button>
 					</Link>
 				</div>
 				</div>
