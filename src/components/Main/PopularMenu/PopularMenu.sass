@@ -1,0 +1,61 @@
+@import '../../../sass/_variables'
+
+.menu
+	&__wrapper
+		max-width: 1440px
+		margin: 0 auto
+		text-align: center
+		padding: 0 20px
+	&__title
+		margin-bottom: 56px
+	&__categories
+		color: white
+		display: flex
+		justify-content: space-around
+		margin-bottom: 60px
+	&__category
+		display: flex
+		flex-direction: column
+		&:not(:last-of-type)
+			margin-right: 20px
+	&__category-title
+		font-family: Commissioner
+		position: relative
+		font-size: 36px
+		margin-bottom: 30px
+		padding-bottom: 10px
+		&::after
+			content: ''
+			position: absolute
+			bottom: 0
+			right: 50%
+			transform: translateX(50%)
+			width: 40%
+			height: 1px
+			background-color: $orange
+	&__category-items
+		flex: auto
+		text-align: left
+		padding: 20px
+		border-left: 1px solid darken(white, 70%)
+		border-right: 1px solid darken(white, 70%)
+		border-bottom: 1px solid darken(white, 70%)
+		max-width: 320px
+	&__category-item
+		&:not(:last-of-type)
+			margin-bottom: 50px
+	&__category-item-info
+		display: flex
+		justify-content: space-between
+		align-items: flex-end
+	&__category-item-name
+		font-size: 18px
+		margin-right: 15px
+	&__category-item-price
+		min-width: fit-content
+	&__category-item-description
+		font-style: italic
+		font-size: 12px
+		margin-top: 12px
+	&__button
+		margin: 0 auto

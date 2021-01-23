@@ -9,7 +9,7 @@ function Creator({paragraphs, name, position}) {
 		<div className="creator">
 			<div className="creator__content">
 				<div className="creator__image">
-					<img src={Chef} alt=""/>
+					<img src={Chef} alt="chef-photo"/>
 				</div>
 				<div className="creator__description">
 					{

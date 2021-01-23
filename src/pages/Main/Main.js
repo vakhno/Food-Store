@@ -20,7 +20,7 @@ import Chef from '../../images/chef.png'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
 
-import {Button, Title} from '../../components'
+import {Button, PopularMenu, Title} from '../../components'
 
 import ReservationBG from '../../images/reservation.jpg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -127,8 +127,9 @@ function Main() {
 			</div>
 		</div> */}
 
+		<PopularMenu menuDishes={menuDishes} title='меню' subtitle='найцікавіші страви нашого ресторану'/>
 		
-		<div className="menu">
+		{/* <div className="menu">
 			<div className="menu__wrapper">
 			<Title className='menu__title' title='меню' subtitle='найцікавіші страви нашого ресторану' light/>
 				<div className="menu__categories">
@@ -159,7 +160,7 @@ function Main() {
 					перейти до повного меню
 				</Button>
 			</div>
-		</div>
+		</div> */}
 
 
 <div className="reservation" style={{backgroundImage:`url(${ReservationBG})`}}>
