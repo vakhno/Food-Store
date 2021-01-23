@@ -20,7 +20,7 @@ import Chef from '../../images/chef.png'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
 
-import {Button, PopularMenu, Title} from '../../components'
+import {Button, Title} from '../../components'
 
 import ReservationBG from '../../images/reservation.jpg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
@@ -30,7 +30,7 @@ import {faClock} from "@fortawesome/free-solid-svg-icons";
 
 
 
-import {Quote, Creator} from '../../components'
+import {Quote, Creator, PopularMenu, Reservation} from '../../components'
 
 
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
@@ -163,7 +163,10 @@ function Main() {
 		</div> */}
 
 
-<div className="reservation" style={{backgroundImage:`url(${ReservationBG})`}}>
+		<Reservation/>
+
+
+{/* <div className="reservation" style={{backgroundImage:`url(${ReservationBG})`}}>
 	<div className="reservation__wrapper">
 		<div className="reservation__info-block">
 			<div className="reservation__block">
@@ -213,7 +216,7 @@ function Main() {
 			</form>
 		</div>
 	</div>
-</div>
+</div> */}
 
 
 
