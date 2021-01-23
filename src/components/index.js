@@ -10,6 +10,10 @@ export { default as Header} from './Header/Header'
 export { default as Navbar} from './Navbar/Navbar'
 export { default as Logo} from './Common/Logo/Logo'
 export { default as HeaderContacts} from './HeaderContacts/HeaderContacts'
-
-
 export { default as Title} from './Common/Title/Title'
+
+
+
+// for Main page
+export { default as Quote} from './Main/Quote/Quote.js'
+export { default as Creator} from './Main/Creator/Creator.js'

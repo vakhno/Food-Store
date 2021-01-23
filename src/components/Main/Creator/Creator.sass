@@ -1,0 +1,57 @@
+
+.creator
+	color: white
+	margin-bottom: 60px
+	&__wrapper
+		max-width: 1440px
+		margin: 0 auto
+		text-align: center
+		padding: 0 20px
+	&__content
+		display: flex
+		align-items: center
+	&__image
+		position: relative
+		width: 100%
+		min-width: 540px
+		display: flex
+		&::after
+			background: radial-gradient(circle, rgba(255,255,255,0) 40%, rgba(0,0,0,1) 65%)
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			content: ""
+		img
+			display: block
+			max-width: 100%
+			max-height: 100%
+	&__description
+		max-width: 560px
+		min-width: 310px
+		display: flex
+		flex-direction: column
+		color: white
+		text-align: left
+	&__title
+		color: white
+		font-family: Commissioner
+		font-size: 32px
+		font-weight: 200
+		line-height: 46px
+		margin-bottom: 40px
+	&__subtitle
+		color: white
+		font-family: Commissioner
+		font-size: 18px
+		font-weight: 300
+		line-height: 26px
+		margin-bottom: 20px
+		&--accent
+			margin-bottom: 6px
+			font-size: 24px
+			font-weight: 600
+		&:last-of-type
+			font-size: 16px
+			margin-bottom: 60px

@@ -28,6 +28,11 @@ import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
 
+
+
+import {Quote, Creator} from '../../components'
+
+
 SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
 
 function Main() {
@@ -94,11 +99,12 @@ function Main() {
 		</Swiper>
 		</div>
 
+		<Quote title='перед тим, як відкрити для себе кулінарію, мене ніколи нічого не цікавило' subtitle='наш шеф-кухар Дейл Ернхардт' />
 
-			<Title className='main__title' title='перед тим, як відкрити для себе кулінарію, мене ніколи нічого не цікавило' subtitle='наш шеф-кухар Дейл Ернхардт' light/>
-			<img src={Signature} alt=""/>
+	
+		<Creator paragraphs={['«В основі цінностей нашого ресторану лежить відданість традиціям, експериментальність і відкритість','Наше завдання - подарувати українським гурманам, надзвичайні гастрономічні відчуття традиційної італійської кухні, з доданням експериметнальних інгридієнтів.','Я радий, що можу поділитись своїм досвідом роботи у найкращих ресторанах Европи та Північної Америки, працюючи в команді надзвичайних кухарів, працюючи в команді професіоналів».']} name='Магнус Веттерхольм' position='Магнус Веттерхольм, засновник ресторану'/>
 
-		<div className="about">
+		{/* <div className="about">
 			<div className="about__wrapper">
 				<div className="about__content">
 				<div className="about__image">
@@ -114,12 +120,12 @@ function Main() {
 					<Button className="about__button" skeleton dark>
 						перейти до меню
 					</Button>
-						{/* <div className="about__button">перейти до меню</div> */}
+						
 					</Link>
 				</div>
 				</div>
 			</div>
-		</div>
+		</div> */}
 
 		
 		<div className="menu">
