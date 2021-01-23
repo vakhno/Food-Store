@@ -15,6 +15,7 @@ export { default as Title} from './Common/Title/Title'
 
 
 // for Main page
+export { default as FirstSlider} from './Main/FirstSlider/FirstSlider.js'
 export { default as Quote} from './Main/Quote/Quote.js'
 export { default as Creator} from './Main/Creator/Creator.js'
 export { default as PopularMenu} from './Main/PopularMenu/PopularMenu.js'
