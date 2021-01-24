@@ -32,14 +32,14 @@ function Reservation() {
 				<div className="reservation__info-block">
 					{
 						workInfo.map( (elem, index) => {
-							return <div className="reservation__block">
-									<div className="reservation__title">
-										{elem.icon}{elem.title}
+							return  <div className="reservation__block" key={index}>
+										<div className="reservation__title">
+											{elem.icon}{elem.title}
+										</div>
+										<div className="reservation__description">
+											{elem.text}
+										</div>
 									</div>
-									<div className="reservation__description">
-										{elem.text}
-									</div>
-								</div>
 						})
 					}
 				</div>

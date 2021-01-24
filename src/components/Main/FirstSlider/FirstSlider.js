@@ -5,8 +5,8 @@ import 'swiper/components/pagination/pagination.scss';
 import 'swiper/components/effect-fade/effect-fade.min.css'
 import SwiperCore, {Navigation, Pagination, EffectFade, Autoplay} from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import {SliderLogo} from '../../index'
 import {Link} from 'react-router-dom'
-import Logo from '../../../images/logo2.svg'
 import FirstSliderImage from '../../../images/main_first_image.jpg'
 import FirstSliderImage2 from '../../../images/main_second_image.png'
 import FirstSliderImage3 from '../../../images/main_third_image.jpg'
@@ -43,22 +43,19 @@ function FirstSlider() {
 		<div className="first-slider">
 			<div className="first-slider__losung">
 				<div className="first-slider__logo">
-					<h3>Ресторан</h3>
-					<img className='' src={Logo} alt="" width='160'/>
-					<p>італійської кухні</p>
+					<SliderLogo title='Ресторан' subtitle='італійської кухні'/>
 				</div>
 			</div>
 			<Swiper
-			effect="fade"
-			loop={true}
-			pagination={{ clickable: true }}
-			draggable={false}
-			autoplay={{ delay: 2000 }}
+				effect="fade"
+				loop={true}
+				pagination={{ clickable: true }}
+				draggable={false}
+				autoplay={{ delay: 2000 }}
 			>
 				{
 					mainSlides.map( (dish, index) => {
-						console.log(dish.image)
-						return <SwiperSlide style={{backgroundImage:`url(${Object.values(dish.image)[0]})`}}>
+						return  <SwiperSlide style={{backgroundImage:`url(${Object.values(dish.image)[0]})`}} key={index}>
 									<Link to='/dishes'>
 										<div className='first-slider__slide-title'>{dish.title}</div>
 									</Link>
