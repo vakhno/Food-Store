@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {setDishes, setMenuDishes} from './dishes'
+import {setDishes, setMenuDishes, setDeliveryDishes} from './dishes'
 
 export const setLoaded = (value) => ({
 	type: 'SET_LOADING',
@@ -19,6 +19,13 @@ export const fetchDishes = (sortBy, category) => (dispatch) => {
 export const fetchMainMenuDishes = () => (dispatch) => {
 	axios.get(`/alldishes`).then( ({data}) => {
 		dispatch(setMenuDishes(data))
+		console.log(data)
+	})
+}
+
+export const fetchMainDeliveryDishes = () => (dispatch) => {
+	axios.get(`/dishes`).then( ({data}) => {
+		dispatch(setDeliveryDishes(data))
 		console.log(data)
 	})
 }

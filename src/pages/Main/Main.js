@@ -2,180 +2,54 @@ import React, {useEffect} from 'react'
 import './Main.sass'
 
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchMainMenuDishes} from '../../redux/actions/dishesRequest'
+import {fetchMainMenuDishes, fetchMainDeliveryDishes} from '../../redux/actions/dishesRequest'
+import {addDisheToCart} from '../../redux/actions/cart'
 
 
 
-import {Quote, Creator, PopularMenu, Reservation, FirstSlider} from '../../components'
+import {Quote, Creator, PopularMenu, Reservation, FirstSlider, Delivery} from '../../components'
 
 
 function Main() {
 	const dispatch = useDispatch()
 	const menuDishes = useSelector( ({menu}) => menu.items  )
-	console.log(menuDishes)
-
+	const deliveryDishes = useSelector( ({delivery}) => delivery.items  )
+	const handleAddDishToCart = (dishInfo) => {
+		dispatch(addDisheToCart(dishInfo))
+	}
+	
 	useEffect(() => {
 		dispatch(fetchMainMenuDishes())
+		dispatch(fetchMainDeliveryDishes())
 	}, [])
 
 
 	return (
-<>
-		<FirstSlider/>
+		<>	
 
+			<FirstSlider/>
 
-		<Quote title='перед тим, як відкрити для себе кулінарію, мене ніколи нічого не цікавило' subtitle='наш шеф-кухар Дейл Ернхардт' />
-
-	
-		<Creator paragraphs={['«В основі цінностей нашого ресторану лежить відданість традиціям, експериментальність і відкритість','Наше завдання - подарувати українським гурманам, надзвичайні гастрономічні відчуття традиційної італійської кухні, з доданням експериметнальних інгридієнтів.','Я радий, що можу поділитись своїм досвідом роботи у найкращих ресторанах Европи та Північної Америки, працюючи в команді надзвичайних кухарів, працюючи в команді професіоналів».']} name='Магнус Веттерхольм' position='Магнус Веттерхольм, засновник ресторану'/>
-
-		{/* <div className="about">
-			<div className="about__wrapper">
-				<div className="about__content">
-				<div className="about__image">
-					<img src={Chef} alt=""/>
-				</div>
-				<div className="about__description">
-					<div className="about__title">«В основі цінностей нашого ресторану лежить відданість традиціям, експериментальність і відкритість</div>
-					<div className="about__subtitle">Наше завдання - подарувати українським гурманам, надзвичайні гастрономічні відчуття традиційної італійської кухні, з доданням експериметнальних інгридієнтів.</div> 
-					<div className="about__subtitle">Я радий, що можу поділитись своїм досвідом роботи у найкращих ресторанах Европи та Північної Америки, працюючи в команді надзвичайних кухарів, працюючи в команді професіоналів».</div>
-					<div className="about__subtitle--accent">Магнус Веттерхольм</div>
-					<div className="about__subtitle">Магнус Веттерхольм, засновник ресторану</div>
-					<Link>
-					<Button className="about__button" skeleton dark>
-						перейти до меню
-					</Button>
-						
-					</Link>
-				</div>
-				</div>
-			</div>
-		</div> */}
-
-		<PopularMenu menuDishes={menuDishes} title='меню' subtitle='найцікавіші страви нашого ресторану'/>
+			<Quote title='перед тим, як відкрити для себе кулінарію, мене ніколи нічого не цікавило' subtitle='наш шеф-кухар Дейл Ернхардт' />
 		
-		{/* <div className="menu">
-			<div className="menu__wrapper">
-			<Title className='menu__title' title='меню' subtitle='найцікавіші страви нашого ресторану' light/>
-				<div className="menu__categories">
-					{
-						menuDishes.slice(0, 4).map( (elem, index) => {					
-						return	<div className="menu__category">
-								<div className="menu__category-title">{elem.title}</div>
-								<div className="menu__category-items">
+			<Creator paragraphs={['«В основі цінностей нашого ресторану лежить відданість традиціям, експериментальність і відкритість','Наше завдання - подарувати українським гурманам, надзвичайні гастрономічні відчуття традиційної італійської кухні, з доданням експериметнальних інгридієнтів.','Я радий, що можу поділитись своїм досвідом роботи у найкращих ресторанах Европи та Північної Америки, працюючи в команді надзвичайних кухарів, працюючи в команді професіоналів».']} name='Магнус Веттерхольм' position='Магнус Веттерхольм, засновник ресторану'/>
 
-									{elem.dishes.filter( (elem) => elem.type === 'popular').map( elem => {
-										return <div className="menu__category-item">
-											<div className="menu__category-item-info">
-												<div className="menu__category-item-name">{elem.name}</div>
-												<div className="menu__category-item-price">{elem.price}₴</div>
-											</div>
-											<div className="menu__category-item-description">{elem.description}</div>
-										</div>
-									})}
-									
-								</div>
-							</div>
-						
-						})
-					}
-					
-				</div>
-				<Button className="menu__button button__solid" light>
-					перейти до повного меню
-				</Button>
-			</div>
-		</div> */}
+			<Reservation/>
 
+			<PopularMenu menuDishes={menuDishes} title='меню' subtitle='найцікавіші страви нашого ресторану'/>
 
-		<Reservation/>
+			<Delivery deliveryDishes={deliveryDishes} handleAddDishToCart={handleAddDishToCart}/>
 
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi ratione iste quae tenetur, autem ullam dignissimos officia. Facere non molestias eaque, nostrum rerum, fugiat error earum laudantium quidem quaerat provident.
+		Minima asperiores optio saepe fuga eveniet numquam autem nam, nemo eligendi ea omnis, voluptatem ratione ducimus corrupti id reprehenderit dolorum, quod culpa. Aperiam, voluptates. In iure nemo nobis. Sunt, est.
+		Hic optio eaque nihil veniam? Velit dolores atque quibusdam officia porro accusamus magnam. Alias ut deleniti, eius repellat error tenetur necessitatibus eligendi repellendus harum illum qui natus explicabo laudantium ratione?
+		Beatae minima quidem similique dolorum laudantium excepturi pariatur, nobis voluptatem impedit hic vitae iure eos quae tempora accusamus libero laboriosam placeat est distinctio ipsum doloribus nesciunt explicabo. Deserunt, aspernatur nesciunt?
+		Sapiente, libero culpa placeat quae quam ducimus aperiam odit cum ab facere aliquid nesciunt quis voluptatem suscipit doloribus minus autem accusantium architecto quisquam corporis optio ullam! Pariatur impedit ea dignissimos.
+		Modi laboriosam ipsam molestiae doloremque possimus cumque ut consequatur. Dolor fugit eligendi provident, at perspiciatis dolores nulla aliquid commodi quos dolore ratione aperiam, itaque, obcaecati iure numquam non corrupti a?
+		Quas, pariatur. Eveniet sint tempore neque perspiciatis alias architecto quos, quas, natus debitis ratione, blanditiis possimus dignissimos temporibus reiciendis. Dicta soluta debitis accusantium deleniti explicabo magnam quidem voluptatem, veritatis consectetur.
+		Incidunt sequi alias ea laboriosam voluptatibus est unde deserunt veniam nostrum, tempore facere dignissimos error. Quibusdam sequi neque totam suscipit quo tenetur, fuga, consequatur aspernatur provident odit animi beatae? Consequuntur.
+		Voluptatem maiores rerum dolorem laborum error ipsam cupiditate quis, mollitia sed nam alias iusto assumenda distinctio dolorum expedita est dolores totam, commodi eos at repellat similique! Quibusdam tempore exercitationem et.
+		Sint ex autem asperiores tempora temporibus modi commodi inventore cupiditate at omnis eveniet illum culpa nisi officiis, deserunt dolore? Facere quod repellat itaque fuga odio tenetur eligendi debitis exercitationem officia.</p>
 
-{/* <div className="reservation" style={{backgroundImage:`url(${ReservationBG})`}}>
-	<div className="reservation__wrapper">
-		<div className="reservation__info-block">
-			<div className="reservation__block">
-				<div className="reservation__title">
-					<FontAwesomeIcon className="reservation__title-logo" icon={faPhone}/>
-					095 222 81 56
-				</div>
-				<div className="reservation__description">
-					Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.
-				</div>
-			</div>
-			<div className="reservation__block">
-				<div className="reservation__title">
-				<FontAwesomeIcon className="reservation__title-logo" icon={faMapMarkerAlt}/>
-					Одеса, вул. Дерибасівська, 20
-				</div>
-				<div className="reservation__description">
-					Перш ніж приходити до ресторану, подзвоніть та переконайтесь, що є вільні місця.
-				</div>
-			</div>
-			<div className="reservation__block">
-				<div className="reservation__title">
-					<FontAwesomeIcon className="reservation__title-logo" icon={faClock}/>
-					Відкрито з 10:00 до 22:00
-				</div>
-				<div className="reservation__description">
-					Ресторан працює кожний день, крім неділі.
-				</div>
-			</div>
-		</div>
-		<div className="reservation__table">
-			<div className="reservation__table-title">
-				Резервування столику
-			</div>
-			<form action="">
-				<div className="reservation__table-data">
-					<input type="text" placeholder='Ім`я'/>
-					<input type="text" placeholder='Прізвище'/>
-				</div>
-				<div className="reservation__table-data">
-					<input type="datetime-local"/>
-					<textarea name="" id="" cols="30" rows="10" placeholder='Повідомлення'></textarea>
-				</div>
-					<Button className="reservation__table-button button__solid" dark>
-						Зарезервувати
-					</Button>
-			</form>
-		</div>
-	</div>
-</div> */}
-
-
-
-
-<div style={{paddingTop:'160px'}}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, cupiditate at vitae molestiae doloribus quidem. Commodi est impedit ipsa ratione non magni, ab, at illo fugiat neque aut repudiandae mollitia?
-Fuga aliquam repellendus, molestias minima obcaecati iusto tempore eaque ullam sequi quo, eum molestiae atque labore a. Exercitationem, atque ipsam, itaque quod hic id aliquid, perferendis dolorem maxime at dolor.
-Vero, neque! Cupiditate, molestias! Optio ducimus facere consequuntur quidem aut, repudiandae doloremque ut hic similique sunt soluta nihil expedita! Numquam magnam natus tempora necessitatibus! Autem dolorem ipsam esse quia facere!
-Minima expedita nam harum tempore qui incidunt culpa! Praesentium fugit ipsam corrupti laborum quod odit saepe impedit dolores cumque! Aliquid distinctio ea illo atque perferendis animi, laborum vel esse excepturi?
-Assumenda suscipit reiciendis optio, quisquam quia, dolor blanditiis unde ratione accusamus vel est obcaecati placeat repudiandae, soluta aliquid amet dolore fugiat ducimus perferendis qui excepturi! Assumenda pariatur voluptatibus eius optio!
-Dolorem atque beatae, quasi accusamus ipsam expedita exercitationem ad assumenda vitae natus, repudiandae at nemo voluptatum qui. Ex reprehenderit maiores, a eaque necessitatibus exercitationem amet, quidem consequuntur quos neque maxime!
-Ea vitae earum in quisquam saepe corrupti, maxime repellat doloribus enim tenetur delectus nesciunt harum perferendis, dolorem natus nam odit! Ipsum repellendus expedita voluptatibus cumque consequatur obcaecati ad quibusdam sapiente?
-Odit omnis vero nemo accusamus ipsam, fugit autem qui, ducimus incidunt consequatur fugiat. Quos temporibus ab quisquam error cum hic dolores esse cumque soluta perspiciatis. Perspiciatis quae cumque maxime eligendi.
-Et ipsam nostrum nisi cumque non, maiores, id temporibus labore consectetur voluptates eligendi ea vitae quod sapiente, error dolorum saepe explicabo excepturi ratione nobis! Beatae ducimus ex aut suscipit ipsam?
-Quibusdam ipsam sint a obcaecati alias eligendi nesciunt facere dicta nostrum maxime modi esse, corrupti temporibus qui, provident delectus fugit nihil autem fuga libero? Accusantium commodi delectus mollitia perspiciatis eaque.
-Quas cumque magni vero. Iste eum fugiat aspernatur similique error neque accusantium quidem provident adipisci architecto debitis nulla ab accusamus eveniet porro officiis optio labore sequi minima odit, tempora obcaecati?
-Tempore ratione excepturi rerum magnam sint illum dolore laborum minus, quibusdam reprehenderit voluptatem delectus natus ad aliquam unde dicta facere exercitationem explicabo neque ea quam enim quia modi. Sequi, magni!
-Dolor quaerat, facilis impedit fugiat temporibus expedita quasi ad corrupti quo possimus magni maxime officiis excepturi culpa beatae maiores commodi ullam deserunt blanditiis dicta nisi hic repudiandae eligendi nihil. Quo!
-Id amet fugiat fuga cupiditate ullam error ex unde, consectetur est quam neque asperiores vero officiis quo dolorum libero necessitatibus molestias, corporis animi soluta! Ut voluptatem ex vel libero quam.
-Magnam accusantium voluptatum necessitatibus iste ex? Magnam illo, dolorem quo, ducimus quasi necessitatibus laudantium animi accusantium hic facilis dignissimos unde aut voluptatibus ex ullam! Doloremque voluptate possimus facilis rerum itaque!
-Odit, ratione sint repellendus consequuntur est necessitatibus tempore iste impedit praesentium accusantium quae in velit soluta aspernatur nostrum, ipsa sit, ad debitis. Tenetur, esse numquam ratione at dicta natus est!
-Velit laboriosam accusantium quia optio omnis, porro, repellat ullam veniam molestias nostrum quibusdam ad incidunt consectetur voluptatibus asperiores placeat, corrupti rem odit nesciunt. Eligendi voluptate rem, repellat vero ad dicta!
-Magnam voluptatem quia ratione! Tempora itaque nobis sequi accusamus nisi distinctio reiciendis ab rerum sint ducimus neque possimus ullam eum, reprehenderit cum dolores voluptatem voluptas? Voluptates doloremque rem cupiditate consequuntur!
-Quod odit commodi inventore quo est fugit iusto magnam consequuntur. Aspernatur maxime laudantium necessitatibus saepe commodi id, ducimus possimus consequatur nisi ea, maiores, porro neque! Dolor quisquam expedita repellendus recusandae!
-Eaque, deleniti incidunt? Ratione obcaecati recusandae fugit ipsa excepturi, reiciendis incidunt magnam molestiae culpa dolorum id voluptate laudantium doloremque aspernatur possimus architecto nulla. Quas minus architecto ipsam officia dignissimos corrupti?
-Quae natus dolorem nesciunt beatae illum! Error nobis amet consectetur, incidunt quis quod natus necessitatibus voluptatibus cumque sint, repellat exercitationem sunt optio commodi eos facilis, voluptatum fugiat similique nam laudantium?
-Molestiae asperiores itaque sint rem eveniet veritatis fuga officiis id, at tempore aliquam placeat delectus ipsam debitis. Omnis mollitia eos nam, nostrum laborum fuga. Odit quas quaerat unde similique alias.
-Illo praesentium, esse nesciunt quam officia a architecto sed neque deserunt recusandae adipisci at quis culpa vero rerum distinctio placeat? Quod tempora minus tempore, nisi molestiae rem libero provident non.
-Nihil quos iure fugit accusantium facilis eius voluptatem exercitationem, optio doloribus, eveniet impedit. Ab beatae facilis officiis aliquid, dicta odio dolorem debitis perferendis nobis minus ipsam, a obcaecati accusantium molestiae!
-Cupiditate nulla voluptas iusto. At sequi quod impedit aliquid? Porro aliquam accusamus incidunt dolor facilis magnam, nobis neque distinctio vitae in odio delectus? Reprehenderit impedit id eum quos saepe aut!
-Magnam aperiam esse tempore doloribus. Ut nam facilis porro voluptatibus harum magnam assumenda est? Nemo corporis ipsa harum cupiditate asperiores veritatis reprehenderit minima dolores ratione! Voluptatum, voluptas accusantium? Accusantium, numquam?
-Aspernatur ullam, mollitia recusandae magnam voluptatibus obcaecati in qui labore dolores laboriosam repudiandae, tempora quam consectetur pariatur officia accusantium, sunt assumenda saepe! Nemo, illum minima earum eligendi non reiciendis dolor.
-Aliquid delectus, non laborum corporis odit sit deserunt dolores mollitia soluta optio provident eaque. Id quaerat commodi dignissimos itaque autem amet animi accusantium asperiores assumenda. Dolores accusantium odit itaque tempora.
-Harum nam repellat unde, adipisci officia animi nobis aliquid vitae optio aliquam magnam illum dignissimos. Repudiandae est nesciunt iusto laudantium repellendus assumenda quasi obcaecati hic tempora vel! Recusandae, facere quos!
-Voluptatibus doloremque illo dolores deserunt numquam dicta quibusdam qui inventore in mollitia, voluptas molestias odio veritatis quod laborum vel quisquam ea aliquam nihil minima deleniti et ducimus tempora! Cumque, doloremque.</div>
 		</>
 	)
 }

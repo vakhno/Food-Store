@@ -8,7 +8,11 @@ import {Navbar, Logo, HeaderContacts} from '../index'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faHryvnia} from "@fortawesome/free-solid-svg-icons"
 import {faShoppingBasket} from "@fortawesome/free-solid-svg-icons";
-
+import MainImage from '../../images/main_first_image.jpg'
+import MainImage2 from '../../images/main_second_image.png'
+import MainImage3 from '../../images/main_third_image.jpg'
+import MainImage4 from '../../images/main_fourth_image.jpg'
+import MainImage5 from '../../images/main_fifth_image.jpg'
 function Header({location}) {
 	const {totalPrice, totalCount} = useSelector(({cart}) => cart)
 	const ifMainPage = location.pathname === '/'
