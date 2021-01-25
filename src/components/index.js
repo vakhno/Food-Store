@@ -11,7 +11,7 @@ export { default as Navbar} from './Navbar/Navbar'
 export { default as Logo} from './Common/Logo/Logo'
 export { default as HeaderContacts} from './HeaderContacts/HeaderContacts'
 export { default as Title} from './Common/Title/Title'
-
+export { default as Map} from './Map/Map.js'
 
 
 // for Main page
