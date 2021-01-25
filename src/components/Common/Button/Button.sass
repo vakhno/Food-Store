@@ -115,7 +115,7 @@
 // 			background-color: darken($orange, 20%)
 
 .button
-	border-radius: 5px
+	// border-radius: 5px
 	padding: 10px 15px
 	text-align: center
 	text-decoration: none
@@ -237,6 +237,36 @@
 		&:active
 			background-color: darken($orange, 8%)
 
+	&__add
+		font-weight: 700
+		font-size: 16px
+		font-family: Commissioner
+		svg
+			margin-right: 2px
+		&.button--dark
+			background-color: #404040
+			color: white
+			svg
+				path
+					fill: white
+			&:hover
+				background-color: $orange
+				color: white
+				svg
+					path
+						fill: white !important
+		&.button--light
+			background-color: #f3f3f3
+			color: black
+			svg
+				path
+					fill: black
+			&:hover
+				background-color: $orange
+				color: white
+				svg
+					path
+						fill: white !important
 	// &--dark
 	// 	background-color: lighten(black, 15%)
 	// 	&,

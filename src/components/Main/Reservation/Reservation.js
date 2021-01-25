@@ -5,38 +5,40 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
-import {Button} from '../../../components'
+import {Button, Title} from '../../../components'
 
 function Reservation() {
 	const workInfo = [
 		{
-			icon: <FontAwesomeIcon className="reservation__title-logo" icon={faPhone}/>,	
+			icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faPhone}/>,	
 			title: '095 222 81 56',
 			text: 'Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.'
 		},
 		{
-			icon: <FontAwesomeIcon className="reservation__title-logo" icon={faMapMarkerAlt}/>,
+			icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faMapMarkerAlt}/>,
 			title: 'Одеса, вул. Дерибасівська, 20',
 			text: 'Перш ніж приходити до ресторану, подзвоніть та переконайтесь, що є вільні місця.'
 		},
 		{
-			icon: <FontAwesomeIcon className="reservation__title-logo" icon={faClock}/>,	
+			icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faClock}/>,	
 			title: 'Відкрито з 10:00 до 22:00',
 			text: 'Ресторан працює кожний день, крім неділі.'
 		}
 	]
 
 	return (
-		<div className="reservation" style={{backgroundImage:`url(${ReservationBG})`}}>
+		<div className="reservation">
+			<Title className='reservation__title' title='Резервування' subtitle='зарезервуйте столик на майбутнэ' light/>
+			<div className="reservation__container" style={{backgroundImage:`url(${ReservationBG})`}}>
 			<div className="reservation__wrapper">
-				<div className="reservation__info-block">
+				<div className="reservation__info-blocks">
 					{
 						workInfo.map( (elem, index) => {
-							return  <div className="reservation__block" key={index}>
-										<div className="reservation__title">
+							return  <div className="reservation__info-block" key={index}>
+										<div className="reservation__info-title">
 											{elem.icon}{elem.title}
 										</div>
-										<div className="reservation__description">
+										<div className="reservation__info-description">
 											{elem.text}
 										</div>
 									</div>
@@ -61,6 +63,7 @@ function Reservation() {
 							</Button>
 					</form>
 				</div>
+			</div>
 			</div>
 		</div>
 	)

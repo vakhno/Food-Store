@@ -1,9 +1,10 @@
 import React, {useState} from 'react'
+import './DishesBlock.sass'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
-import {Button} from '../index'
+import {Button} from '../../index'
 
-function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, addedCount}) {
+function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, light, dark}) {
 	const [activeType, setActiveType] = useState(types[0])
 	const availableTypes = ['тонкое', 'традиционное']
 	const [activeSize, setActiveSize] = useState(sizes[0])
@@ -30,11 +31,14 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, a
 	}
 
 	return (
-		<div className="pizza-block">
+		<div className={classNames('pizza-block', {
+			'pizza-block--light': light,
+			'pizza-block--dark': dark,
+		})}>
 		<img
 			className="pizza-block__image"
 			src={imageUrl}
-			alt="Dishes"
+			alt="dishes-image"
 		/>
 		<h4 className="pizza-block__title">{name}</h4>
 		<div className="pizza-block__selector">
@@ -65,7 +69,7 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, a
 		</div>
 		<div className="pizza-block__bottom">
 			<div className="pizza-block__price">от {price} ₽</div>
-			<Button onClick={onAddDish} className="button--add" outline>
+			<Button onClick={onAddDish} className="" add {...light ? {light} : {dark}}>
 				<svg
 					width="12"
 					height="12"
@@ -78,8 +82,7 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, a
 						fill="white"
 					/>
 				</svg>
-				<span>Добавить</span>
-				{addedCount && <i>{addedCount}</i>}
+				Добавить
 			</Button>
 		</div>
 	</div>

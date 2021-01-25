@@ -15,7 +15,7 @@ function Delivery({deliveryDishes, handleAddDishToCart}) {
 		<div className='delivery' style={{backgroundImage:`url(${DeliveryBG})`}}>
 			<div className="delivery__wrapper">
 				<div className="delivery__description">
-					<div className="delivery__title">Доставка піц онлайн</div>
+					<div className="delivery__title">Доставка-онлайн</div>
 					<div className="delivery__subtitle">Деякі подробиці, з якими необхідно ознайомитись перед оформленням доставки-онлайн</div>
 					<ul className="delivery__list-items">
 						{
@@ -29,7 +29,7 @@ function Delivery({deliveryDishes, handleAddDishToCart}) {
 					</Link>
 				</div>
 				<Swiper
-					spaceBetween={80}
+					spaceBetween={20}
 					slidesPerView={3}
 					loop={true}
 					pagination={{ clickable: true }}
@@ -39,7 +39,7 @@ function Delivery({deliveryDishes, handleAddDishToCart}) {
 					{
 						deliveryDishes.map(elem =>{
 							return <SwiperSlide>
-								<DishesBlock onClickAddDish={handleAddDishToCart} id={elem.id} name={elem.name} imageUrl={elem.imageUrl} price={elem.price} types={elem.types} sizes={elem.sizes}/>
+								<DishesBlock onClickAddDish={handleAddDishToCart} id={elem.id} name={elem.name} imageUrl={elem.imageUrl} price={elem.price} types={elem.types} sizes={elem.sizes} dark/>
 							</SwiperSlide>
 						})
 					}	
