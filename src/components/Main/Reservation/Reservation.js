@@ -5,7 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
 import {faClock} from "@fortawesome/free-solid-svg-icons";
-import {Button, Title} from '../../../components'
+import {Title, ReservationCard} from '../../../components'
 
 function Reservation() {
 	const workInfo = [
@@ -45,24 +45,7 @@ function Reservation() {
 						})
 					}
 				</div>
-				<div className="reservation__table">
-					<div className="reservation__table-title">
-						Резервування столику
-					</div>
-					<form action="">
-						<div className="reservation__table-data">
-							<input type="text" placeholder='Ім`я'/>
-							<input type="text" placeholder='Прізвище'/>
-						</div>
-						<div className="reservation__table-data">
-							<input type="datetime-local"/>
-							<textarea name="" id="" cols="30" rows="10" placeholder='Повідомлення'></textarea>
-						</div>
-							<Button className="reservation__table-button button__solid" dark>
-								Зарезервувати
-							</Button>
-					</form>
-				</div>
+				<ReservationCard light/>
 			</div>
 			</div>
 		</div>
