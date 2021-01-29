@@ -5,6 +5,7 @@ import dishes from './dishes'
 import cart from './cart'
 import menu from './menu'
 import delivery from './delivery'
+import deliveryTime from './deliveryTime'
 
 const rootReducer = combineReducers({
 	filter,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
 	cart,
 	menu,
 	delivery,
+	deliveryTime,
 })
 
 export default rootReducer
