@@ -10,22 +10,18 @@
 		height: 36px
 		display: flex
 		align-items: center
-		font-family: 'Commissioner'
-		font-weight: 300
 	&__link.active
 		color: darken($orange, 10%)
 	&__link
-		font-size: 16px
-		color: $white
+		position: relative
+		@include title($white, 16px, 300)
 		transition: 0.3s
 		&:hover
 			color: $orange
 		&::after
-			content: ''
-			display: block
+			@include pseudo-element(rgba($white, 0.5), 100%, 0)
 			width: 0
 			height: 1px
-			background-color: rgba(white, 0.5)
 			transition: width 0.3s
 		&:not(.active):hover::after
 			background-color: $orange

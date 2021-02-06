@@ -1,7 +1,11 @@
 import React from 'react'
+// styles
 import './Creator.sass'
+// router
 import {Link} from 'react-router-dom'
+// components
 import {Button} from '../../../components'
+// visual content
 import Chef from '../../../images/chef.png'
 
 function Creator() {
@@ -11,9 +15,9 @@ function Creator() {
 
 	return (
 		<div className="creator">
-			<div className="creator__content">
-				<div className="creator__image">
-					<img src={Chef} alt="chef-photo"/>
+			<div className="creator__wrapper">
+				<div className="creator__image-wrapper">
+					<img src={Chef} alt="Фото засновника ресторану"/>
 				</div>
 				<div className="creator__description">
 					{
@@ -23,7 +27,7 @@ function Creator() {
 					}
 					<div className="creator__subtitle--accent">{name}</div>
 					<div className="creator__subtitle">{position}</div>
-					<Link>
+					<Link to='/dishes'>
 						<Button className="creator__button" skeleton dark>перейти до меню</Button>
 					</Link>
 				</div>

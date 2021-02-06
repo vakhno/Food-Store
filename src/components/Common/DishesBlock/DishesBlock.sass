@@ -1,128 +1,85 @@
-// @import '../../../sass/app.sass'
 @import '../../../sass/_variables'
 
-// .pizza-block
-// 	max-width: 280px
-// 	text-align: center
-// 	// margin-bottom: 65px
-// 	&:not(:nth-of-type(4n))
-// 		// margin-right: 35px
-// 	&__image
-// 		width: 100%
-// 		max-width: 260px
-// 	&__title
-// 		font-size: 20px
-// 		font-weight: 900
-// 		letter-spacing: 1%
-// 		margin-bottom: 20px
-// 	&__selector
-// 		display: flex
-// 		background-color: #f3f3f3
-// 		border-radius: 10px
-// 		flex-direction: column
-// 		padding: 6px
-// 		ul
-// 			display: flex
-// 			flex: 1
-// 			&:first-of-type
-// 				margin-bottom: 6px
-// 			li
-// 				padding: 8px
-// 				flex: 1
-// 				cursor: pointer
-// 				font-weight: 600
-// 				font-size: 14px
-// 				// @include noselect()
-// 				&.active
-// 					background: #ffffff
-// 					box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04)
-// 					border-radius: 5px
-// 					cursor: auto
-// 				&.disabled
-// 					opacity: 0.5
-// 					pointer-events: none
-// 	&__bottom
-// 		display: flex
-// 		align-items: center
-// 		justify-content: space-between
-// 		margin-top: 20px
-// 	&__price
-// 		font-weight: bold
-// 		font-size: 22px
-// 		line-height: 27px
-// 		letter-spacing: 0.015em
-
-.pizza-block
+.dish-block
+	width: 100%
 	max-width: 320px
+	min-width: 280px
 	text-align: center
+	display: flex
+	flex-direction: column
+	justify-content: space-between
 	padding: 20px
 	&:hover
 		.button
 			svg
 				path
 					fill: $orange
-	&--dark
-		background-color: #1d1d1d
-		.pizza-block__title
-			color: white
-		.pizza-block__price
-			color: white
-		.pizza-block__selector
-			background-color: darken(white, 75%)
-			li
-				color: white
-				&.active
-					background-color: $orange
-				&.disabled
-					color: darken(white, 35%)
-				&:hover:not(.active)
-					color: $orange
-	&--light
-		background-color: white
-	&:not(:nth-of-type(4n))
-		// margin-right: 35px
+	&__wrapper-image
+		height: 260px
+		display: flex
+		align-items: center
+		justify-content: center
 	&__image
-		width: 100%
-		max-width: 260px
+		max-height: 260px
+		max-width: 100%
 		margin-bottom: 10px
 	&__title
-		font-size: 20px
-		font-weight: 900
+		@include title($white, 20px, 600)
 		letter-spacing: 1%
 		margin-bottom: 20px
-		font-family: Commissioner
+	&__price
+		@include title($white, 22px, 600)
+		line-height: 27px
+		letter-spacing: 0.015em
 	&__selector
 		display: flex
-		background-color: #f3f3f3
 		flex-direction: column
 		padding: 6px
-		ul
+		&-items
 			display: flex
 			flex: 1
 			&:first-of-type
 				margin-bottom: 6px
-			li
-				padding: 8px
-				flex: 1
-				cursor: pointer
-				font-weight: 500
-				font-size: 14px
-				font-family: Commissioner
-				// @include noselect()
-				&.active
-					background: #ffffff
-					box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04)
-					cursor: auto
-				&.disabled
-					opacity: 0.5
-					pointer-events: none
+		&-item
+			@include title($white, 14px, 500)
+			padding: 8px
+			flex: 1
+			cursor: pointer
+			&.active
+				cursor: auto
+			&.disabled
+				opacity: 0.5
+				pointer-events: none
 	&__bottom
 		display: flex
 		align-items: center
 		justify-content: space-between
 		margin-top: 20px
-	&__price
-		font-weight: bold
-		font-size: 22px
-		line-height: 27px
-		letter-spacing: 0.015em
+	&--dark
+		background-color: $black
+		.dish-block__title
+			color: $white
+		.dish-block__price
+			color: $white
+		.dish-block__selector
+			background-color: $dark-gray
+			&-item
+				color: $white
+				&.active
+					background-color: $orange
+				&.disabled
+					color: darken($white, 35%)
+	&--light
+		background-color: $white
+		.dish-block__title
+			color: $black
+		.dish-block__price
+			color: $black
+		.dish-block__selector
+			background-color: $light-gray
+			&-item
+				color: $black
+				&.active
+					background-color: $orange
+				&.disabled
+					color: lighten($black, 35%)

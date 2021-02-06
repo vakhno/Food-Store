@@ -1,6 +1,9 @@
 import React from 'react'
+// google-map
+import { GoogleMap, Marker, Polygon } from 'react-google-maps'
+// area style
 import mapStyle from './MapStyle'
-import { GoogleMap, Marker, InfoWindow, Polygon } from 'react-google-maps'
+// marker
 import iconMarker from '../../images/map-marker.svg'
 
 function Map() {
@@ -125,7 +128,7 @@ function Map() {
 		{ lat: 30.727759, lng: 46.370610},
 		{ lat: 30.727317, lng: 46.370594},  
 	]	
-
+	
 	return (
 		<GoogleMap
 			defaultZoom={mapInfo.defaultZoom}
@@ -146,7 +149,7 @@ function Map() {
 					deliveryArea.map( coord => {return {lat: coord.lng, lng: coord.lat}})
 				}
 				options={{
-					fillColor: "orange",
+					fillColor: "#fe5f1e",
 					fillOpacity: 0.4,
 					strokeColor: "red",
 					strokeOpacity: 1,

@@ -5,13 +5,12 @@
 	position: fixed
 	left: 0
 	top: 0
-	background: rgba(black, 0.8)
+	background: $true-black
 	z-index: 100
-
-	display: grid
-	grid-template-columns: 1fr auto auto
-	grid-gap: 20px
-	align-items: center
-	padding: 0px 30px
-	&__cart
-		justify-self: end
+	height: $herader-height
+	&__container
+		@include container($container-full-width)
+		display: grid
+		grid-template-columns: 1fr auto auto
+		grid-gap: 20px
+		align-items: center

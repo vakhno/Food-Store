@@ -8,13 +8,10 @@ import {faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 import {faTripadvisor} from "@fortawesome/free-brands-svg-icons";
 import {faFacebook} from "@fortawesome/free-brands-svg-icons";
-import {Map, Title} from '../index'
-import {withScriptjs, withGoogleMap} from 'react-google-maps'
+import {Title, Map} from '../index'
 import {ReservationCard} from '../index'
 
 function Footer() {
-	const key = 'AIzaSyDHsBvb0Wq3AaQV-vYjxdeSM_16enhTrTk'
-	const WrappedMap = withScriptjs(withGoogleMap(Map))
 	const info = [
 		{
 			title: 'Наша адреса',
@@ -22,8 +19,12 @@ function Footer() {
 			data: [
 				{
 					image: <FontAwesomeIcon icon={faMapMarkerAlt}/>,
-					text: 'Одеса, вул. Дерибасівська, 99'
-				}
+					text: 'Одеса, вул. Дерибасівська, 18'
+				},
+				{
+					image: <FontAwesomeIcon icon={faMapMarkerAlt}/>,
+					text: 'Одеса, вул. Академіка Філатова, 31'
+				},
 			]
 		},
 		{
@@ -58,7 +59,11 @@ function Footer() {
 			data: [
 				{
 					image: <FontAwesomeIcon icon={faPhone}/>,
-					text: '+095 34 56 789'
+					text: '094 863 68 87'
+				},
+				{
+					image: <FontAwesomeIcon icon={faPhone}/>,
+					text: '095 576 51 51'
 				},
 				{
 					image: <FontAwesomeIcon icon={faGoogle}/>,
@@ -72,16 +77,6 @@ function Footer() {
 
 	return (
 		<div className='footer'>
-			<div className="footer__map">
-				<WrappedMap 
-					googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
-					loadingElement={<div style={{ height: '100%', width: '100%' }}></div>}
-					containerElement={<div style={{ height: '100%', width: '100%' }}></div>}
-					mapElement={<div style={{ height: '100%', width: '100%' }}></div>}
-					// dataForMarkers={''}
-				/>
-				<ReservationCard dark/>
-			</div>
 			<div className="footer__info">
 				<div className="footer__info-title">
 					<Title title='про нас' subtitle='ресторан італійської кухні, який дозволяє доторкнутись до історично сформованих, багатовікових гастрономічних традицій' light/>

@@ -1,0 +1,54 @@
+@import '../../sass/_variables'
+
+.categories
+	position: relative
+	overflow-x: overlay
+	display: flex
+	flex: 1
+	margin-right: 80px
+	&::after
+		content: ""
+		position: absolute
+		background: linear-gradient(90deg, rgba(255,255,255,0) 90%, rgba(0,0,0,1) 100%)
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		z-index: 20
+		pointer-events: none
+	&__wrapper
+		position: relative
+		display: flex
+		overflow-x: inherit
+		padding-bottom: 30px
+		&::after
+			content: ""
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+		&::-webkit-scrollbar
+			height: 6px
+			background-color: $orange
+		&::-webkit-scrollbar-thumb
+			background-color: darken($orange, 30%)
+
+	&__list
+		z-index: 10
+		display: flex
+	&__item
+		@include title($black, 18px, 400)
+		background-color: $white
+		padding: 13px 30px
+		margin-right: 10px
+		cursor: pointer
+		transition: background-color 0.1s ease-in-out
+		&:not(&--active):hover
+			background-color: darken($white, 25%)
+		&:active
+			background-color: $gray
+			color: $light-gray
+		&--active
+			background-color: $orange
+			color: $white

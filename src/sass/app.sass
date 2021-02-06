@@ -4,14 +4,14 @@
 @import './components/all'
 
 body
-	background-color: black
-.wrapper
-	width: calc(100vw - 100px)
-	height: 100%
-	background-color: #fff
-	margin: 50px auto
-	border-radius: 10px
-	max-width: 1400px
+	background-color: $background
+// .wrapper
+// 	width: calc(100vw - 100px)
+// 	height: 100%
+// 	background-color: #fff
+// 	margin: 50px auto
+// 	border-radius: 10px
+// 	max-width: 1400px
 .content
 	padding: 40px 0
 	&__title
@@ -64,7 +64,7 @@ body
 		span,
 		svg,
 		path
-			transition: all $duration ease-in-out
+			transition: all $duration-medium ease-in-out
 		&:hover
 			svg
 				path

@@ -12,25 +12,18 @@
 			backface-visibility: hidden
 			transform: scale(1) translateZ(0)
 	&__image
+		width: 82px
+		height: 76px
 		transition: 0.5s
 		margin-right: 5px
 		backface-visibility: hidden
 		transform: scale(0.8) translateZ(0)
-	&__losung
-		overflow: auto
-	h1
-		font-family: 'Commissioner'
+	&__title
+		@include title($white, 20px, 300)
 		transition: 0.3s
-		color: $white
-		font-size: 20px
-		letter-spacing: 1%
 		text-transform: uppercase
-		font-weight: 300
 		white-space: nowrap
-	p
-		font-family: 'Commissioner'
-		font-size: 14px
+	&__subtitle
+		@include title($white, 14px, 200)
 		letter-spacing: 2.5px
-		font-weight: 200
-		color: $white
 		white-space: nowrap

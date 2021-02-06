@@ -1,5 +1,7 @@
 import React from 'react'
+// styles
 import './Button.sass'
+// classNames
 import classNames from 'classnames'
 
 function Button({onClick, className, outline, skeleton, children, solid, add, light, dark}) {

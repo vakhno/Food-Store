@@ -1,10 +1,14 @@
 import React from 'react'
+// styles
 import './Header.sass'
+// router
 import {Link, withRouter} from 'react-router-dom'
-import {Button} from '../../components'
-import logoSVG from '../../images/logo2.svg'
+// components
+import {Button, Navbar, Logo} from '../../components'
+// redux
 import {useSelector} from 'react-redux'
-import {Navbar, Logo} from '../index'
+// visual content
+import logoSVG from '../../images/logo2.svg'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faHryvnia} from "@fortawesome/free-solid-svg-icons"
 import {faShoppingBasket} from "@fortawesome/free-solid-svg-icons";
@@ -15,7 +19,7 @@ function Header() {
 
 	return (
 		<div className="header">
-			{/* <div className="header__container"> */}
+			<div className="header__container">
 				<div className="header__logo">
 					<Logo image={logoSVG} title='PASTA & PIZZA' subtitle='італійська кухня'/>
 				</div>
@@ -31,7 +35,7 @@ function Header() {
 					</Link>
 				</div>
 			</div>
-		// </div>
+		</div>
 	)
 }
 

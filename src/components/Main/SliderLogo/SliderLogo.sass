@@ -5,14 +5,7 @@
 	height: 180px
 	border: 1px solid $white
 	text-align: center
-	color: $white
 	transition: 0.5s
-	will-change: transform
-	position: absolute
-	top: 50%
-	left: 50%
-	transform: translate(-50%, -50%)
-	z-index: 10
 	&:hover
 		width: 280px
 		height: 280px
@@ -24,34 +17,27 @@
 		.slider-logo__subtitle
 			opacity: 1
 	&::before, &::after
-		border-radius: 5px
+		@include pseudo-element()
 		transition: 0.5s
-		content: ''
-		position: absolute
-		top: 0
-		left: 0
 		height: 100%
 		width: 100%
 		border: 1px solid $white
 		transform: rotate(45deg)
 	&__wrapper
-		position: absolute
-		top: 50%
-		left: 50%
-		transform: translate(-50%, -50%)
+		@extend .absolute-center
 		z-index: 10
+	&__logo
+		width: 160px
 	&__title,
 	&__subtitle
 		user-select: none
-		font-family: 'Commissioner'
 		transition: 0.4s
 		opacity: 0
-		color: white
 	&__title
-		font-size: 22px
-		font-weight: 200
+		@include title($white, 22px, 300)
 		text-transform: uppercase
 	&__subtitle
+		@include title($white, 14px, 300)
 		width: max-content
 		font-weight: 200
 		letter-spacing: 2.5px

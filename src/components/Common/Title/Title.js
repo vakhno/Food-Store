@@ -1,6 +1,8 @@
 import React from 'react'
-import classNames from 'classnames'
+// styles
 import './Title.sass'
+// classNames
+import classNames from 'classnames'
 
 function Title({title, subtitle, light, dark, className}) {
 	return (

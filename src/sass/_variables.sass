@@ -1,9 +1,59 @@
-$black: #232323
-$background: #ffdf8c
+$background: #000000
+$true-black: #000000
+$black: #151515
+$dark-gray: #232323
+$gray: #404040
+$light-gray: #ececec
 $gray-line: #f6f6f6
 $orange: #fe5f1e
 $white: #fafafa
 
+$container-xss: 320px
+$container-xs: 480px
+$container-s: 720px
+$container-m: 980px
+$container-l: 1080px
+$container-xl: 1440px
+$container-xll: 1980px
 $container-full-width: 100%
 
-$duration: 0.15s
+$herader-height: 76px
+
+$duration-slow: 0.4s
+$duration-medium: 0.25s
+$duration-fast: 0.15s
+
+.absolute-center
+	position: absolute
+	top: 50%
+	left: 50%
+	transform: translate(-50%, -50%)
+
+@mixin container($container)
+	max-width: $container
+	padding: 0 20px
+	margin: 0 auto
+	width: 100%
+	text-align: center
+
+@mixin title($color, $size, $weight)
+	color: $color
+	font-family: 'Commissioner'
+	font-size: $size
+	font-weight: $weight
+
+@mixin bg-image($position: center)
+	width: 100%
+	object-fit: cover
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: $position
+
+@mixin pseudo-element($color: '', $top: 0, $left: 0, $right: 0, $bottom: 0)
+	content: ""
+	position: absolute
+	background: $color
+	top: $top
+	left: $left
+	right: $right
+	bottom: $bottom

@@ -1,0 +1,22 @@
+@import '../../sass/_variables'
+
+.menu-dishes
+	&__container
+		@include container($container-xll)
+	&__options
+		padding-top: 10px
+		background-color: $true-black
+		display: flex
+		align-items: center
+		justify-content: space-between
+		position: sticky
+		top: $herader-height
+		z-index: 14
+	&__title
+	&__dishes-list
+		display: grid
+		justify-content: center
+		justify-items: center
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
+		gap: 30px
+	&__dishe

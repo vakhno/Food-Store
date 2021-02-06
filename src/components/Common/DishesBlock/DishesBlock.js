@@ -1,12 +1,16 @@
 import React, {useState} from 'react'
+// styles
 import './DishesBlock.sass'
+// classNames
 import classNames from 'classnames'
+// propTypes
 import PropTypes from 'prop-types'
+// components
 import {Button} from '../../index'
 
-function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, light, dark}) {
+function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, light, dark, className}) {
 	const [activeType, setActiveType] = useState(types[0])
-	const availableTypes = ['тонкое', 'традиционное']
+	const availableTypes = ['тонке', 'традиційне']
 	const [activeSize, setActiveSize] = useState(sizes[0])
 	const availableSizes = [25, 30, 40]
 
@@ -31,22 +35,24 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, l
 	}
 
 	return (
-		<div className={classNames('pizza-block', {
-			'pizza-block--light': light,
-			'pizza-block--dark': dark,
+		<div className={classNames('dish-block', className, {
+			'dish-block--light': light,
+			'dish-block--dark': dark,
 		})}>
-		<img
-			className="pizza-block__image"
-			src={imageUrl}
-			alt="dishes-image"
-		/>
-		<h4 className="pizza-block__title">{name}</h4>
-		<div className="pizza-block__selector">
-			<ul>
+		<div className="dish-block__wrapper-image">
+			<img
+				className="dish-block__image"
+				src={imageUrl}
+				alt="dishes-image"
+			/>
+		</div>
+		<h4 className="dish-block__title">{name}</h4>
+		<div className="dish-block__selector">
+			<ul className="dish-block__selector-items">
 				{availableTypes.map((type, index) => 
 					<li 
 						onClick={() => onSelectType(index)} 
-						className={classNames({ 
+						className={ classNames("dish-block__selector-item", { 
 							'active': activeType === index,
 							'disabled': !types.includes(index),
 						})} 
@@ -54,11 +60,11 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, l
 						{type}
 					</li>)}
 			</ul>
-			<ul>
+			<ul className="dish-block__selector-items">
 			{availableSizes.map((size, index) => 
 					<li 
 						onClick={() => onSelectSize(index)} 
-						className={classNames({ 
+						className={ classNames("dish-block__selector-item", { 
 							'active': activeSize === index,
 							'disabled': !sizes.includes(index),
 						})} 
@@ -67,8 +73,8 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, l
 					</li>)}
 			</ul>
 		</div>
-		<div className="pizza-block__bottom">
-			<div className="pizza-block__price">от {price} ₽</div>
+		<div className="dish-block__bottom">
+			<div className="dish-block__price">{price} ₴</div>
 			<Button onClick={onAddDish} className="" add {...light ? {light} : {dark}}>
 				<svg
 					width="12"
@@ -82,7 +88,7 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, l
 						fill="white"
 					/>
 				</svg>
-				Добавить
+				Додати
 			</Button>
 		</div>
 	</div>

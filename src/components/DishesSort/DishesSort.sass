@@ -1,0 +1,36 @@
+@import '../../sass/_variables'
+
+.sort
+	position: relative
+	&__selection
+		display: flex
+		width: max-content
+		align-items: center
+		svg
+			margin-right: 8px
+			&.rotated
+				transform: rotate(180deg)
+	&__title
+		@include title($white, 16px, 300)
+		margin-right: 8px
+	&__category
+		@include title($orange, 16px, 300)
+		border-bottom: 1px dashed $orange
+		cursor: pointer
+	&__popup
+		@include title($black, 16px, 300)
+		position: absolute
+		right: 0
+		margin-top: 15px
+		background: $white
+		overflow: hidden
+		width: 160px
+		&-items
+			overflow: hidden
+		&-item
+			padding: 12px 20px
+			cursor: pointer
+			&:hover
+				background-color: $orange
+			&.active
+				background-color: darken($orange, 40%)

@@ -1,6 +1,8 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+// styles
 import './Navbar.sass'
+// router
+import {NavLink} from 'react-router-dom'
 
 function Navbar() {
 	const availablePages = [

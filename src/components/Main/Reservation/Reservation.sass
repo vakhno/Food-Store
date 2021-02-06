@@ -4,48 +4,48 @@
 	margin-bottom: 100px
 	&__title
 		margin-bottom: 60px
-	&__container
+	&__bg
+		@include bg-image
 		display: flex
 		flex-direction: column
 		justify-content: flex-end
 		position: relative
 		transition-property: transform
-		background-position: center
 		height: 100vh
-		width: 100%
-		opacity: 1
-		background-size: cover
-		background-repeat: no-repeat
+		z-index: -1
 		&::after
-			background: linear-gradient(0deg, rgba(0,0,0,1) 23%, rgba(156,72,74,0) 60%, rgba(0,0,0,1) 100%)
-			position: absolute
-			top: 0
-			left: 0
-			bottom: 0
-			right: 0
-			content: ""
-	&__wrapper
+			@include pseudo-element(linear-gradient(0deg, rgba(0,0,0,1) 23%, rgba(156,72,74,0) 60%, rgba(0,0,0,1) 100%))
+	&__info-wrapper
 		text-align: center
 		display: flex
-		align-items: flex-end
+		align-items: flex-start
 		min-height: 240px
 		z-index: 20
+		margin-top: -250px
 	&__info-blocks
-		background-color: black
 		width: 100%
+		background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.9416141456582633) 20%)
 		color: white
 		display: flex
+		flex-direction: column
 		justify-content: space-evenly
 		min-height: 120px
 	&__info-block
+		display: flex
+		justify-content: space-evenly
+		&:not(:last-of-type)
+			margin-bottom: 20px
+	&__info
 		width: 100%
 		padding: 10px
 		max-width: 320px
 		&:not(:last-of-type)
 			margin-right: 10px
-	&__info-title
-		font-size: 18px
+	&__info-title,
+	&__info-description
 		text-align: left
+	&__info-title
+		@include title($white, 18px, 500)
 		width: fit-content
 		margin-bottom: 10px
 		&-logo
@@ -55,6 +55,4 @@
 			path
 				fill: $orange
 	&__info-description
-		font-size: 12px
-		text-align: left
-		color: darken(white, 25%)
+		@include title(darken(white, 25%), 12px, 300)
