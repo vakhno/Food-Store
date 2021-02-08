@@ -1,1 +1,39 @@
+@import '../../sass/_variables'
 
+.cart
+	&__container
+		@include container($container-l)
+	&__top-info
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__title
+		display: flex
+		align-items: center
+		@include title($white, 22px, 300)
+		svg
+			width: 28px !important
+			height: 28px !important
+			margin-right: 10px
+	&__bottom-info
+		margin: 50px 0
+	&__details
+		display: flex
+		justify-content: space-between
+		span
+			@include title($white, 18px, 300)
+			b
+				color: $orange
+	&__order-buttons
+		display: flex
+		justify-content: space-between
+		margin-top: 40px
+	&-empty
+		@include container($container-s)
+		&__title
+			margin-bottom: 40px
+		&__image
+			display: block
+			width: 100%
+			max-width: 280px
+			margin: 0 auto 40px auto

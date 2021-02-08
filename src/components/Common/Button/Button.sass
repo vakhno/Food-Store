@@ -4,7 +4,9 @@
 	padding: 10px 15px
 	text-align: center
 	text-decoration: none
-	display: inline-block
+	display: flex
+	justify-content: center
+	align-items: center
 	cursor: pointer
 	transition: background-color $duration-medium ease-in-out, border-color $duration-medium ease-in-out
 	border: 1px solid transparent
@@ -15,14 +17,14 @@
 		margin-left: 14px
 		margin-right: 14px
 	&__solid
-		display: flex
-		align-items: center
 		line-height: 23px
 		svg
+			width: 16px !important
+			height: 16px !important
 			&:first-of-type
 				margin-left: 8px
 			&:last-of-type
-				margin-right: 8px
+				margin-right: 6px
 		span
 			@include title($white, 12px, 600)
 		&.button--dark
@@ -31,6 +33,9 @@
 			&,
 			span
 				color: $white
+			svg
+				path
+					stroke: $white
 			&:hover
 				background-color: $orange
 			&:active
@@ -41,6 +46,9 @@
 			&,
 			span
 				color: $black
+			svg
+				path
+					stroke: $black
 			&:hover
 				background-color: $orange
 			&:active
@@ -87,25 +95,6 @@
 				background-color: $orange
 			&:hover
 				color: lighten($black, 10%)
-	&__outline
-		background-color: #fff
-		border-color: $orange
-		&,
-		span
-			color: $orange
-		svg
-			path
-				fill: $orange
-		&:hover
-			background-color: $orange
-			&,
-			span
-				color: #fff
-			svg
-				path
-					fill: #fff
-		&:active
-			background-color: darken($orange, 8%)
 	&__add
 		@include title($white, 16px, 700)
 		svg
@@ -134,21 +123,52 @@
 				svg
 					path
 						fill: $white !important
-	// &--dark
-	// 	background-color: lighten(black, 15%)
-	// 	&,
-	// 	span
-	// 		color: #fff
-	// 	&:hover
-	// 		background-color: $orange
-	// 	&:active
-	// 		background-color: darken($orange, 15%)
-	// &--light
-	// 	background-color: black
-	// 	&,
-	// 	span
-	// 		color: lighten(black, 15%)
-	// 	&:hover
-	// 		background-color: darken($orange, 10%)
-	// 	&:active
-	// 		background-color: darken($orange, 20%)
+
+	&__outline
+		background-color: transparent
+		&:hover
+			background-color: $orange
+			&,
+			span
+				color: #fff
+			svg
+				path
+					fill: #fff
+		&:active
+			background-color: darken($orange, 8%)
+		&.button--light
+			border-color: $white
+			color: $white
+			&,
+			span
+				color: $white
+			svg
+				path
+					fill: $white
+			&:hover
+				background-color: $white
+				color: $orange
+				&,
+				span
+					color: $orange
+				svg
+					path
+						fill: $orange
+		&.button--dark
+			border-color: $orange
+			color: $orange
+			&,
+			span
+				color: $orange
+			svg
+				path
+					fill: $orange
+			&:hover
+				background-color: $orange
+				color: $white
+				&,
+				span
+					color: $white
+				svg
+					path
+						fill: $white

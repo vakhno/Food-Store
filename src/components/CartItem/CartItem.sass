@@ -1,0 +1,52 @@
+@import '../../sass/_variables'
+
+.cart__item
+	display: flex
+	align-items: center
+	width: 100%
+	border-top: 1px solid $gray-line
+	padding-top: 30px
+	margin-top: 30px
+	&-img
+		display: flex
+		align-items: center
+		margin-right: 15px
+		width: 10%
+		img
+			width: 80px
+			height: 80px
+	&-info
+		display: flex
+		flex-direction: column
+		justify-content: center
+		width: 40%
+		h3
+			@include title($white, 22px, 500)
+			margin-bottom: 2px
+		p
+			@include title($light-gray, 14px, 300)
+	&-count
+		display: flex
+		align-items: center
+		justify-content: space-between
+		width: 13%
+		&-minus
+			svg
+				path:first-of-type
+					display: none
+		b
+			@include title($white, 22px, 500)
+	&__item-count-minus
+		svg
+			width: 20px
+			height: 20px
+	&-price
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 33%
+		b
+			@include title($white, 22px, 600)
+	&-remove
+		svg
+			transform: rotate(45deg)

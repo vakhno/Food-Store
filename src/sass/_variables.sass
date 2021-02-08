@@ -17,7 +17,7 @@ $container-xl: 1440px
 $container-xll: 1980px
 $container-full-width: 100%
 
-$herader-height: 76px
+$header-height: 76px
 
 $duration-slow: 0.4s
 $duration-medium: 0.25s
@@ -28,6 +28,11 @@ $duration-fast: 0.15s
 	top: 50%
 	left: 50%
 	transform: translate(-50%, -50%)
+
+.flex-centering
+	display: flex
+	justify-content: center
+	align-items: center
 
 @mixin container($container)
 	max-width: $container

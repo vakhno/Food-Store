@@ -16,8 +16,8 @@ function App() {
 	return (
 		<Router basename="/Food-Store">
 			<Header/>
+					<Route exact path ='/' component={Main} />
 					<Switch>
-						<Route exact path ='/' component={Main} />
 						<div className="wrapper content">
 							<Route exact path ='/dishes' component={Dishes} />
 							<Route exact path ='/cart' component={Cart} />

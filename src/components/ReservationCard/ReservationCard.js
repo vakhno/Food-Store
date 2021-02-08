@@ -1,6 +1,9 @@
 import React, {useState} from 'react'
+// styles
 import './ReservationCard.sass'
-import {Button} from '../index'
+// components
+import {Button, ModalReservationCard} from '../index'
+// classNames
 import classNames from 'classnames'
 
 function ReservationCard({dark, light}) {
@@ -10,8 +13,10 @@ function ReservationCard({dark, light}) {
 	const [surnameValid, setSurnameValid] = useState(false)
 	const [date, setDate] = useState('')
 	const [dateValid, setDateValid] = useState(false)
-	const [message, setMessage] = useState('')
-	const formValid = Boolean(nameValid && surnameValid && dateValid)
+	const [telephone, setTelephone] = useState('')
+	const [telephoneValid, setTelephoneValid] = useState(false)
+	const [formValid, setFormValid] = useState(false)
+	// const formValid = Boolean(nameValid && surnameValid && dateValid && telephoneValid)
 
 	const valueToState = (e) => {
 		const name = e.target.name
@@ -20,18 +25,19 @@ function ReservationCard({dark, light}) {
 		switch(name){
 			case 'name':
 				setName(value)
-				setNameValid(name.length >= 2)
+				setNameValid(value.length >= 2)
 				break
 			case 'surname':
 				setSurname(value)
-				setSurnameValid(surname.length >= 2)
+				setSurnameValid(value.length >= 2)
 				break
 			case 'date':
 				setDate(value)
-				setDateValid(date.length)
+				setDateValid(Boolean(value))
 				break
-			case 'message':
-				setMessage(value)
+			case 'telephone':
+				setTelephone(value)
+				setTelephoneValid(value.length >= 10)
 				break
 			default:
 				break
@@ -40,7 +46,22 @@ function ReservationCard({dark, light}) {
 
 	const submitForm = (e) => {
 		e.preventDefault()
+
+		setFormValid(Boolean(nameValid && surnameValid && dateValid && telephoneValid))
 		console.log(formValid)
+	}
+
+	const closeForm = () => {
+		setName('')
+		setSurname('')
+		setDate('')
+		setTelephone('')
+		setNameValid(false) 
+		setSurnameValid(false)
+		setDateValid(false)
+		setTelephoneValid(false)
+
+		setFormValid(false)
 	}
 
 	return (
@@ -58,12 +79,13 @@ function ReservationCard({dark, light}) {
 				</div>
 				<div className="reservation-card__data">
 					<input type="datetime-local" name='date' value={date} onChange={valueToState}/>
-					<textarea name="message" id="" cols="30" rows="10" placeholder='Повідомлення' onChange={valueToState}>{message}</textarea>
+					<input type="tel"  name='telephone' placeholder='Телефон' value={date} value={telephone} onChange={valueToState}/>
 				</div>
 					<Button className="reservation-card__button" solid {...light ? {light} : {dark}}>
 						Зарезервувати
 					</Button>
 			</form>
+			<ModalReservationCard isOpen={formValid} onClose={closeForm}/>
 		</div>
 	)
 }
