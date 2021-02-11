@@ -4,7 +4,7 @@ import './CartItem.sass'
 // components
 import {Button} from '../index'
 
-function CartItem({id, categoryId, name, type, size, count, price, removeDish, plusCartItem, minusCartItem}) {
+function CartItem({id, categoryId, name, image, type, size, count, price, removeDish, plusCartItem, minusCartItem}) {
 
 	const deleteDishFromList = () => {
 		removeDish(categoryId)
@@ -21,7 +21,7 @@ function CartItem({id, categoryId, name, type, size, count, price, removeDish, p
 	return (
 		<div className="cart__item">
 			<div className="cart__item-img">
-				<img className="pizza-block__image" src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg" alt="Фото обранної страви"/>
+				<img className="pizza-block__image" src={image} alt="Фото обранної страви"/>
 			</div>
 			<div className="cart__item-info">
 				<h3>{name}</h3>

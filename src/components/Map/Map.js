@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 // google-map
-import { GoogleMap, Marker, Polygon } from 'react-google-maps'
+import { GoogleMap, Marker, Polygon, withScriptjs, withGoogleMap } from 'react-google-maps'
 // area style
 import mapStyle from './MapStyle'
 // marker
-import iconMarker from '../../images/map-marker.svg'
+import iconRestaurant from '../../images/restaurant-marker.svg'
+import iconDestination from '../../images/destination-marker.svg'
+// import iconDelivery
+// axios
+import axios from 'axios'
 
-function Map() {
+function Map({className, address}) {
+	const key = 'AIzaSyDHsBvb0Wq3AaQV-vYjxdeSM_16enhTrTk'
+	let baseURL = `https://maps.googleapis.com/maps/api/geocode/json?key=`
+	const [deliveryPlace, setDeliveryPlace] = useState({lat: 0, lng: 0})
 	const mapInfo = {
 		mapCenter: {
 			lat: 46.45412,
@@ -15,16 +22,18 @@ function Map() {
 		defaultZoom: 11,
 		selectedMarker: null,
 	}
-	const restarauntMarker=[
+	const restaurantMarker=[
 		{
 			lat: 46.48437, 
-			lng: 30.73685   
+			lng: 30.73685,
 		}, 
 		{
 			lat: 46.43718, 
-			lng: 30.71541
-		}
+			lng: 30.71541,
+		},
 	]
+
+
 	const deliveryArea = [
 		{ lat: 30.727317, lng: 46.370594}, 
 		{ lat: 30.725429, lng: 46.377582}, 
@@ -129,34 +138,63 @@ function Map() {
 		{ lat: 30.727317, lng: 46.370594},  
 	]	
 	
-	return (
-		<GoogleMap
-			defaultZoom={mapInfo.defaultZoom}
-			defaultCenter={mapInfo.mapCenter}
-			defaultOptions={{styles: mapStyle}}
-		>
-			{
-				restarauntMarker.map( (coord, index) => {
-				return	<Marker
-							key={index}
-							position={{lat: coord.lat, lng: coord.lng}}
-							icon={{url: iconMarker}}
-						/>
-				})
-			}
-			<Polygon
-				path={
-					deliveryArea.map( coord => {return {lat: coord.lng, lng: coord.lat}})
+
+	useEffect(() => {
+		address && axios.get(`${baseURL}${key}&address=${address}`).then( ({data}) => {
+			setDeliveryPlace(prevState => ({
+                ...prevState,
+                lat: +data.results[0].geometry.location.lng.toFixed(5),
+				lng: +data.results[0].geometry.location.lat.toFixed(5)
+            }))
+		}).catch( (error) =>{
+			console.log(`error=${error}`)
+		})
+	}, [address])
+
+	const MapComponent = withScriptjs(withGoogleMap( () =>  
+			<GoogleMap
+				defaultZoom={mapInfo.defaultZoom}
+				defaultCenter={mapInfo.mapCenter}
+				defaultOptions={{styles: mapStyle}}
+			>
+				{
+					restaurantMarker.map( (coord, index) => {
+					return	<Marker
+								key={index}
+								position={{lat: coord.lat, lng: coord.lng}}
+								icon={{url: iconRestaurant}}
+							/>
+					})
 				}
-				options={{
-					fillColor: "#fe5f1e",
-					fillOpacity: 0.4,
-					strokeColor: "red",
-					strokeOpacity: 1,
-					strokeWeight: 1
-				}} 
-			/>
-		</GoogleMap>
+				{
+					address && 
+					<Marker
+						position={{lat: deliveryPlace.lng, lng: deliveryPlace.lat}}
+						icon={{url: iconDestination}}
+					/>
+				}
+				<Polygon
+					path={
+						deliveryArea.map( coord => {return {lat: coord.lng, lng: coord.lat}})
+					}
+					options={{
+						fillColor: "#fe5f1e",
+						fillOpacity: 0.4,
+						strokeColor: "red",
+						strokeOpacity: 1,
+						strokeWeight: 1
+					}} 
+				/>
+			</GoogleMap>
+	))
+
+	return (
+		<MapComponent
+			googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${key}`}
+			loadingElement={<div style={{ height: '100%', width: '100%' }}></div>}
+			containerElement={<div style={{ height: 'auto', width: '100%' }} className={className}></div>}
+			mapElement={<div style={{ height: '100%', width: '100%' }}></div>}
+		/>
 	)
 }
 

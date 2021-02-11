@@ -13,7 +13,7 @@ export { default as HeaderContacts} from './HeaderContacts/HeaderContacts'
 export { default as Title} from './Common/Title/Title'
 export { default as ReservationCard} from './ReservationCard/ReservationCard.js'
 export { default as ModalReservationCard} from './ReservationCard/ModalReservationCart.js'
-export { default as Map} from './Map/WrappedMap.js'
+export { default as Map} from './Map/Map.js'
 export { default as Portal} from './Portal/Portal.js'
 
 // for Main page

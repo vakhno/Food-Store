@@ -1,0 +1,43 @@
+@import '../../sass/_variables'
+
+.order
+	&__container
+		@include container($container-l)
+	&__no-select
+		pointer-events: none
+		user-select: none
+	&__step-info
+		display: flex
+		justify-content: center
+
+.destination-block
+	display: flex
+	justify-content: center
+	&__form
+		width: 100%
+		display: grid
+		grid-template-areas: "street house" "apartment frontDoor" "reception reception" "details details" "submit submit"
+		row-gap: 20px
+		column-gap: 30px
+		grid-template-columns: 1fr 1fr
+		grid-template-rows: auto
+		margin-right: 30px
+	&__street
+		grid-area: street
+	&__house
+		grid-area: house
+	&__apartment
+		grid-area: apartment
+	&__frontDoor
+		grid-area: frontDoor
+	&__details
+		grid-area: details
+	&__reception
+		grid-area: reception
+	&__submit
+		justify-self: end
+		grid-area: submit
+	&__map
+		max-width: 320px
+	input
+		height: 38px

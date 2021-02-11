@@ -13,7 +13,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faShoppingBasket} from '@fortawesome/free-solid-svg-icons'
 import {faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 // visual content
-import emptyImage from '../../images/empty-cart.png'
 import Basket from '../../images/basket.svg'
 
 function Cart() {
@@ -59,7 +58,7 @@ function Cart() {
 						</div>
 						<div className="cart__list">
 							{
-								addedDishes.map(elem => elem.map( (elem) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem} ></CartItem> ))
+								addedDishes.map(elem => elem.map( (elem) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} image={elem[0].imageUrl} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem} ></CartItem> ))
 							}
 						</div>
 						<div className="cart__bottom-info">
@@ -76,7 +75,9 @@ function Cart() {
 										До меню
 									</Button>
 								</Link>
-								<Button className='cart__pay-button' solid light>Спалтити зараз</Button>
+								<Link to="/order">
+									<Button className='cart__pay-button' solid light>Сплатити зараз</Button>
+								</Link>
 							</div>
 						</div>
 					</div>

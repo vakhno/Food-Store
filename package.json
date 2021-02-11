@@ -10,6 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@fortawesome/react-fontawesome": "^0.1.14",
+    "@reach/combobox": "^0.13.0",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "node-sass": "^4.14.1",
@@ -24,6 +25,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "swiper": "^6.4.5",
+    "use-places-autocomplete": "^1.8.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

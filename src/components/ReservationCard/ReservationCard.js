@@ -16,7 +16,6 @@ function ReservationCard({dark, light}) {
 	const [telephone, setTelephone] = useState('')
 	const [telephoneValid, setTelephoneValid] = useState(false)
 	const [formValid, setFormValid] = useState(false)
-	// const formValid = Boolean(nameValid && surnameValid && dateValid && telephoneValid)
 
 	const valueToState = (e) => {
 		const name = e.target.name
@@ -37,7 +36,7 @@ function ReservationCard({dark, light}) {
 				break
 			case 'telephone':
 				setTelephone(value)
-				setTelephoneValid(value.length >= 10)
+				setTelephoneValid(value.length >= 2)
 				break
 			default:
 				break
@@ -48,17 +47,16 @@ function ReservationCard({dark, light}) {
 		e.preventDefault()
 
 		setFormValid(Boolean(nameValid && surnameValid && dateValid && telephoneValid))
-		console.log(formValid)
 	}
 
 	const closeForm = () => {
 		setName('')
-		setSurname('')
-		setDate('')
-		setTelephone('')
 		setNameValid(false) 
+		setSurname('')
 		setSurnameValid(false)
+		setDate('')
 		setDateValid(false)
+		setTelephone('')
 		setTelephoneValid(false)
 
 		setFormValid(false)
