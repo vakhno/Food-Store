@@ -15,6 +15,7 @@ export { default as ReservationCard} from './ReservationCard/ReservationCard.js'
 export { default as ModalReservationCard} from './ReservationCard/ModalReservationCart.js'
 export { default as Map} from './Map/Map.js'
 export { default as Portal} from './Portal/Portal.js'
+export { default as Input} from './Common/Input/Input.js'
 
 // for Main page
 export { default as FirstSlider} from './Main/FirstSlider/FirstSlider.js'

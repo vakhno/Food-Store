@@ -6,11 +6,14 @@
 	&__no-select
 		pointer-events: none
 		user-select: none
+	&__block-title
+		@include title($white, 30px, 300)
 	&__step-info
 		display: flex
 		justify-content: center
 
 .destination-block
+	padding: 30px
 	display: flex
 	justify-content: center
 	&__form
@@ -33,11 +36,16 @@
 	&__details
 		grid-area: details
 	&__reception
+		display: flex
 		grid-area: reception
+		justify-self: start
+		label
+			&:not(:last-of-type)
+				margin-right: 18px
 	&__submit
 		justify-self: end
 		grid-area: submit
 	&__map
 		max-width: 320px
-	input
-		height: 38px
+
+.contact-block

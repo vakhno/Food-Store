@@ -3,6 +3,7 @@ import React, {useState, use} from 'react'
 import './Order.sass'
 // components
 import Destination from '../Order/Destination'
+import Contacts from '../Order/Contacts'
 
 import {BrowserRouter as Router, Switch, Route, useHistory, Link, useRouteMatch} from 'react-router-dom'
 
@@ -12,19 +13,29 @@ function Order() {
 	return (
 		<div className="order">
 			<div className="order__container">
-				<details className="order__destination" style={{color:'white'}} open>
-					<summary>Адреса</summary>
-					<Destination/>
+				
+				<details className="order__info-block" close>
+					<summary className="order__block-title">Контакті дані</summary>
+					{/* <div className="order__step-info"> */}
+					<div className="destination-block">
+						<Contacts/>
+					</div>
+					{/* </div> */}
 				</details>
 
-
-				<details className="order__destination" style={{color:'white'}} close>
-					<summary>Контакті дані</summary>
-					<div className="order__step-info" style={{height:'300px'}}>
-
+				<details className="order__info-block" open>
+					<summary className="order__block-title">Адреса</summary>
+					<div className="destination-block">
+						<Destination/>
 					</div>
 				</details>
 
+				<details className="order__info-block" open>
+					<summary className="order__block-title">Деталі замовлення</summary>
+					<div className="destination-block">
+				
+					</div>
+				</details>
 
 			</div>
 		</div>

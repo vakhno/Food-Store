@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import './Order.sass'
-import {Map} from '../../components'
+import {Map, Input, Button} from '../../components'
 
 function Destination() {
 	const [street, setStreet] = useState('')
@@ -45,12 +45,12 @@ function Destination() {
 	}
 
 	return (
-		<div className="destination-block">
+		<>
 			<form onSubmit={submitForm} className='destination-block__form'>
-				<input type="text" name='street' placeholder='Вулиця' className="destination-block__street" value={street} onChange={valueToState}/>
-				<input type="text" name='house' placeholder='Дім' className="destination-block__house" value={house} onChange={valueToState}/>
-				<input type="text" name='apartment' placeholder='Квартира' className="destination-block__apartment" value={apartment} onChange={valueToState}/>						
-				<select id="" name="frontDoor" className="destination-block__frontDoor" value={frontDoor} {...apartment ? {} : {disabled: true}} onChange={valueToState}>
+				<Input tag='input' type="text" name='street' placeholder='Вулиця' className="destination-block__street" value={street} onChange={valueToState} solid light/>
+				<Input tag='input' type="text" name='house' placeholder='Дім' className="destination-block__house" value={house} onChange={valueToState} solid light/>
+				<Input tag='input' type="number" min="1" step="1" name='apartment' placeholder='Квартира' className="destination-block__apartment" value={apartment} onChange={valueToState} solid light/>
+				<Input tag='select' name='frontDoor' className="destination-block__frontDoor" value={frontDoor} disabled={apartment ? false : true} onChange={valueToState} solid light>
 					<option value="" disabled selected>Парадна</option>
 					<option value=""></option>
 					<option value="1">1</option>
@@ -59,23 +59,16 @@ function Destination() {
 					<option value="4">4</option>
 					<option value="5">5</option>
 					<option value="6">6</option>
-				</select>
+				</Input>
 				<div className="destination-block__reception">
-					<label>
-						<input type="radio" class="" name="delivery" value='toCar' checked={delivery === 'toCar'} onClick={valueToState}/>
-						Вийду до машини
-					</label>
-					<label>
-						<input type="radio" class="" name="delivery" value='toDoors' checked={delivery === 'toDoors'} onClick={valueToState}/>
-						До дверей
-					</label>
+					<Input tag='radio' type="radio" name="delivery" value='toCar' checked={delivery === 'toCar'} onClick={valueToState} solid light>Вийду до машини</Input>
+					<Input tag='radio' type="radio" name="delivery" value='toDoors' checked={delivery === 'toDoors'} onClick={valueToState} solid light>До дверей</Input>
 				</div>
-				<textarea name="details" id="" cols="30" rows="5" placeholder='Коментар до адреси...' className="destination-block__details" value={details} onChange={valueToState}></textarea>
-
-				<button className="destination-block__submit">Підтвердити</button>
+				<Input tag='textarea' name="details" cols="30" rows="5" placeholder='Коментар до адреси...' className="destination-block__details" value={details} onChange={valueToState} solid light/>
+				<Button className="destination-block__submit" solid light>Знайти місцезнаходження на карті</Button>
 			</form>
 			<Map className="destination-block__map" address={destinationAddress}/>
-		</div>
+		</>
 	)
 }
 

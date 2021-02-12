@@ -19,7 +19,7 @@ function Map({className, address}) {
 			lat: 46.45412,
 			lng: 30.738760
 		},
-		defaultZoom: 11,
+		defaultZoom: 10,
 		selectedMarker: null,
 	}
 	const restaurantMarker=[
