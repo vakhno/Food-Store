@@ -2,7 +2,7 @@
 
 Просмотреть [ПРИЛОЖЕНИЕ](https://food-store-app.herokuapp.com/).
 
-Функционал: 
+Функционал и использованные инструменты: 
   - использование хуков(useState, useEffect, useCallback, useRef)
   - реализация стилей с помощью Sass(mixin, extend, variables)
   - Redux для глобального работы со стейтами
