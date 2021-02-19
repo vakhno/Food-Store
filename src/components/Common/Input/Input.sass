@@ -39,9 +39,12 @@
 	@include title(null, 14px, 500)
 	letter-spacing: 0.5px
 	resize: none
-	outline: none
+	// outline: none
+	&__error
+		border: 2px solid red !important
+		outline: 2px solid red !important
 	&__solid
-		border: none
+		// border: none
 		&.input--light
 			background-color: $white
 			color: $true-black

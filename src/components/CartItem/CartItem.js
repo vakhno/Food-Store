@@ -4,8 +4,8 @@ import './CartItem.sass'
 // components
 import {Button} from '../index'
 
-function CartItem({id, categoryId, name, image, type, size, count, price, removeDish, plusCartItem, minusCartItem}) {
-
+function CartItem({id, categoryId, name, category, image, toggle1, toggle2, count, price, removeDish, plusCartItem, minusCartItem}) {
+	console.log(toggle1, toggle2)
 	const deleteDishFromList = () => {
 		removeDish(categoryId)
 	}
@@ -25,7 +25,17 @@ function CartItem({id, categoryId, name, image, type, size, count, price, remove
 			</div>
 			<div className="cart__item-info">
 				<h3>{name}</h3>
-				<p>{type} тесто, {size} см.</p>
+				{
+					category === 'pizza' ?
+						<>
+							<p>{toggle1} тісто, {toggle2} см.</p>
+						</>
+					: category === 'drink' ?
+						<>
+							<p>об'єм {toggle1} л.</p>
+						</>
+					: null
+				}
 			</div>
 			<div className="cart__item-count">
 				<Button className="cart__item-count-minus" outline dark onClick={minusDishItem}>

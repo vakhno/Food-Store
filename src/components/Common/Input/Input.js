@@ -4,11 +4,18 @@ import './Input.sass'
 // classNames
 import classNames from 'classnames'
 
-function Input({tag, type, placeholder, name, className, value, cols, rows, checked, disabled, onClick, onChange, children, solid, skeleton, dark, light, min, step, pattern}) {
+function Input({tag, type, placeholder, name, className, value, cols, rows, checked, disabled, onClick, onChange, children, solid, skeleton, dark, light, ref}) {
 	let outputInput = null
 
 	if(tag === 'input'){
-		outputInput = <input type={type} placeholder={placeholder} min={min} step={step} pattern={pattern} className={classNames('input', className, {
+		outputInput = <input type={type} placeholder={placeholder} ref={ref} className={classNames('input', className, {
+			'input--dark': dark,
+			'input--light': light,
+			'input__solid': solid,
+			'input__skeleton': skeleton,
+		})} name={name} value={value} onChange={onChange} onClick={onClick}/>
+	}else if(tag === 'tel'){
+		outputInput = <input type={type} placeholder={placeholder} ref={ref} className={classNames('input', className, {
 			'input--dark': dark,
 			'input--light': light,
 			'input__solid': solid,

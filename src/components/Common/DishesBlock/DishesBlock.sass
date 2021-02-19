@@ -38,7 +38,7 @@
 		&-items
 			display: flex
 			flex: 1
-			&:first-of-type
+			&:not(:last-of-type)
 				margin-bottom: 6px
 		&-item
 			@include title($white, 14px, 500)

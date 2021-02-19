@@ -5,16 +5,11 @@ import './ModalReservationCart.sass'
 import {Portal, Button, Title} from '../index'
 
 function ModalReservationCart({isOpen, onClose}) {
-	const check = () => {
-		console.log(1111111)
-	}
 	return (
 		
 		<>
 			{
 				isOpen &&
-				{check} 
-				&&
 				<Portal>
 					<div className='sub-window'>
 						<div className="sub-window__content">

@@ -56,7 +56,7 @@ function Dishes() {
 	const cartItems =  useSelector( ({cart}) => cart.items )
 	const isLoaded =  useSelector( ({dishes}) => dishes.isLoaded )
 	const {category, sortBy} = useSelector(({filter}) => filter)
-
+	console.log(dishes)
 	useEffect(() => {
 		dispatch(fetchDishes(sortBy, category))
 	}, [category, sortBy])

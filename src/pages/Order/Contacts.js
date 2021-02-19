@@ -31,12 +31,13 @@ function Contacts() {
 	}
 
 	return (
-			<form onSubmit={submitForm} style={{display:'flex'}}>
+		<div className="contacts">
+			<form onSubmit={submitForm} className="contacts__form">
 				<Input tag='input' type="text" name='name' placeholder='Ім`я' className="" value={name} onChange={valueToState} solid light/>
 				<Input tag='input' type="text" name='surname' placeholder='Прізвище' className="" value={surname} onChange={valueToState} solid light/>
 				<Input tag='input' type="number" name='telephone' placeholder='Номер телефону' className="" value={telephone} onChange={valueToState} solid light/>
-				<Button className="destination-block__submit" solid light>Підтвердити</Button>
 			</form>
+		</div>
 	)
 }
 

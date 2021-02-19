@@ -16,10 +16,10 @@ import {faTrashAlt} from '@fortawesome/free-solid-svg-icons'
 import Basket from '../../images/basket.svg'
 
 function Cart() {
-	const {totalPrice, totalCount, items } = useSelector( ({cart}) => cart)
+	const {totalPrice, totalCount, items} = useSelector( ({cart}) => cart)
 	const addedDishes = Object.values(items).map( dish => Object.values(dish).map( elem => Object.values(elem).map(elem => elem ) ) ) 	
 	const dispatch = useDispatch()
-
+	console.log( addedDishes)
 	const onClearCart = () => {
 		if(window.confirm('Очистить корзину')){
 			dispatch(clearCart())
@@ -58,7 +58,7 @@ function Cart() {
 						</div>
 						<div className="cart__list">
 							{
-								addedDishes.map(elem => elem.map( (elem) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} image={elem[0].imageUrl} type={elem[0].type} size={elem[0].size} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem} ></CartItem> ))
+								addedDishes.map(elem => elem.map( (elem) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} category={elem[0].category} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem} ></CartItem> ))
 							}
 						</div>
 						<div className="cart__bottom-info">
@@ -76,7 +76,7 @@ function Cart() {
 									</Button>
 								</Link>
 								<Link to="/order">
-									<Button className='cart__pay-button' solid light>Сплатити зараз</Button>
+									<Button className='cart__pay-button' solid light>Оформлення замовлення</Button>
 								</Link>
 							</div>
 						</div>

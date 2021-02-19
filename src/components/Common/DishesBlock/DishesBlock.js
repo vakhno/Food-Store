@@ -7,29 +7,24 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 // components
 import {Button} from '../../index'
+import DishesBlockToggles from './DishesBlockToggles'
 
-function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, light, dark, className}) {
-	const [activeType, setActiveType] = useState(types[0])
-	const availableTypes = ['тонке', 'традиційне']
-	const [activeSize, setActiveSize] = useState(sizes[0])
-	const availableSizes = [25, 30, 40]
-
-	const onSelectType = (index) => {
-		setActiveType(index)
-	}
-
-	const onSelectSize = (index) => {
-		setActiveSize(index)
-	}
+function DishesBlock({id, name, category, imageUrl, price, toggle1, toggle2, onClickAddDish, light, dark, className}) {
+	const [choosenToggle1, setChoosenToggle1] = useState(toggle1[0])
+	const [choosenToggle2, setChoosenToggle2] = useState(toggle2[0])
 
 	const onAddDish = () => {
+		console.log(toggle1)
+		console.log(choosenToggle1)
+		console.log(choosenToggle2)
 		const dishInfo = {
 			id,
 			name, 
 			imageUrl,
+			category,
 			price,
-			size: availableSizes[activeSize],
-			type: availableTypes[activeType],
+			toggle1: choosenToggle1,
+			toggle2: choosenToggle2,
 		}
 		onClickAddDish(dishInfo)
 	}
@@ -48,30 +43,7 @@ function DishesBlock({id, name, imageUrl, price, types, sizes, onClickAddDish, l
 		</div>
 		<h4 className="dish-block__title">{name}</h4>
 		<div className="dish-block__selector">
-			<ul className="dish-block__selector-items">
-				{availableTypes.map((type, index) => 
-					<li 
-						onClick={() => onSelectType(index)} 
-						className={ classNames("dish-block__selector-item", { 
-							'active': activeType === index,
-							'disabled': !types.includes(index),
-						})} 
-						key={type}>
-						{type}
-					</li>)}
-			</ul>
-			<ul className="dish-block__selector-items">
-			{availableSizes.map((size, index) => 
-					<li 
-						onClick={() => onSelectSize(index)} 
-						className={ classNames("dish-block__selector-item", { 
-							'active': activeSize === index,
-							'disabled': !sizes.includes(index),
-						})} 
-						key={size}>
-						{size} см.
-					</li>)}
-			</ul>
+			<DishesBlockToggles category={category} toggle1={toggle1} toggle2={toggle2} onSelectToggle1={setChoosenToggle1} onSelectToggle2={setChoosenToggle2}/>
 		</div>
 		<div className="dish-block__bottom">
 			<div className="dish-block__price">{price} ₴</div>
@@ -99,8 +71,8 @@ DishesBlock.propTypes = {
 	name: PropTypes.string.isRequired,
 	imageUrl: PropTypes.string.isRequired,
 	price: PropTypes.number.isRequired,
-	types: PropTypes.arrayOf(PropTypes.number).isRequired,
-	sizes: PropTypes.arrayOf(PropTypes.number).isRequired,
+	toggle1: PropTypes.arrayOf(PropTypes.number).isRequired,
+	toggle2: PropTypes.arrayOf(PropTypes.number).isRequired,
 	onClickAddDish: PropTypes.func,
 	addedCount: PropTypes.number,
 }
@@ -109,8 +81,8 @@ DishesBlock.defaultProps = {
 	name: '------',
 	imageUrl: '',
 	price: 0,
-	types: [],
-	sizes: [],
+	toggle1: [],
+	toggle2: [],
 }
 
 export default DishesBlock

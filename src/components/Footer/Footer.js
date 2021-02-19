@@ -78,9 +78,6 @@ function Footer() {
 	return (
 		<div className='footer'>
 			<div className="footer__info">
-				<div className="footer__info-title">
-					<Title title='про нас' subtitle='ресторан італійської кухні, який дозволяє доторкнутись до історично сформованих, багатовікових гастрономічних традицій' light/>
-				</div>
 				<div className="footer__about">
 					{info.map(block => {
 						return	<div className="footer__about-block">

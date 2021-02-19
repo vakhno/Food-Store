@@ -1,95 +1,164 @@
-import React, {useState, use} from 'react'
+import React, {useState, useEffect} from 'react'
+import {Map, Input, Button, OrderItem} from '../../components'
+import {useForm} from 'react-hook-form'
+import {useSelector, useDispatch} from 'react-redux'
+import ModalOrder from '../../pages/Order/ModalOrder'
 // styles
 import './Order.sass'
 // components
-import Destination from '../Order/Destination'
-import Contacts from '../Order/Contacts'
 
-import {BrowserRouter as Router, Switch, Route, useHistory, Link, useRouteMatch} from 'react-router-dom'
+// const defaultValues = {
+// 	delivery: "toCar",
+// 	frontDoor: null
+// }
 
 function Order() {
+	const {items} = useSelector( ({cart}) => cart)
+	const orderDishes = Object.values(items).map( dish => Object.values(dish).map( elem => Object.values(elem).map(elem => elem ) ) ) 	
 
+	// const [validClientInfo, setValidClientInfo] = useState(false)
+	const {totalPrice} = useSelector( ({cart}) => cart)
+	const {register, handleSubmit, getValues, setValues, watch, formState: { isValid, isDirty}, errors} = useForm({  })
+	const [destinationAddress, setDestinationAddress] = useState('')
+	const [allUserInfo, setAllUserInfo] = useState(null)
+	const [formValid, setFormValid] = useState(false)
+
+	const watchApartments = watch("apartment", false)
+	const watchStreet = watch("street")
+	const watchHouse = watch("house")
+
+	const submitForm = (data) => {
+		console.log(data)
+		if (isValid) {  
+			setAllUserInfo(data)
+			setFormValid(true)
+			return true
+		}	
+		return false
+	}
+	console.log(orderDishes)
+
+	const closeModal = () => {
+		setFormValid(false)
+	}
+
+	
+	const findDestinationMarker = (data) => {
+		return watchStreet && watchHouse ? setDestinationAddress(`Одеса,${watchStreet},${watchHouse}`) : null
+	}
 
 	return (
 		<div className="order">
 			<div className="order__container">
+				<div className="order__info-block">
+				<div className='destination'>
+					<form id="order-sent-form" className='destination__form'>
+						<input 
+							type="text"
+							name='name' 
+							placeholder='Ім`я' 
+							className={`input input__solid input__light destination__name ${errors.name ? 'input__error' : ''}`} 
+							ref={register({required: true})}
+						/>
+						<input 
+							type="tel"
+							name='telephone' 
+							placeholder='Номер телефону' 
+							className={`input input__solid input__light destination__telephone ${errors.telephone ? 'input__error' : ''}`} 
+							ref={register({required: true})}
+						/>
+						<input 
+							type="text" 
+							name='street' 
+							placeholder='Вулиця' 
+							className={`input input__solid input__light destination__street ${errors.street ? 'input__error' : ''}`}
+							ref={register({required: true})}
+						/>
+						<input 
+							type="text" 
+							name='house' 
+							placeholder='Дім' 
+							className={`input input__solid input__light destination__house ${errors.house ? 'input__error' : ''}`}
+							ref={register({required: true})}
+						/>
+						<input 
+							type="number" 
+							name="apartment" 
+							placeholder='Квартира' 
+							className={`input input__solid input__light destination__apartment ${errors.apartment ? 'input__error' : ''}`}
+							ref={register({required: false})}
+						/>
+						<select 
+							name='frontDoor' 
+							className={`input input__solid input__light destination__frontDoor ${errors.frontDoor ? 'input__error' : ''}`}
+							disabled={getValues("apartment") ? false : true} 
+							ref={register({required: watchApartments ? true : false})}
+						>
+							<option defaultValue="" disabled selected={watchApartments ? false : true} >Парадна</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select>
+						<div className="destination__reception">
+							<label 
+								className={`label label--light`}
+							>
+								<input 
+									type="radio"
+									className={`input`} 
+									name="delivery" 
+									value="toCar"
+									defaultChecked
+									ref={register({required: false})}
+								/>
+								Вийду до машини
+							</label>
+							<label 
+								className={`label label--light`}
+							>
+								<input 
+									type="radio"
+									className={`input`} 
+									name="delivery"
+									value="toDoors"
+									ref={register({required: false})}
+								/>
+								До дверей
+							</label>
+						</div>
+					<textarea
+						name="details" 
+						cols="30" 
+						rows="5" 
+						placeholder="Коментар до адреси..." 
+						className={`input input__solid input__light destination__details`}
+						ref={register({required: false})}
+					/> 
+						<Button type="button" onClick= {findDestinationMarker} className="destination__submit" solid light>Знайти місцезнаходження на карті</Button>
+					</form>
+			<Map  className="destination__map" address={destinationAddress}/>
+				</div>
+
+
+				<div className="cart__list">
+					{
+						orderDishes.map(elem => elem.map( (elem) => <OrderItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length}></OrderItem> ))
+					}
+				</div>
 				
-				<details className="order__info-block" close>
-					<summary className="order__block-title">Контакті дані</summary>
-					{/* <div className="order__step-info"> */}
-					<div className="destination-block">
-						<Contacts/>
-					</div>
-					{/* </div> */}
-				</details>
+				<div className="details">
+					<div className="details__price" style={{color:'white'}}>Загальний рахунок: <span>{totalPrice}</span></div>
+					<Button form="order-sent-form" disabled={totalPrice > 0 ? false : true} onClick={handleSubmit(submitForm)} type='submit' className="order__submit" solid light>Замовити</Button>
+				</div>
 
-				<details className="order__info-block" open>
-					<summary className="order__block-title">Адреса</summary>
-					<div className="destination-block">
-						<Destination/>
-					</div>
-				</details>
-
-				<details className="order__info-block" open>
-					<summary className="order__block-title">Деталі замовлення</summary>
-					<div className="destination-block">
-				
-					</div>
-				</details>
-
+				</div>
 			</div>
+			<ModalOrder isOpen={formValid} onClose={closeModal} data={allUserInfo}/>
 		</div>
 	)
 }
 
 export default Order
-
-
-
-
-
-
-
-
-
-
-// import React from 'react'
-// import './Order.sass'
-// import Destination from './Destination'
-// import ClientData from './ClientData'
-// import OrderData from './OrderData'
-// import {BrowserRouter as Router, Switch, Route, useHistory, Link, useRouteMatch} from 'react-router-dom'
-
-// function Order() {
-// 	let match = useRouteMatch();
-// 	let history = useHistory()
-// 	let name = false
-// 	console.log(match)
-// 	console.log(history)
-// 	return (
-// 		<>
-// 		<Router basename='Food-Store/'>
-// 		<div className="order__way" style={{color:'white'}}>
-// 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus obcaecati ducimus possimus rem atque veniam vel ut numquam aut ratione impedit, veritatis deserunt? Ratione vitae nam incidunt, error maiores ab.
-// 			Accusamus modi eaque commodi pariatur eius, inventore ratione ab dolorum cumque eveniet. Officiis deleniti mollitia est dolorem odit, explicabo ab, dolores accusamus eius nisi, quas debitis voluptatum recusandae? Voluptatem, quibusdam.
-// 		</div>
-// 			<Link to={`${match.url}/client-data`}>
-// 				<button>wwwwwwwww</button>
-// 			</Link>
-// 			<Link to={`${match.url}/dishes-data`}>
-// 				<button>111111111</button>
-// 			</Link>
-// 			<div className="order__part">
-// 					<Switch>
-// 						<Route exact path={`${match.path}`} component={Destination}/>
-// 						<Route exact path={`${match.path}/client-data`} component={ClientData}/>
-// 						<Route exact path={`${match.path}/dishes-data`} component={OrderData}/>
-// 					</Switch>
-					
-// 			</div>
-// 		</Router>
-// 		</>
-// 	)
-// }
-
-// export default Order
