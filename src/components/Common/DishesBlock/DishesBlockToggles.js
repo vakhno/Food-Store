@@ -59,7 +59,7 @@ function DishesBlockToggles({category, toggle1, toggle2, onSelectToggle1, onSele
 						<ul className="dish-block__selector-items">
 						{drinksToggle1.map((toggle, index) => 
 							<li 
-								onClick={() => setActiveToggle1(index)} 
+								onClick={() => (setActiveToggle1(index), onSelectToggle1(drinksToggle1[index]))} 
 								className={ classNames("dish-block__selector-item", { 
 									'active': activeToggle1 === index,
 									'disabled': !toggle1.includes(index),
