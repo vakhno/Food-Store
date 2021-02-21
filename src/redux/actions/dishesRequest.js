@@ -24,7 +24,7 @@ export const fetchMainMenuDishes = () => (dispatch) => {
 }
 
 export const fetchMainDeliveryDishes = () => (dispatch) => {
-	axios.get(`/dishes`).then( ({data}) => {
+	axios.get(`/menudishes?popular=true`).then( ({data}) => {
 		dispatch(setDeliveryDishes(data))
 		console.log(data)
 	})

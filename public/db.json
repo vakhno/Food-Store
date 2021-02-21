@@ -1,428 +1,5 @@
 {
-	"dishes": [
-	  {
-		"id": 0,
-		"imageUrl": "https://i.postimg.cc/L5bzrwPX/pepperoni.png",
-		"name": "Пепероні",
-		"toggle1": [0, 1],
-		"toggle2": [0, 1, 2],
-		"price": 330,
-		"category": 0,
-		"rating": 4
-	  },
-	  {
-		"id": 1,
-		"imageUrl": "https://i.postimg.cc/htrYf8H0/four-cheese.png",
-		"name": "Чотири сиру",
-		"toggle1": [0],
-		"toggle2": [0, 2],
-		"price": 245,
-		"category": 1,
-		"rating": 6
-	  },
-	  {
-		"id": 2,
-		"imageUrl": "https://i.postimg.cc/xTqVr4hS/carbonara.png",
-		"name": "Карбонара",
-		"toggle1": [0],
-		"toggle2": [1, 2],
-		"price": 295,
-		"category": 1,
-		"rating": 4
-	  },
-	  {
-		"id": 3,
-		"imageUrl": "https://i.postimg.cc/c4chmxXx/double-pepperoni.png",
-		"name": "Подвійне пепероні",
-		"toggle1": [1],
-		"toggle2": [0, 1, 2],
-		"price": 275,
-		"category": 2,
-		"rating": 2
-	  },
-	  {
-		"id": 4,
-		"imageUrl": "https://i.postimg.cc/T1bd6NN0/cheese.png",
-		"name": "Сирна",
-		"toggle1": [0, 1],
-		"toggle2": [0, 1, 2],
-		"price": 380,
-		"category": 3,
-		"rating": 8
-	  },
-	  {
-		"id": 5,
-		"imageUrl": "https://i.postimg.cc/K8P2QgCK/gawain.png",
-		"name": "Гавайська",
-		"toggle1": [0],
-		"toggle2": [1, 2],
-		"price": 420,
-		"category": 2,
-		"rating": 2
-	  },
-	  {
-		"id": 6,
-		"imageUrl": "https://i.postimg.cc/MGSLGPPH/pesto.png",
-		"name": "Песто",
-		"toggle1": [0, 1],
-		"toggle2": [0, 1, 2],
-		"price": 370,
-		"category": 7,
-		"rating": 9
-	  },
-	  {
-		"id": 7,
-		"imageUrl": "https://i.postimg.cc/5t86B0Sp/margarita.png",
-		"name": "Маргарита",
-		"toggle1": [0, 1],
-		"toggle2": [0, 1, 2],
-		"price": 390,
-		"category": 4,
-		"rating": 10
-	  },
-	  {
-		"id": 8,
-		"imageUrl": "https://i.postimg.cc/x1h0F217/four-seasons.png",
-		"name": "Чотири сезони",
-		"toggle1": [0, 1],
-		"toggle2": [0, 1, 2],
-		"price": 345,
-		"category": 5,
-		"rating": 10
-	  },
-	  {
-		"id": 9,
-		"imageUrl": "https://i.postimg.cc/J0xXbnmS/vagetables-and-mashrooms.png",
-		"name": "Овочі та гриби",
-		"toggle1": [0, 1],
-		"toggle2": [0, 1, 2],
-		"price": 285,
-		"category": 5,
-		"rating": 7
-	  }
-	],
-
-
-
-	
-	"alldishes": [
-		{
-			"title": "Десерти",
-			"dishes": [
-				{ 
-					"name": "Тірамісу",
-					"description": "десерт на основі сиру маскарпоне, як наповнювач додається печиво «савоярді», кава та какао",
-					"full-description": "Італійський багатошаровий десерт, до складу якого входять: сир маскарпоне, кава (зазвичай еспресо), курячі яйця, цукор і печиво савоярді. Як правило, десерт припудривают какао-порошком. Можлива варіація з додаванням волоського горіха.",
-					"composition": "сир маскарпоне, кава еспресо, какао-порошок, курині яйця, цукор, печиво савоярді",
-					"weight": 200,
-					"calories": 290,
-					"price": 150,
-					"type": "popular"
-				},
-				{
-					"name": "Панакота",
-					"description": "ніжний, повітряний дересер, який складається з желатіна та сливок",
-					"full-description": "Північноітальянскій десерт з вершків, цукру, желатину і ванілі. Батьківщиною десерту є італійський П'ємонт. Дослівний переклад цих ласощів з італійської мови звучить як «варені вершки», проте це швидше вершковий пудинг або просто вершкове желе з додаванням різних інгредієнтів.",
-					"composition": "вершки, молоко, цукор, ваніль, желатін",
-					"weight": 260,
-					"calories": 110,
-					"price": 130
-				},
-				{
-					"name": "М'ятно-шоколадний парфе",
-					"description": "шоколадний пудинг з додаванням м'ятного семифредо",
-					"full-description": "Холодний десерт, відомий з 1894 року. Готується з вершків, збитих з цукром і ваніллю, а потім заморожених в металевій формі. Іноді в парфе додають збиті яйця.",
-					"composition": "м'ята, чорний шоколад, фруктове пюре, курині яйця, вершки, цукор, ваніль",
-					"weight": 180,
-					"calories": 95,
-					"price": 160,
-					"type": "popular"
-				},
-				{
-					"name": "Яблучний штрудель з корицею",
-					"description": "класичний яблучний штрудель",
-					"full-description": "Штрудель - це один з найпопулярніших десертів у світі. Він складається з дуже тонкого тіста, в яке загортають начинку. Завдяки цьому штрудель і отримав назву, яке дослівно перекладається як вир.",
-					"composition": "яблуко, кориця, миндаль, курині яйця, цукор молоко",
-					"weight": 230,
-					"calories": 160,
-					"price": 180,
-					"type": "popular"
-				},
-				{
-					"name": "Торт з рікоттою і виноградом",
-					"description": "чизкейк з додаванням шоколаду та винограду",
-					"full-description": "М'яка рікотта як інгредієнт десерту відмінно поєднується з желе і повітряним бісквітом. Унікальний, легкий у виконанні і по калорійності торт, припаде до смаку всім членам сім'ї.",
-					"composition": "виноград, сир рікото, молоко, цукор, вершкове масло, лимон",
-					"weight": 220,
-					"calories": 215,
-					"price": 140,
-					"type": "popular"
-				}
-			]
-		},
-		{
-			"title": "Салати",
-			"dishes": [
-				{
-					"name": "Cалат Парміджано",
-					"description": "салатом зі смаженими баклажанами, свіжими помідорами і сиром",
-					"full-description": "Дуже італійський салат - свіжий, яскравий і неймовірно смачний. Головними інгредієнтами в цьому салаті виступають баклажани, приготовані по-особливому, моцарелла і сир пармезан. Ще одна риса приналежності салату до італійської кухні - соус бальзамико в якості заправки.",
-					"composition": "баклажан, салат айсберг, помідори черрі, моцарелла, рукола",
-					"weight": 170,
-					"calories": 125,
-					"price": 220,
-					"type": "popular"
-				},
-				{
-					"name": "Салат з в'яленими помідорами і руколою",
-					"description": "салат з в'яленими помідорами, сиром, кукурудзою і руколою",
-					"full-description": "В'ялені томати – це дивовижний продукт, який можна використовувати для приготування оригінальних страв. Особливо такий інгредієнт цінується в Італії. Напевно, кожен, хто побував у цій країні, обов’язково пробував салат з в’яленими помідорами і не залишився байдужим до такої закуски.",
-					"composition": "в'ялені томати, рукола, пармезан, оливки",
-					"weight": 185,
-					"calories": 110,
-					"price": 200
-				},
-				{
-					"name": "Cалат Тоскана",
-					"description": "солодкість апельсинів, фенхеля і гірчинка руколи",
-					"full-description": "Салат Тоскана відрізняється своїми пікантними нотками і незвичайними поєднаннями смаку. Повірте, ніхто не зможе залишитися байдужим до такого витвору мистецтва.",
-					"composition": "пармська шинка, мандарин, ананас, мед, рукола",
-					"weight": 190,
-					"calories": 115,
-					"price": 240,
-					"type": "popular"
-				},
-				{
-					"name": "Cалат Пепероната",
-					"description": "богарський перец з різноманітними приправами",
-					"full-description": "Пепероната - салат з солодкими перцемі. Ідеальний гарнір для курки і риби, а також страв, приготованих на грилі.",
-					"composition": "болгарський перець, баклажан, сир фета, кедрові горіхи, кінза",
-					"weight": 205,
-					"calories": 125,
-					"price": 210,
-					"type": "popular"
-				},
-				{
-					"name": "Cалат Капрезе",
-					"description": "салат з помідорів, сиру та базиліку",
-					"full-description": "Вважається, що капрезе з'явився на острові Капрі, в Неаполітанському затоці, адже дослівно назва салату можна перевести як салат з острова Капрі. Крім, безпосередньо, географічної приналежності до Італії, салат вважають істинно італійським через його колірного подібності з прапором країни: червоні помідори, зелений базилік і білий сир моцарелла.",
-					"composition": "моцарелла, помідори, базилік",
-					"weight": 200,
-					"calories": 100,
-					"price": 210
-				},
-				{
-					"name": "Карпаччо",
-					"description": "печериці з соусом із помідорів та базиліка, із зеленню і пармезаном",
-					"full-description": "Це традиційна італійська нарізка, приправлена додатковими інгредієнтами для посилення аромату.",
-					"composition": "яловична вирізка, йогурт, вустерський соус, лимон",
-					"weight": 230,
-					"calories": 220,
-					"price": 250
-				}
-			]
-		},
-		{
-			"title": "Головні",
-			"dishes":[
-				{
-					"name": "Прошутто",
-					"description": "пармська шинка з хлібцями",
-					"full-description": "Прошутто - улюблена в багатьох країнах італійська шинка. Однак вона не має нічого спільного з тією шинкою, яку ми звикли бачити на прилавках вітчизняних магазинів. Прошутто є в'ялений свинячий окіст - його продають цільним шматком м'яса або нарізаним на найтонші скибочки.",
-					"composition": "яловична вирізка, йогурт, вустерський соус, лимон",
-					"weight": 230,
-					"calories": 370,
-					"price": 320,
-					"type": "popular"
-				},
-				{
-					"name": "Суп Мінестроне",
-					"description": "суп з бобів, моркви, томатів, картофелю та пасти",
-					"price": 290,
-					"type": "popular"
-				},
-				{
-					"name": "Равіолі",
-					"description": "класичні равіолі з м'ясною начинкою",
-					"price": 300
-				},
-				{
-					"name": "Курча Пармезан",
-					"description": "куряче стегно під пармезаном з пастою",
-					"price": 390,
-					"type": "popular"
-				},
-				{
-					"name": "Ризото",
-					"description": "ризото з білими грибами та квасолею",
-					"price": 350,
-					"type": "popular"
-				},
-				{
-					"name": "Равіолі з чорнилами каракатиці",
-					"description": "класичні равіолі з доданням чорнил каракатиці",
-					"price": 350,
-					"type": "popular"
-				},
-				{
-					"name": "Лазанья",
-					"description": "класинча лазанья з пармезану, шинки, моццарели рікотто і яловичини",
-					"price": 370
-				},
-				{
-					"name": "Спагеті",
-					"description": "спагеті під вершковим соусом",
-					"price": 280
-				}
-			]
-		},
-		{
-			"title": "Піци",
-			"dishes": [
-				{
-					"name": "Чиказька піца з томатами",
-					"description": "піцца з доданням томатів, пармезану, моццарели та свіжих трав",
-					"price": 450,
-					"type": "popular"
-				},
-				{
-					"name": "Чорна піца з золотими пелюстками",
-					"description": "тісто замішане з чорнилами каракатиці покритого золотим",
-					"price": 950
-				},
-				{
-					"name": "Піца з хамоном",
-					"description": "піцца з доданням пармезану, моццарели та хамону",
-					"price": 520,
-					"type": "popular"
-				},
-				{
-					"name": "Пепероні з перцем",
-					"description": "",
-					"price": 330
-				},
-				{
-					"name": "Чотири сиру",
-					"description": "вкусове поєднання пармезану та сирів з благородною цвіллю",
-					"price": 245,
-					"type": "popular"
-				},
-				{
-					"name": "Курча барбекю",
-					"description": "",
-					"price": 295
-				},
-				{
-					"name": "Кисло-солодке курча",
-					"description": "",
-					"price": 275
-				},
-				{
-					"name": "Чізбургер-піца",
-					"description": "",
-					"price": 380
-				},
-				{
-					"name": "Крейзі пепероні",
-					"description": "",
-					"price": 420
-				},
-				{
-					"name": "Пепероні",
-					"description": "",
-					"price": 370
-				},
-				{
-					"name": "Маргарита",
-					"description": "нестаріюча класика",
-					"price": 390
-				},
-				{
-					"name": "Чотири сезони",
-					"description": "",
-					"price": 345
-				},
-				{
-					"name": "Овочі та гриби",
-					"description": "свіжі овочі з дикими грибами",
-					"price": 285,
-					"type": "popular"
-				}
-			]
-		},
-		{
-			"title": "Напої",
-			"dishes": [
-				{
-					"name": "Еспресо",
-					"description": "",
-					"price": 45
-				},
-				{
-					"name": "Допіо",
-					"description": "",
-					"price": 60
-				},
-				{
-					"name": "Трипло",
-					"description": "",
-					"price": 75
-				},
-				{
-					"name": "Ристрето",
-					"description": "",
-					"price": 75
-				},
-				{
-					"name": "Лунго",
-					"description": "",
-					"price": 95
-				},
-				{
-					"name": "Флет Вайт",
-					"description": "",
-					"price": 90
-				},
-				{
-					"name": "Маккіато",
-					"description": "",
-					"price": 85
-				},
-				{
-					"name": "Латте",
-					"description": "",
-					"price": 90
-				},
-				{
-					"name": "Мокко",
-					"description": "",
-					"price": 105
-				},
-				{
-					"name": "Коррето",
-					"description": "",
-					"price": 120
-				},
-				{
-					"name": "Допп",
-					"description": "",
-					"price": 75
-				}
-			]
-		}
-	],
-
-
-
-
-
-
-
-
-
-
 	"menudishes": [
-
 				{
 					"id": 0,
 					"imageUrl": "https://i.postimg.cc/L5bzrwPX/pepperoni.png",
@@ -431,7 +8,8 @@
 					"toggle2": [0, 1, 2],
 					"price": 330,
 					"category": "pizza",
-					"rating": 4
+					"rating": 4,
+					"popular": true
 				},
 				{
 					"id": 1,
@@ -441,7 +19,8 @@
 					"toggle2": [0, 2],
 					"price": 245,
 					"category": "pizza",
-					"rating": 6
+					"rating": 6,
+					"popular": true
 				},
 				{
 					"id": 2,
@@ -501,7 +80,8 @@
 					"toggle2": [0, 1, 2],
 					"price": 390,
 					"category": "pizza",
-					"rating": 10
+					"rating": 10,
+					"popular": true
 				},
 				{
 					"id": 8,
@@ -533,9 +113,7 @@
 					"category": "pizza",
 					"rating": 7
 				},
-			
-		
-		
+
 
 				{
 					"id": 11,
@@ -545,7 +123,8 @@
 					"toggle2": [],
 					"price": 150,
 					"category": "desert",
-					"rating": 4
+					"rating": 4,
+					"popular": true
 				},
 				{
 					"id": 12,
@@ -575,7 +154,8 @@
 					"toggle2": [],
 					"price": 170,
 					"category": "desert",
-					"rating": 2
+					"rating": 2,
+					"popular": true
 				},
 				{
 					"id": 15,
@@ -587,7 +167,7 @@
 					"category": "desert",
 					"rating": 8
 				},
-			
+
 
 				{
 					"id": 16,
@@ -597,7 +177,8 @@
 					"toggle2": [],
 					"price": 220,
 					"category": "ravioli",
-					"rating": 4
+					"rating": 4,
+					"popular": true
 				},
 				{
 					"id": 17,
@@ -637,10 +218,9 @@
 					"toggle2": [],
 					"price": 200,
 					"category": "ravioli",
-					"rating": 2
+					"rating": 2,
+					"popular": true
 				},
-
-
 
 
 				{
@@ -651,7 +231,8 @@
 					"toggle2": [],
 					"price": 205,
 					"category": "pasta",
-					"rating": 4
+					"rating": 4,
+					"popular": true
 				},
 				{
 					"id": 22,
@@ -671,7 +252,8 @@
 					"toggle2": [],
 					"price": 210,
 					"category": "pasta",
-					"rating": 4
+					"rating": 4,
+					"popular": true
 				},
 				{
 					"id": 24,
@@ -693,7 +275,6 @@
 					"category": "pasta",
 					"rating": 2
 				},
-
 
 
 				{
@@ -734,7 +315,8 @@
 					"toggle2": [],
 					"price": 135,
 					"category": "salat",
-					"rating": 2
+					"rating": 2,
+					"popular": true
 				},
 				{
 					"id": 30,
@@ -744,10 +326,9 @@
 					"toggle2": [],
 					"price": 140,
 					"category": "salat",
-					"rating": 2
+					"rating": 2,
+					"popular": true
 				},
-
-				
 
 
 				{
@@ -758,7 +339,8 @@
 					"toggle2": [],
 					"price": 18,
 					"category": "drink",
-					"rating": 4
+					"rating": 4,
+					"popular": true
 				},
 				{
 					"id": 32,
@@ -768,7 +350,8 @@
 					"toggle2": [],
 					"price": 18,
 					"category": "drink",
-					"rating": 6
+					"rating": 6,
+					"popular": true
 				},
 				{
 					"id": 33,
@@ -790,350 +373,8 @@
 					"category": "drink",
 					"rating": 2
 				}
-			
-	],
-
-
-
-
-	"allmenudishes": [
-		{
-			"title": "Піци",
-			"dishes": [
-				{
-					"id": 0,
-					"imageUrl": "https://i.postimg.cc/L5bzrwPX/pepperoni.png",
-					"name": "Пепероні",
-					"toggle1": [0, 1],
-					"toggle2": [0, 1, 2],
-					"price": 330,
-					"category": 0,
-					"rating": 4
-				},
-				{
-					"id": 1,
-					"imageUrl": "https://i.postimg.cc/htrYf8H0/four-cheese.png",
-					"name": "Чотири сиру",
-					"toggle1": [0],
-					"toggle2": [0, 2],
-					"price": 245,
-					"category": 0,
-					"rating": 6
-				},
-				{
-					"id": 2,
-					"imageUrl": "https://i.postimg.cc/xTqVr4hS/carbonara.png",
-					"name": "Карбонара",
-					"toggle1": [0],
-					"toggle2": [1, 2],
-					"price": 295,
-					"category": 0,
-					"rating": 4
-				},
-				{
-					"id": 3,
-					"imageUrl": "https://i.postimg.cc/c4chmxXx/double-pepperoni.png",
-					"name": "Подвійне пепероні",
-					"toggle1": [1],
-					"toggle2": [0, 1, 2],
-					"price": 275,
-					"category": 0,
-					"rating": 2
-				},
-				{
-					"id": 4,
-					"imageUrl": "https://i.postimg.cc/T1bd6NN0/cheese.png",
-					"name": "Сирна",
-					"toggle1": [0, 1],
-					"toggle2": [0, 1, 2],
-					"price": 380,
-					"category": 0,
-					"rating": 8
-				},
-				{
-					"id": 5,
-					"imageUrl": "https://i.postimg.cc/K8P2QgCK/gawain.png",
-					"name": "Гавайська",
-					"toggle1": [0],
-					"toggle2": [1, 2],
-					"price": 420,
-					"category": 0,
-					"rating": 2
-				},
-				{
-					"id": 6,
-					"imageUrl": "https://i.postimg.cc/MGSLGPPH/pesto.png",
-					"name": "Песто",
-					"toggle1": [0, 1],
-					"toggle2": [0, 1, 2],
-					"price": 370,
-					"category": 0,
-					"rating": 9
-				},
-				{
-					"id": 7,
-					"imageUrl": "https://i.postimg.cc/5t86B0Sp/margarita.png",
-					"name": "Маргарита",
-					"toggle1": [0, 1],
-					"toggle2": [0, 1, 2],
-					"price": 390,
-					"category": 0,
-					"rating": 10
-				},
-				{
-					"id": 8,
-					"imageUrl": "https://i.postimg.cc/x1h0F217/four-seasons.png",
-					"name": "Чотири сезони",
-					"toggle1": [0, 1],
-					"toggle2": [0, 1, 2],
-					"price": 345,
-					"category": 0,
-					"rating": 10
-				},
-				{
-					"id": 9,
-					"imageUrl": "https://i.postimg.cc/J0xXbnmS/vagetables-and-mashrooms.png",
-					"name": "Овочі та гриби",
-					"toggle1": [0, 1],
-					"toggle2": [0, 1, 2],
-					"price": 285,
-					"category": 0,
-					"rating": 7
-				},
-				{
-					"id": 10,
-					"imageUrl": "https://i.postimg.cc/9QvHwL7T/hamon.png",
-					"name": "З хамоном",
-					"toggle1": [0],
-					"toggle2": [0],
-					"price": 350,
-					"category": 0,
-					"rating": 7
-				}
-			]
-		},
-		{
-			"title": "Десерти",
-			"dishes": [
-				{
-					"id": 0,
-					"imageUrl": "https://i.postimg.cc/v8KJv9sy/tiramisu.png",
-					"name": "Тірамісу",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 150,
-					"category": 1,
-					"rating": 4
-				},
-				{
-					"id": 1,
-					"imageUrl": "https://i.postimg.cc/ZYDWFfnq/ricotto-chokolad.png",
-					"name": "Шоколадне рікотто",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 195,
-					"category": 1,
-					"rating": 4
-				},
-				{
-					"id": 2,
-					"imageUrl": "https://i.postimg.cc/90ssF3p0/ricotto-vanil.png",
-					"name": "Ванільне рікотто",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 195,
-					"category": 1,
-					"rating": 4
-				},
-				{
-					"id": 3,
-					"imageUrl": "https://i.postimg.cc/RFsjyJJc/panacota-malina.png",
-					"name": "Малинова панакота",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 170,
-					"category": 1,
-					"rating": 2
-				},
-				{
-					"id": 4,
-					"imageUrl": "https://i.postimg.cc/fT06qLz9/parfe-polunica.png",
-					"name": "Полуничне парфе",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 195,
-					"category": 1,
-					"rating": 8
-				}
-			]
-		},
-		{
-			"title": "Равіолі",
-			"dishes": [
-				{
-					"id": 0,
-					"imageUrl": "https://i.postimg.cc/Nf3036GQ/ravioli-losos.png",
-					"name": "Равіолі з лососем",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 220,
-					"category": 2,
-					"rating": 4
-				},
-				{
-					"id": 1,
-					"imageUrl": "https://i.postimg.cc/Y0jszLTP/ravioli-schpinat.png",
-					"name": "Равіолі зі шпинатом",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 190,
-					"category": 2,
-					"rating": 6
-				},
-				{
-					"id": 2,
-					"imageUrl": "https://i.postimg.cc/hhWq50Lw/ravioli-miaso.png",
-					"name": "Равіолі з яловиченою",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 210,
-					"category": 2,
-					"rating": 4
-				},
-				{
-					"id": 3,
-					"imageUrl": "https://i.postimg.cc/x8K0Y71Y/ravioli-kartoplia.png",
-					"name": "Равіолі з картоплею",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 200,
-					"category": 2,
-					"rating": 2
-				},
-				{
-					"id": 4,
-					"imageUrl": "https://i.postimg.cc/Kjy29NrW/ravioli-kurka.png",
-					"name": "Равіолі з курятиною",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 200,
-					"category": 2,
-					"rating": 2
-				}
-			]
-		},
-		{
-			"title": "Паста",
-			"dishes": [
-				{
-					"id": 0,
-					"imageUrl": "https://i.postimg.cc/FzdZTYQC/pasta-balonieza.png",
-					"name": "Паста Балоньеза",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 205,
-					"category": 3,
-					"rating": 4
-				},
-				{
-					"id": 1,
-					"imageUrl": "https://i.postimg.cc/1RkTLQYV/pasta-moreprodukti.png",
-					"name": "Паста з морепродуктами",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 240,
-					"category": 3,
-					"rating": 6
-				},
-				{
-					"id": 2,
-					"imageUrl": "https://i.postimg.cc/J7ZKHBPt/pasta-carbonara.png",
-					"name": "Паста Карбонара",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 210,
-					"category": 3,
-					"rating": 4
-				},
-				{
-					"id": 3,
-					"imageUrl": "https://i.postimg.cc/WbSG0mrp/pasta-ovochi.png",
-					"name": "Паста з овочами",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 200,
-					"category": 3,
-					"rating": 2
-				},
-				{
-					"id": 4,
-					"imageUrl": "https://i.postimg.cc/vHPn4YFc/pasta-gribna.png",
-					"name": "Паста з грибами",
-					"toggle1": [],
-					"toggle2": [],
-					"price": 215,
-					"category": 3,
-					"rating": 2
-				}
-			]
-		},
-		{
-			"title": "Напої",
-			"dishes": [
-				{
-					"id": 0,
-					"imageUrl": "https://i.postimg.cc/j5MD31wF/fanta.png",
-					"name": "Fanta",
-					"toggle1": [0, 1, 2],
-					"toggle2": [],
-					"price": 18,
-					"category": 4,
-					"rating": 4
-				},
-				{
-					"id": 1,
-					"imageUrl": "https://i.postimg.cc/rsDdt9nR/coca-cola.png",
-					"name": "Coca-cola",
-					"toggle1": [0, 1, 2],
-					"toggle2": [],
-					"price": 18,
-					"category": 4,
-					"rating": 6
-				},
-				{
-					"id": 2,
-					"imageUrl": "https://i.postimg.cc/T15wP31r/coca-cola-zero.png",
-					"name": "Coca-cola zero",
-					"toggle1": [0, 1, 2],
-					"toggle2": [],
-					"price": 19,
-					"category": 4,
-					"rating": 4
-				},
-				{
-					"id": 3,
-					"imageUrl": "https://i.postimg.cc/1zYMxvqf/sprite.png",
-					"name": "Sprite",
-					"toggle1": [0, 1, 2],
-					"toggle2": [],
-					"price": 18,
-					"category": 4,
-					"rating": 2
-				}
-			]
-		}
 	]
 }
-
-
-
-
-
-
-
-
-
-
 
 
 
