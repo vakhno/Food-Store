@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import 'swiper/swiper-bundle.css'
 import './Main.sass'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchMainMenuDishes, fetchMainDeliveryDishes} from '../../redux/actions/dishesRequest'
+import {fetchMainDeliveryDishes} from '../../redux/actions/dishesRequest'
 import {addDisheToCart} from '../../redux/actions/cart'
 import {Quote, Creator, Reservation, FirstSlider, Delivery, Discount} from '../../components'
 
@@ -13,9 +13,8 @@ function Main() {
 	const handleAddDishToCart = (dishInfo) => {
 		dispatch(addDisheToCart(dishInfo))
 	}
-	console.log(deliveryDishes)
+
 	useEffect(() => {
-		dispatch(fetchMainMenuDishes())
 		dispatch(fetchMainDeliveryDishes())
 	}, [])
 

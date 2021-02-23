@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useCallback} from 'react'
 import './Dishes.sass'
 import {Categories, DishesSort, DishesBlock, DishesLoadingBlock} from '../../components'
 import {useSelector, useDispatch} from 'react-redux'
@@ -56,16 +56,16 @@ function Dishes() {
 	const cartItems =  useSelector( ({cart}) => cart.items )
 	const isLoaded =  useSelector( ({dishes}) => dishes.isLoaded )
 	const {category, sortBy} = useSelector(({filter}) => filter)
-	console.log(dishes)
+
 	useEffect(() => {
 		dispatch(fetchDishes(sortBy, category))
 	}, [category, sortBy])
 
-	const onSelectCategory = React.useCallback((index) => {
+	const onSelectCategory = useCallback((index) => {
 		dispatch(setCategory(index))
 	}, [])
 
-	const onSelectSortType = React.useCallback((name) => {
+	const onSelectSortType = useCallback((name) => {
 		dispatch(setSortBy(name))
 	}, [])
 

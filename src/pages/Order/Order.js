@@ -5,18 +5,10 @@ import {useSelector, useDispatch} from 'react-redux'
 import ModalOrder from '../../pages/Order/ModalOrder'
 // styles
 import './Order.sass'
-// components
-
-// const defaultValues = {
-// 	delivery: "toCar",
-// 	frontDoor: null
-// }
 
 function Order() {
 	const {items} = useSelector( ({cart}) => cart)
 	const orderDishes = Object.values(items).map( dish => Object.values(dish).map( elem => Object.values(elem).map(elem => elem ) ) ) 	
-
-	// const [validClientInfo, setValidClientInfo] = useState(false)
 	const {totalPrice} = useSelector( ({cart}) => cart)
 	const {register, handleSubmit, getValues, setValues, watch, formState: { isValid, isDirty}, errors} = useForm({  })
 	const [destinationAddress, setDestinationAddress] = useState('')
@@ -28,7 +20,6 @@ function Order() {
 	const watchHouse = watch("house")
 
 	const submitForm = (data) => {
-		console.log(data)
 		if (isValid) {  
 			setAllUserInfo(data)
 			setFormValid(true)
@@ -36,7 +27,6 @@ function Order() {
 		}	
 		return false
 	}
-	console.log(orderDishes)
 
 	const closeModal = () => {
 		setFormValid(false)

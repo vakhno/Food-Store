@@ -3,7 +3,6 @@ import React from 'react'
 import './CartItem.sass'
 
 function OrderItem({ name, category, image, toggle1, toggle2, count, price }) {
-console.log(toggle1, toggle2)
 	return (
 		<div className="cart__item">
 			<div className="cart__item-img">

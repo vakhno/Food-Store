@@ -5,7 +5,6 @@ const initialState = {
 }
 
 const placeNewCategoryDish = (state, payload) => {
-	console.log(state, payload)
 	let lengthDishesTypes = Object.keys(state.items[payload.id]).length
 	let	sameTypeIndex = Object.values(state.items[payload.id]).findIndex( elem => {
 			if(payload.toggle1 && payload.toggle2){
@@ -29,7 +28,6 @@ const placeNewCategoryDish = (state, payload) => {
 
 const placeNewDish = (payload) => {
 	payload.categoryId = +payload.id+0.1 
-	console.log(payload)
 	return {[payload.id+0.1]: [payload]}
 }
 

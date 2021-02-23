@@ -14,8 +14,6 @@ function DishesBlock({id, name, category, imageUrl, price, toggle1, toggle2, onC
 	const [choosenToggle2, setChoosenToggle2] = useState(toggle2[0])
 
 	const onAddDish = () => {
-		console.log(choosenToggle1)
-		console.log(choosenToggle2)
 		const dishInfo = {
 			id,
 			name, 

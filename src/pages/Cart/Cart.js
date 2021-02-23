@@ -19,7 +19,7 @@ function Cart() {
 	const {totalPrice, totalCount, items} = useSelector( ({cart}) => cart)
 	const addedDishes = Object.values(items).map( dish => Object.values(dish).map( elem => Object.values(elem).map(elem => elem ) ) ) 	
 	const dispatch = useDispatch()
-	console.log( addedDishes)
+	
 	const onClearCart = () => {
 		if(window.confirm('Очистить корзину')){
 			dispatch(clearCart())

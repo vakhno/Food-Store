@@ -5,7 +5,6 @@ import './CartItem.sass'
 import {Button} from '../index'
 
 function CartItem({id, categoryId, name, category, image, toggle1, toggle2, count, price, removeDish, plusCartItem, minusCartItem}) {
-	console.log(toggle1, toggle2)
 	const deleteDishFromList = () => {
 		removeDish(categoryId)
 	}

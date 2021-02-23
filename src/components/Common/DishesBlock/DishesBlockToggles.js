@@ -18,6 +18,7 @@ function DishesBlockToggles({category, toggle1, toggle2, onSelectToggle1, onSele
 		}
 	}, [])
 
+	
 	return (
 		<>
 			{ 
