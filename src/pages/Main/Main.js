@@ -4,11 +4,11 @@ import './Main.sass'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainDeliveryDishes} from '../../redux/actions/dishesRequest'
 import {addDisheToCart} from '../../redux/actions/cart'
-import {Quote, Creator, Reservation, FirstSlider, Delivery, Discount} from '../../components'
+import {Quote, Creator, Reservation, FirstSlider, Delivery, Discount, Menu} from '../../components'
 
 function Main() {
 	const dispatch = useDispatch()
-	const deliveryDishes = useSelector( ({delivery}) => delivery.items  )
+	const menuDishes = useSelector( ({delivery}) => delivery.items  )
 
 	const handleAddDishToCart = (dishInfo) => {
 		dispatch(addDisheToCart(dishInfo))
@@ -25,7 +25,8 @@ function Main() {
 			<Creator/>
 			<Discount/>
 			<Reservation/>
-			<Delivery deliveryDishes={deliveryDishes} handleAddDishToCart={handleAddDishToCart}/>
+			<Menu menuDishes={menuDishes} handleAddDishToCart={handleAddDishToCart}/>
+			<Delivery />
 		</>
 	)
 }

@@ -15,10 +15,6 @@ function Navbar() {
 			link: '/dishes'
 		}, 
 		{ 
-			title: 'Контакти',
-			link: '/contacts'
-		}, 
-		{ 
 			title:'Корзина',
 			link: '/cart'
 		}

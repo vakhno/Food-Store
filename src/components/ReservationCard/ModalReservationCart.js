@@ -6,7 +6,6 @@ import {Portal, Button, Title} from '../index'
 
 function ModalReservationCart({isOpen, onClose}) {
 	return (
-		
 		<>
 			{
 				isOpen &&

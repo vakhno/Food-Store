@@ -1,44 +1,51 @@
 import React from 'react'
 // styles
 import './Delivery.sass'
-// swiper
-import SwiperCore, {Navigation, Pagination, EffectFade, Autoplay} from 'swiper'
-import { Swiper, SwiperSlide } from 'swiper/react'
 // components
-import {DishesBlock, Map, Title, Button} from '../../../components'
+import {Map, Title, FeatureItem} from '../../../components/'
 // visual content
-import DeliveryBG from '../../../images/delivery.jpg'
+import {ReactComponent as Clock} from '../../../images/delivery-clock.svg'
+import {ReactComponent as Deliveryman} from '../../../images/delivery-deliveryman.svg'
+import {ReactComponent as Package} from '../../../images/delivery-package.svg'
+import {ReactComponent as CreditCard} from '../../../images/delivery-credit-card.svg'
 
-SwiperCore.use([Navigation, Pagination, EffectFade, Autoplay])
+function Delivery() {
+	const featureItems = [
+		{
+			icon: <Package/>,
+			title: 'Упаковка',
+			subtitle: 'При доставці використовуємо термо-сумки, щоб ваші страви залишались теплими'
+		},
+		{
+			icon: <Clock/>,
+			title: 'Замовлення',
+			subtitle: 'Приймаємо замовлення з 9:00 до 22:00'
+		},
+		{
+			icon: <Deliveryman/>,
+			title: 'Доставка',
+			subtitle: 'Можемо доставити замовлення до будь-якого куточку Одеси'
+		},
+		{
+			icon: <CreditCard/>,
+			title: 'Оплата',
+			subtitle: 'Оплата може здійснюватись як готівкою, так і безготівковими способами'
+		}
+	]
 
-function Delivery({deliveryDishes, handleAddDishToCart}) {
-	const deliveryListItems = ['На даний момент, доставка поширюється лише на піци та деякі напої', 'Доставка можлива по всій території Одеси', 'Оплата здійснюєтсья за допомогою картки або готівкою', 'Використовуємо термо-сумки, що збергігає температуру страв']
-	
 	return (
-		<div className='delivery'>
-			<Title className='delivery__title' title='Доставка' subtitle='скористайтесь найкращими пропозиціями' light/>
-			<div className='delivery__content' style={{backgroundImage:`url(${DeliveryBG})`}}>
-				<div className="delivery__wrapper">
-					<div className="delivery__map">
-						<Map />
-						<Button solid light>Перейти до меню</Button>
-					</div>
-					<Swiper
-						spaceBetween={20}
-						slidesPerView={3}
-						loop={true}
-						pagination={{ clickable: true }}
-						draggable={false}
-						autoplay={{ delay: 1500 }}
-					>
-						{
-							deliveryDishes.map(elem =>{
-								return	<SwiperSlide>
-											<DishesBlock onClickAddDish={handleAddDishToCart} id={elem.id} name={elem.name} imageUrl={elem.imageUrl} price={elem.price} types={elem.types} sizes={elem.sizes} dark/>
-										</SwiperSlide>
-							})
-						}	
-					</Swiper>
+		<div className="delivery">
+			<div className="delivery__map">
+				<Map />
+			</div>
+			<div className="delivery__content">
+				<Title className="delivery__title" title='Доставка' subtitle='швидка та якіска доставка' light/>
+				<div className="delivery__features">
+					{
+						featureItems.map( (elem, index) => {
+							return <FeatureItem icon={elem.icon} title={elem.title} subtitle={elem.subtitle} key={`${elem.title}_${index}`}/>
+						})
+					}
 				</div>
 			</div>
 		</div>

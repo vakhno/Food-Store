@@ -75,7 +75,7 @@ function Dishes() {
 
 	return (
 		<div className="menu-dishes">
-			<div className="menu-dishes__container" style={{marginTop:'100px'}}>
+			<div className="menu-dishes__container">
 				<div className="menu-dishes__options">
 					<Categories activeCategory={category} items={categoryItems} selectCategory={onSelectCategory}/>
 					<DishesSort activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />

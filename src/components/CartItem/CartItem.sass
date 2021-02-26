@@ -35,19 +35,19 @@
 			svg
 				path:first-of-type
 					display: none
-		b
-			@include title($white, 22px, 500)
 	&__item-count-minus
 		svg
 			width: 20px
 			height: 20px
+	&-quantity
+		@include title($white, 22px, 500)
+		padding: 0 20px
 	&-price
 		display: flex
 		align-items: center
 		justify-content: center
 		width: 33%
-		b
-			@include title($white, 22px, 600)
+		@include title($white, 22px, 600)
 	&-remove
 		svg
 			transform: rotate(45deg)

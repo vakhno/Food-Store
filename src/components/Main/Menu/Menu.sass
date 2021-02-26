@@ -1,0 +1,57 @@
+@import '../../../sass/_variables'
+
+.menu
+	margin-bottom: 100px
+	&__content
+		@include bg-image
+		height: 580px
+		position: relative
+		margin-bottom: 40px
+		&::after
+			@include pseudo-element(linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(156,72,74,0) 60%, rgba(0,0,0,1) 100%))
+			background-color: rgba(black, 0.5)
+	&__wrapper
+		@include container($container-xl)
+		display: flex
+		height: 100%
+		align-items: center
+		gap: 30px
+		z-index: 5
+		position: relative
+	&__map
+		@include container($container-xs)
+		display: flex
+		height: 70%
+	&__title
+		margin-bottom: 20px
+	&__list-items
+		list-style: none
+		padding-left: 30px
+		margin-bottom: 30px
+	.swiper-container
+		padding: 20px 20px 60px 20px
+		width: 100%
+		height: max-content
+		display: flex
+		flex-direction: column
+		.swiper-slide
+			display: flex
+			flex-direction: column
+			justify-content: center
+			align-items: center
+		.swiper-pagination-bullets
+			bottom: 0px
+			height: 100%
+			z-index: 0
+			display: flex
+			justify-content: center
+			align-items: flex-end
+			.swiper-pagination-bullet
+				height: 10px
+				width: 1px
+				background: $white
+				transition: 0.3s
+				opacity: 1
+				&-active
+					height: 20px
+					background: $orange

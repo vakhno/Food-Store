@@ -22,11 +22,11 @@ function OrderItem({ name, category, image, toggle1, toggle2, count, price }) {
 					: null
 				}
 			</div>
-			<div className="cart__item-count">
-				<b>{count}</b>
+			<div className="cart__item-quantity">
+				{count}
 			</div>
 			<div className="cart__item-price">
-				<b>{price} ₴</b>
+				{price} ₴
 			</div>	
 		</div>
 	)

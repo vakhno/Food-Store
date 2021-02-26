@@ -17,10 +17,12 @@ export { default as ModalReservationCard} from './ReservationCard/ModalReservati
 export { default as Map} from './Map/Map.js'
 export { default as Portal} from './Portal/Portal.js'
 export { default as Input} from './Common/Input/Input.js'
+export { default as FeatureItem} from './FeatureItem/FeatureItem.js'
 
 // for Main page
 export { default as FirstSlider} from './Main/FirstSlider/FirstSlider.js'
 export { default as Quote} from './Main/Quote/Quote.js'
+export {default as Menu} from './Main/Menu/Menu.js'
 export { default as Creator} from './Main/Creator/Creator.js'
 export { default as PopularMenu} from './Main/PopularMenu/PopularMenu.js'
 export { default as Reservation} from './Main/Reservation/Reservation.js'

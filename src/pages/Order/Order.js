@@ -131,19 +131,15 @@ function Order() {
 					</form>
 			<Map  className="destination__map" address={destinationAddress}/>
 				</div>
-
-
-				<div className="cart__list">
+				<div className="order__dish-items">
 					{
 						orderDishes.map(elem => elem.map( (elem) => <OrderItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length}></OrderItem> ))
 					}
 				</div>
-				
 				<div className="details">
-					<div className="details__price" style={{color:'white'}}>Загальний рахунок: <span>{totalPrice}</span></div>
+					<div className="details__price" style={{color:'white'}}>Загальний рахунок: <span>{totalPrice} ₴</span></div>
 					<Button form="order-sent-form" disabled={totalPrice > 0 ? false : true} onClick={handleSubmit(submitForm)} type='submit' className="order__submit" solid light>Замовити</Button>
 				</div>
-
 				</div>
 			</div>
 			<ModalOrder isOpen={formValid} onClose={closeModal} data={allUserInfo}/>

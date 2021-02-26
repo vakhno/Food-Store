@@ -4,8 +4,7 @@
 			"id": 0,
 			"imageUrl": "https://i.postimg.cc/L5bzrwPX/pepperoni.png",
 			"name": "Пепероні",
-			"toggle1": [0, 1],
-			"toggleNew1":[
+			"toggle1":[
 				{
 					"num": 0,
 					"extraPrice": 0
@@ -15,7 +14,7 @@
 					"extraPrice": 10
 				}
 			],
-			"toggleNew2":[
+			"toggle2":[
 				{
 					"num": 0,
 					"extraPrice": 0
@@ -29,7 +28,6 @@
 					"extraPrice": 55
 				}
 			],
-			"toggle2": [0, 1, 2],
 			"price": 330,
 			"category": "pizza",
 			"rating": 4,
@@ -39,8 +37,22 @@
 			"id": 1,
 			"imageUrl": "https://i.postimg.cc/htrYf8H0/four-cheese.png",
 			"name": "Чотири сиру",
-			"toggle1": [0],
-			"toggle2": [0, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 2,
+					"extraPrice": 30
+				}
+			],
 			"price": 245,
 			"category": "pizza",
 			"rating": 6,
@@ -50,8 +62,22 @@
 			"id": 2,
 			"imageUrl": "https://i.postimg.cc/xTqVr4hS/carbonara.png",
 			"name": "Карбонара",
-			"toggle1": [0],
-			"toggle2": [1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				}
+			],
+			"toggle2":[
+				{
+					"num": 1,
+					"extraPrice": 35
+				},
+				{
+					"num": 2,
+					"extraPrice": 55
+				}
+			],
 			"price": 295,
 			"category": "pizza",
 			"rating": 4
@@ -60,8 +86,26 @@
 			"id": 3,
 			"imageUrl": "https://i.postimg.cc/c4chmxXx/double-pepperoni.png",
 			"name": "Подвійне пепероні",
-			"toggle1": [1],
-			"toggle2": [0, 1, 2],
+			"toggle1":[
+				{
+					"num": 1,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 20
+				},
+				{
+					"num": 2,
+					"extraPrice": 28
+				}
+			],
 			"price": 275,
 			"category": "pizza",
 			"rating": 2
@@ -70,8 +114,30 @@
 			"id": 4,
 			"imageUrl": "https://i.postimg.cc/T1bd6NN0/cheese.png",
 			"name": "Сирна",
-			"toggle1": [0, 1],
-			"toggle2": [0, 1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 35
+				},
+				{
+					"num": 2,
+					"extraPrice": 55
+				}
+			],
 			"price": 380,
 			"category": "pizza",
 			"rating": 8
@@ -80,8 +146,22 @@
 			"id": 5,
 			"imageUrl": "https://i.postimg.cc/K8P2QgCK/gawain.png",
 			"name": "Гавайська",
-			"toggle1": [0],
-			"toggle2": [1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				}
+			],
+			"toggle2":[
+				{
+					"num": 1,
+					"extraPrice": 35
+				},
+				{
+					"num": 2,
+					"extraPrice": 55
+				}
+			],
 			"price": 420,
 			"category": "pizza",
 			"rating": 2
@@ -90,8 +170,30 @@
 			"id": 6,
 			"imageUrl": "https://i.postimg.cc/MGSLGPPH/pesto.png",
 			"name": "Песто",
-			"toggle1": [0, 1],
-			"toggle2": [0, 1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 20
+				},
+				{
+					"num": 2,
+					"extraPrice": 35
+				}
+			],
 			"price": 370,
 			"category": "pizza",
 			"rating": 9
@@ -100,8 +202,30 @@
 			"id": 7,
 			"imageUrl": "https://i.postimg.cc/5t86B0Sp/margarita.png",
 			"name": "Маргарита",
-			"toggle1": [0, 1],
-			"toggle2": [0, 1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 20
+				},
+				{
+					"num": 2,
+					"extraPrice": 35
+				}
+			],
 			"price": 390,
 			"category": "pizza",
 			"rating": 10,
@@ -111,8 +235,30 @@
 			"id": 8,
 			"imageUrl": "https://i.postimg.cc/x1h0F217/four-seasons.png",
 			"name": "Чотири сезони",
-			"toggle1": [0, 1],
-			"toggle2": [0, 1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 20
+				},
+				{
+					"num": 2,
+					"extraPrice": 40
+				}
+			],
 			"price": 345,
 			"category": "pizza",
 			"rating": 10
@@ -121,8 +267,30 @@
 			"id": 9,
 			"imageUrl": "https://i.postimg.cc/J0xXbnmS/vagetables-and-mashrooms.png",
 			"name": "Овочі та гриби",
-			"toggle1": [0, 1],
-			"toggle2": [0, 1, 2],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 20
+				},
+				{
+					"num": 2,
+					"extraPrice": 26
+				}
+			],
 			"price": 285,
 			"category": "pizza",
 			"rating": 7
@@ -131,8 +299,18 @@
 			"id": 10,
 			"imageUrl": "https://i.postimg.cc/9QvHwL7T/hamon.png",
 			"name": "З хамоном",
-			"toggle1": [0],
-			"toggle2": [0],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				}
+			],
+			"toggle2":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				}
+			],
 			"price": 350,
 			"category": "pizza",
 			"rating": 7
@@ -349,8 +527,21 @@
 			"id": 31,
 			"imageUrl": "https://i.postimg.cc/j5MD31wF/fanta.png",
 			"name": "Fanta",
-			"toggle1": [0, 1, 2],
-			"toggle2": [],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 5
+				},
+				{
+					"num": 2,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[],
 			"price": 18,
 			"category": "drink",
 			"rating": 4,
@@ -360,8 +551,21 @@
 			"id": 32,
 			"imageUrl": "https://i.postimg.cc/rsDdt9nR/coca-cola.png",
 			"name": "Coca-cola",
-			"toggle1": [0, 1, 2],
-			"toggle2": [],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 5
+				},
+				{
+					"num": 2,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[],
 			"price": 18,
 			"category": "drink",
 			"rating": 6,
@@ -371,8 +575,21 @@
 			"id": 33,
 			"imageUrl": "https://i.postimg.cc/T15wP31r/coca-cola-zero.png",
 			"name": "Coca-cola zero",
-			"toggle1": [0, 1, 2],
-			"toggle2": [],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 5
+				},
+				{
+					"num": 2,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[],
 			"price": 19,
 			"category": "drink",
 			"rating": 4
@@ -381,26 +598,24 @@
 			"id": 34,
 			"imageUrl": "https://i.postimg.cc/1zYMxvqf/sprite.png",
 			"name": "Sprite",
-			"toggle1": [0, 1, 2],
-			"toggle2": [],
+			"toggle1":[
+				{
+					"num": 0,
+					"extraPrice": 0
+				},
+				{
+					"num": 1,
+					"extraPrice": 5
+				},
+				{
+					"num": 2,
+					"extraPrice": 10
+				}
+			],
+			"toggle2":[],
 			"price": 18,
 			"category": "drink",
 			"rating": 2
 		}
 	]
-
-
-
-
-
-
-
-
-
-
 }
-
-
-
-
-

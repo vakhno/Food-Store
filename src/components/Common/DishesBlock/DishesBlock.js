@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 // styles
 import './DishesBlock.sass'
 // classNames
@@ -10,6 +10,7 @@ import {Button} from '../../index'
 import DishesBlockToggles from './DishesBlockToggles'
 
 function DishesBlock({id, name, category, imageUrl, price, toggle1, toggle2, onClickAddDish, light, dark, className}) {
+	const [dishesPrice, setDishesPrice] = useState(price)
 	const [choosenToggle1, setChoosenToggle1] = useState(toggle1[0])
 	const [choosenToggle2, setChoosenToggle2] = useState(toggle2[0])
 
@@ -19,12 +20,16 @@ function DishesBlock({id, name, category, imageUrl, price, toggle1, toggle2, onC
 			name, 
 			imageUrl,
 			category,
-			price,
+			price: dishesPrice,
 			toggle1: choosenToggle1,
 			toggle2: choosenToggle2,
 		}
 		onClickAddDish(dishInfo)
 	}
+
+	useEffect(() => {
+		console.log(dishesPrice)
+	}, [dishesPrice])
 
 	return (
 		<div className={classNames('dish-block', className, {
@@ -40,10 +45,10 @@ function DishesBlock({id, name, category, imageUrl, price, toggle1, toggle2, onC
 		</div>
 		<h4 className="dish-block__title">{name}</h4>
 		<div className="dish-block__selector">
-			<DishesBlockToggles category={category} toggle1={toggle1} toggle2={toggle2} onSelectToggle1={setChoosenToggle1} onSelectToggle2={setChoosenToggle2}/>
+			<DishesBlockToggles category={category}	price={price} toggle1={toggle1} toggle2={toggle2} onSelectToggle1={setChoosenToggle1} onSelectToggle2={setChoosenToggle2} setDishesPrice={setDishesPrice}/>
 		</div>
 		<div className="dish-block__bottom">
-			<div className="dish-block__price">{price} ₴</div>
+			<div className="dish-block__price">{dishesPrice} ₴</div>
 			<Button onClick={onAddDish} className="" add {...light ? {light} : {dark}}>
 				<svg
 					width="12"

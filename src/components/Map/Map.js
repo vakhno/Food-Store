@@ -198,4 +198,4 @@ function Map({className, address}) {
 	)
 }
 
-export default Map
+export default React.memo(Map)
