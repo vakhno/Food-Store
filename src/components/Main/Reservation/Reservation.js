@@ -15,14 +15,14 @@ function Reservation() {
 	const workInfo = [
 		[
 			{
-				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faPhone}/>,	
-				title: '094 863 68 87',
-				text: 'Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.'
-			},
-			{
 				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faMapMarkerAlt}/>,
 				title: 'Одеса, вул. Дерибасівська, 18',
 				text: 'Перш ніж приходити до ресторану, подзвоніть та переконайтесь, що є вільні місця.'
+			},
+			{
+				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faPhone}/>,	
+				title: '094 863 68 87',
+				text: 'Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.'
 			},
 			{
 				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faClock}/>,	
@@ -32,14 +32,14 @@ function Reservation() {
 		],
 		[
 			{
-				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faPhone}/>,	
-				title: '095 576 51 51',
-				text: 'Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.'
-			},
-			{
 				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faMapMarkerAlt}/>,
 				title: 'Одеса, вул. Академіка Філатова, 31',
 				text: 'Перш ніж приходити до ресторану, подзвоніть та переконайтесь, що є вільні місця.'
+			},
+			{
+				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faPhone}/>,	
+				title: '095 576 51 51',
+				text: 'Дзвінки приймаються цілодобово. Оплата дзвінків здійснюється за наш кошт.'
 			},
 			{
 				icon: <FontAwesomeIcon className="reservation__info-title-logo" icon={faClock}/>,	

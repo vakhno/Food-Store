@@ -21,13 +21,13 @@ function Cart() {
 	const dispatch = useDispatch()
 	
 	const onClearCart = () => {
-		if(window.confirm('Очистить корзину')){
+		if(window.confirm('Очистити кошик?')){
 			dispatch(clearCart())
 		}
 	}
 
 	const onRemoveCartItem = (id) => {
-		if(window.confirm('Удалить?')){
+		if(window.confirm('Видалити?')){
 			dispatch(removeCartItem(id))
 		}
 	}

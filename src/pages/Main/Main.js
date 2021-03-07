@@ -23,10 +23,10 @@ function Main() {
 			<FirstSlider/>
 			<Quote/>
 			<Creator/>
-			<Discount/>
+			{/* <Discount/> */}
 			<Reservation/>
-			<Menu menuDishes={menuDishes} handleAddDishToCart={handleAddDishToCart}/>
 			<Delivery />
+			<Menu menuDishes={menuDishes} handleAddDishToCart={handleAddDishToCart}/>
 		</>
 	)
 }

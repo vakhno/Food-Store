@@ -137,7 +137,7 @@ function Order() {
 					}
 				</div>
 				<div className="details">
-					<div className="details__price" style={{color:'white'}}>Загальний рахунок: <span>{totalPrice} ₴</span></div>
+					<div className="details__price" style={{color:'white'}}><span>Загальний рахунок: <b>{totalPrice} ₴</b></span></div>
 					<Button form="order-sent-form" disabled={totalPrice > 0 ? false : true} onClick={handleSubmit(submitForm)} type='submit' className="order__submit" solid light>Замовити</Button>
 				</div>
 				</div>
