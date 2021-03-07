@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react'
 import {Map, Input, Button, OrderItem} from '../../components'
 import {useForm} from 'react-hook-form'
+import {useHistory} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
+import {clearCart} from '../../redux/actions/cart'
 import ModalOrder from '../../pages/Order/ModalOrder'
 // styles
 import './Order.sass'
 
 function Order() {
+	const history = useHistory()
+	const dispatch = useDispatch()
 	const {items} = useSelector( ({cart}) => cart)
 	const orderDishes = Object.values(items).map( dish => Object.values(dish).map( elem => Object.values(elem).map(elem => elem ) ) ) 	
 	const {totalPrice} = useSelector( ({cart}) => cart)
@@ -30,6 +34,8 @@ function Order() {
 
 	const closeModal = () => {
 		setFormValid(false)
+		dispatch(clearCart())
+		history.push('/')
 	}
 
 	
