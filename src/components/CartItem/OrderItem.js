@@ -4,11 +4,11 @@ import './CartItem.sass'
 
 function OrderItem({ name, category, image, toggle1, toggle2, count, price }) {
 	return (
-		<div className="cart__item">
-			<div className="cart__item-img">
-				<img className="pizza-block__image" src={image} alt="Фото обранної страви"/>
+		<div className="cart-item">
+			<div className="cart-item__image">
+				<img src={image} alt="Фото обранної страви"/>
 			</div>
-			<div className="cart__item-info">
+			<div className="cart-item__info">
 				<h3>{name}</h3>
 				{
 					category === 'pizza' ?
@@ -22,10 +22,10 @@ function OrderItem({ name, category, image, toggle1, toggle2, count, price }) {
 					: null
 				}
 			</div>
-			<div className="cart__item-quantity">
+			<div className="cart-item__quantity-dishes">
 				{count}
 			</div>
-			<div className="cart__item-price">
+			<div className="cart-item__price">
 				{price} ₴
 			</div>	
 		</div>

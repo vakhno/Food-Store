@@ -67,7 +67,7 @@ function Cart() {
 								<span> Сума замовлення: <b>{totalPrice} ₴</b> </span>
 							</div>
 							<div className="cart__order-buttons">
-								<Link to="/dishes" className="button__back-button">
+								<Link to="/dishes" className="cart__back-button">
 									<Button solid light>
 										<svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 											<path d="M7 13L1 6.93015L6.86175 1" stroke="#D3D3D3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -75,8 +75,8 @@ function Cart() {
 										До меню
 									</Button>
 								</Link>
-								<Link to="/order">
-									<Button className='cart__pay-button' solid light>Оформлення замовлення</Button>
+								<Link to="/order" className='cart__pay-button'>
+									<Button solid light>Оформлення замовлення</Button>
 								</Link>
 							</div>
 						</div>

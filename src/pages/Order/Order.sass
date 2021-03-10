@@ -91,3 +91,30 @@
 			transition: 0.5s
 			&:hover
 				transform: scale(2.5)
+
+@media screen and (max-width: 740px)
+	.destination
+		flex-direction: column
+		&__submit
+			margin: 0 auto
+			margin-bottom: 20px
+		&__map
+			height: 310px !important
+			max-width: 100%
+
+@media screen and (max-width: 520px)
+	.destination
+		&__form
+			grid-template-columns: 1fr
+			grid-template-areas: "name" "telephone" "street" "house" "apartment" "frontDoor" "reception" "details" "submit"
+		&__reception
+			flex-direction: column
+			label
+				&:not(:last-of-type)
+					margin-bottom: 10px
+
+@media screen and (max-width: 480px)
+	.details
+		flex-direction: column
+		&__price
+			margin-bottom: 32px

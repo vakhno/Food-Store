@@ -26,6 +26,21 @@ function Menu({menuDishes, handleAddDishToCart}) {
 						pagination={{ clickable: true }}
 						draggable={false}
 						autoplay={{ delay: 1500 }}
+						breakpoints={{
+							240: {
+								slidesPerView: 1,
+								spaceBetween: 60
+							},
+							660: {
+								slidesPerView: 2
+							},
+							980: {
+								slidesPerView: 3
+							},
+							1280: {
+								slidesPerView: 4
+							}
+						}}
 					>
 						{
 							menuDishes.map(elem =>{

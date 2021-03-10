@@ -11,7 +11,6 @@
 		justify-content: flex-end
 		position: relative
 		transition-property: transform
-		// height: 30vh
 		height: 800px
 		z-index: -1
 		&::after
@@ -57,3 +56,18 @@
 				fill: $orange
 	&__info-description
 		@include title(darken(white, 25%), 12px, 300)
+
+@media screen and ( max-width: 1060px)
+	.reservation
+		&__info-wrapper
+			flex-direction: column
+		&__info-block
+			margin-bottom: 40px
+		&-card
+			align-self: flex-end
+@media screen and ( max-width: 580px)
+	.reservation
+		&__info-blocks
+			flex-direction: row
+		&__info-block
+			flex-direction: column

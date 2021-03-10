@@ -80,7 +80,6 @@ function Dishes() {
 					<Categories activeCategory={category} items={categoryItems} selectCategory={onSelectCategory}/>
 					<DishesSort activeSortType={sortBy.type} items={sortItems} onClickSortType={onSelectSortType} />
 				</div>
-				<h2 className="menu-dishes__title">Оберіть страви:</h2>
 				<div className="menu-dishes__dishes-list">
 					{isLoaded ? dishes.map( (elem) => <DishesBlock className="menu-dishes__dishe" onClickAddDish={handleAddDishToCart} addedCount={cartItems[elem.id] && Object.values(cartItems[elem.id]).reduce( (accum, cur) => accum.concat(cur), []).length} key={elem.id} {...elem} light/>) : Array(12).fill(0).map((_, index) => <DishesLoadingBlock key={index}/>)}
 				</div>

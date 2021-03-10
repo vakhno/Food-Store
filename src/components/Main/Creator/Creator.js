@@ -27,8 +27,8 @@ function Creator() {
 					}
 					<div className="creator__subtitle--accent">{name}</div>
 					<div className="creator__subtitle">{position}</div>
-					<Link to='/dishes'>
-						<Button className="creator__button" skeleton dark>перейти до меню</Button>
+					<Link to='/dishes' className="creator__button">
+						<Button skeleton dark>перейти до меню</Button>
 					</Link>
 				</div>
 			</div>

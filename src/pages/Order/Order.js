@@ -135,7 +135,7 @@ function Order() {
 					/> 
 						<Button type="button" onClick= {findDestinationMarker} className="destination__submit" solid light>Знайти місцезнаходження на карті</Button>
 					</form>
-			<Map  className="destination__map" address={destinationAddress}/>
+					<Map  className="destination__map" address={destinationAddress}/>
 				</div>
 				<div className="order__dish-items">
 					{

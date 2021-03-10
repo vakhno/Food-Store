@@ -11,12 +11,26 @@
 		justify-content: space-between
 		position: sticky
 		top: $header-height
-		z-index: 14
-	&__title
+		z-index:
+		margin-bottom: 20px
 	&__dishes-list
 		display: grid
 		justify-content: center
 		justify-items: center
 		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
 		gap: 30px
-	&__dishe
+
+@media screen and ( max-width: 660px)
+	.menu-dishes
+		&__options
+			align-items: initial
+			flex-direction: column
+		.categories
+			margin-bottom: 10px
+		.sort
+			align-self: flex-end
+
+@media screen and ( max-width: 480px)
+	.menu-dishes
+		&__dishes-list
+			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))

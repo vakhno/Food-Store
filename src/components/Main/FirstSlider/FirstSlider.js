@@ -25,10 +25,6 @@ function FirstSlider() {
 			title: 'Чиказька піца з томатами',
 		},
 		{
-			image: {FirstSliderImage6},
-			title: 'Скидки і акції',
-		},
-		{
 			image: {FirstSliderImage2},
 			title: 'Чорна піца з золотоми пелюстками',
 		},

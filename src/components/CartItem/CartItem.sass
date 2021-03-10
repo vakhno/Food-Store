@@ -1,13 +1,13 @@
 @import '../../sass/_variables'
 
-.cart__item
+.cart-item
 	display: flex
 	align-items: center
 	width: 100%
 	border-top: 1px solid $gray-line
 	padding-top: 30px
 	margin-top: 30px
-	&-img
+	&__image
 		display: flex
 		align-items: center
 		justify-content: center
@@ -16,7 +16,7 @@
 		width: 140px
 		img
 			max-height: 120px
-	&-info
+	&__info
 		display: flex
 		flex-direction: column
 		justify-content: center
@@ -26,7 +26,7 @@
 			margin-bottom: 2px
 		p
 			@include title($light-gray, 14px, 300)
-	&-count
+	&__count
 		display: flex
 		align-items: center
 		justify-content: space-between
@@ -39,15 +39,41 @@
 		svg
 			width: 20px
 			height: 20px
-	&-quantity
+	&__quantity
 		@include title($white, 22px, 500)
 		padding: 0 20px
-	&-price
+	&__quantity-dishes
+		@include title($white, 22px, 500)
+	&__price
 		display: flex
 		align-items: center
 		justify-content: center
 		width: 33%
 		@include title($white, 22px, 600)
-	&-remove
+	&__remove
 		svg
 			transform: rotate(45deg)
+
+@media screen and (max-width: 840px)
+	.cart-item
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		&__image
+			margin-right: 0
+			height: 220px
+			width: auto
+			margin-bottom: 18px
+			img
+				max-height: 220px
+		&__info
+			width: auto
+			margin-bottom: 18px
+		&__count
+			width: auto
+			margin-bottom: 14px
+		&__quantity-dishes
+			margin-bottom: 18px
+		&__price
+			width: auto
+			margin-bottom: 12px
