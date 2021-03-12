@@ -58,7 +58,7 @@ function Cart() {
 						</div>
 						<div className="cart__list">
 							{
-								addedDishes.map(elem => elem.map( (elem) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} category={elem[0].category} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem} ></CartItem> ))
+								addedDishes.map(elem => elem.map( (elem, index) => <CartItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} category={elem[0].category} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length} removeDish={onRemoveCartItem} plusCartItem={onPlusCartItem} minusCartItem={onMinusCartItem} key={index}></CartItem> ))
 							}
 						</div>
 						<div className="cart__bottom-info">

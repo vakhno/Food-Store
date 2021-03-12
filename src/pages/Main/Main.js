@@ -1,10 +1,14 @@
 import React, {useEffect} from 'react'
-import 'swiper/swiper-bundle.css'
+// styles
 import './Main.sass'
+// styles for swiper
+import 'swiper/swiper-bundle.css'
+// redux
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchMainDeliveryDishes} from '../../redux/actions/dishesRequest'
 import {addDisheToCart} from '../../redux/actions/cart'
-import {Quote, Creator, Reservation, FirstSlider, Delivery, Discount, Menu} from '../../components'
+// components
+import {Quote, Creator, Reservation, FirstSlider, Delivery, Menu} from '../../components'
 
 function Main() {
 	const dispatch = useDispatch()
@@ -23,7 +27,6 @@ function Main() {
 			<FirstSlider/>
 			<Quote/>
 			<Creator/>
-			{/* <Discount/> */}
 			<Reservation/>
 			<Delivery />
 			<Menu menuDishes={menuDishes} handleAddDishToCart={handleAddDishToCart}/>

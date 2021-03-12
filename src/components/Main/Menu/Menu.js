@@ -1,6 +1,8 @@
 import React from 'react'
 // styles
 import './Menu.sass'
+// router
+import {Link} from 'react-router-dom'
 // swiper
 import SwiperCore, {Navigation, Pagination, EffectFade, Autoplay} from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -43,8 +45,8 @@ function Menu({menuDishes, handleAddDishToCart}) {
 						}}
 					>
 						{
-							menuDishes.map(elem =>{
-								return	<SwiperSlide>
+							menuDishes.map( (elem, index) =>{
+								return	<SwiperSlide key={`${elem.name}_${index}`}>
 											<DishesBlock onClickAddDish={handleAddDishToCart} id={elem.id} name={elem.name} imageUrl={elem.imageUrl} price={elem.price} types={elem.types} sizes={elem.sizes} dark/>
 										</SwiperSlide>
 							})
@@ -52,7 +54,12 @@ function Menu({menuDishes, handleAddDishToCart}) {
 					</Swiper>
 				</div>
 			</div>
-			<Button className='menu__button' solid light>Перейти до меню</Button>
+				<Button solid light className="menu__button">
+					<Link to="/dishes">
+						Перейти до меню
+					</Link>
+				</Button>
+			
 		</div>
 	)
 }

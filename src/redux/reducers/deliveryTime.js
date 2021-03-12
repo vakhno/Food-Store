@@ -10,6 +10,6 @@ const deliveryTime = (state = currentHour, action) => {
 			return false
 		}
 }
-console.log(currentHour > startWork && currentHour < endWork ? true : false)
+// console.log(currentHour > startWork && currentHour < endWork ? true : false)
 
 export default deliveryTime

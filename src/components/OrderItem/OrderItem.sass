@@ -1,0 +1,79 @@
+@import '../../sass/_variables'
+
+.order-item
+	display: flex
+	align-items: center
+	width: 100%
+	border-top: 1px solid $gray-line
+	padding-top: 30px
+	margin-top: 30px
+	&__image
+		display: flex
+		align-items: center
+		justify-content: center
+		margin-right: 15px
+		height: 120px
+		width: 140px
+		img
+			max-height: 120px
+	&__info
+		display: flex
+		flex-direction: column
+		justify-content: center
+		width: 40%
+		h3
+			@include title($white, 22px, 500)
+			margin-bottom: 2px
+		p
+			@include title($light-gray, 14px, 300)
+	&__count
+		display: flex
+		align-items: center
+		justify-content: space-between
+		width: 13%
+		&-minus
+			svg
+				path:first-of-type
+					display: none
+	&__item-count-minus
+		svg
+			width: 20px
+			height: 20px
+	&__quantity
+		@include title($white, 22px, 500)
+		padding: 0 20px
+	&__quantity-dishes
+		@include title($white, 22px, 500)
+	&__price
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 33%
+		@include title($white, 22px, 600)
+	&__remove
+		svg
+			transform: rotate(45deg)
+
+@media screen and (max-width: 840px)
+	.order-item
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		&__image
+			margin-right: 0
+			height: 220px
+			width: auto
+			margin-bottom: 18px
+			img
+				max-height: 220px
+		&__info
+			width: auto
+			margin-bottom: 18px
+		&__count
+			width: auto
+			margin-bottom: 14px
+		&__quantity-dishes
+			margin-bottom: 18px
+		&__price
+			width: auto
+			margin-bottom: 12px

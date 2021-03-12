@@ -4,20 +4,14 @@ import './Header.sass'
 // router
 import {Link, withRouter} from 'react-router-dom'
 // components
-import {Button, Navbar, Logo} from '../../components'
-// redux
-import {useSelector} from 'react-redux'
+import {Navbar, Logo, BasketButton} from '../../components'
 // visual content
 import logoSVG from '../../images/logo2.svg'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faHryvnia} from "@fortawesome/free-solid-svg-icons"
-import {faShoppingBasket} from "@fortawesome/free-solid-svg-icons";
 // burger menu icons
 import {ReactComponent as CloseMenu} from '../../images/closeMenuIcon.svg'
 import {ReactComponent as OpenMenu} from '../../images/openMenuIcon.svg'
 
 function Header() {
-	const {totalPrice, totalCount} = useSelector(({cart}) => cart)
 	const [desktopResolution, setDesktopResolution] = useState(null)
 	const [menuStatus, setMenuStatus] = useState(false)
 
@@ -58,16 +52,9 @@ function Header() {
 					<Logo image={logoSVG} title={`${desktopResolution ? 'PASTA & PIZZA' : ''}`} subtitle={`${desktopResolution ? 'італійська кухня' : ''}`}/>
 				</div>
 				<Navbar desktopResolution={desktopResolution} menuStatus={menuStatus} closeMenuClick={closeMenuClick}/>
-				<div className="header__cart">
-					<Link to='/cart'>
-						<Button solid dark>
-							<span>{totalPrice}</span><FontAwesomeIcon icon={faHryvnia}/>
-							<div className="button__delimiter"></div>
-							<FontAwesomeIcon icon={faShoppingBasket}/>
-							<span>{totalCount}</span>
-						</Button>
-					</Link>
-				</div>
+				<Link to='/cart'>
+					<BasketButton/>
+				</Link>
 				{
 					!desktopResolution &&
 					<div className="burger">

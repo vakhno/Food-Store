@@ -59,39 +59,6 @@
 			b
 				color: $orange
 
-.sub-window
-	background-color: rgba(0, 0, 0, 0.7)
-	position: fixed
-	top: 0
-	bottom: 0
-	left: 0
-	right: 0
-	z-index: 100
-	&__content
-		position: absolute
-		top: 50%
-		left: 50%
-		transform: translate(-50%, -50%)
-		background-color: $white
-		min-height: 200px
-		width: 100%
-		max-width: 450px
-		display: flex
-		flex-direction: column
-		justify-content: space-between
-		padding: 20px
-		text-align: center
-	&__header
-		display: flex
-		justify-content: flex-end
-		svg
-			cursor: pointer
-			outline: none
-			border: none
-			transition: 0.5s
-			&:hover
-				transform: scale(2.5)
-
 @media screen and (max-width: 740px)
 	.destination
 		flex-direction: column

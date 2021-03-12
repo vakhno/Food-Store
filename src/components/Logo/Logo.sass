@@ -1,0 +1,29 @@
+@import '../../sass/_variables.sass'
+
+.logo
+	width: fit-content
+	display: flex
+	align-items: center
+	text-decoration: none
+	&:hover
+		h1
+			color: $orange
+		.logo__image
+			backface-visibility: hidden
+			transform: scale(1) translateZ(0)
+	&__image
+		width: 82px
+		height: 76px
+		transition: 0.5s
+		margin-right: 5px
+		backface-visibility: hidden
+		transform: scale(0.8) translateZ(0)
+	&__title
+		@include title($white, 20px, 300)
+		transition: 0.3s
+		text-transform: uppercase
+		white-space: nowrap
+	&__subtitle
+		@include title($white, 14px, 200)
+		letter-spacing: 2.5px
+		white-space: nowrap

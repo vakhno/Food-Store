@@ -1,10 +1,10 @@
-import React, {useState, memo} from 'react'
+import React, {memo} from 'react'
 // styles
 import './Categories.sass'
 // propTypes
 import PropTypes from 'prop-types'
 
-const Categories = memo(function Categories({activeCategory, items, onClickItem, selectCategory}) {
+function Categories({activeCategory, items, selectCategory}) {
 	return (
 		<div className="categories">
 			<div className="categories__wrapper">
@@ -17,17 +17,17 @@ const Categories = memo(function Categories({activeCategory, items, onClickItem,
 			</div>
 		</div>
 	)
-})
+}
 
 Categories.propTypes = {
-	activeCategory: PropTypes.number,
-	items: PropTypes.arrayOf(PropTypes.string).isRequired,
+	activeCategory: PropTypes.string,
+	items: PropTypes.arrayOf(PropTypes.object).isRequired,
 	onClickItem: PropTypes.func,
 }
 
 Categories.defaultProps = {
-	activeCategory: null,
+	activeCategory: '',
 	items: [],
 }
 
-export default Categories
+export default memo(Categories)

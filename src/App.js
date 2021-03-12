@@ -1,10 +1,13 @@
 import React, {useEffect} from 'react'
+// react-router-dom
 import {Route, Switch, useLocation} from 'react-router-dom'
+// components
 import {Header, Footer} from './components'
+// pages
 import {Main, Dishes, Cart, Order} from './pages'
-
+// redux
 import {checkDeliveryTime} from './redux/actions/deliveryTime'
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 function App() {
 	const dispatch = useDispatch()
@@ -18,13 +21,13 @@ function App() {
 		<>
 			<Header/>
 					<Route exact path ='/' component={Main} />
-					<Switch>
-						<div className={`${location.pathname !== '/' ? "content" : ""}`}>
+					<div className={`${location.pathname !== '/' ? "content" : ""}`}>
+						<Switch>
 							<Route exact path ='/dishes' component={Dishes} />
 							<Route exact path ='/cart' component={Cart} />
 							<Route exact path ='/order' component={Order} />
-						</div>
-					</Switch>
+						</Switch>
+					</div>
 			<Footer/>
 		</>
 	);

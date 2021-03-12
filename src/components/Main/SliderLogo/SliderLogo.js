@@ -3,6 +3,8 @@ import React from 'react'
 import './SliderLogo.sass'
 // visual content
 import Logo from '../../../images/logo2.svg'
+// prop-types
+import PropTypes from 'prop-types'
 
 function SliderLogo({title, subtitle, className}) {
 	return (
@@ -14,6 +16,18 @@ function SliderLogo({title, subtitle, className}) {
 			</div>
 		</div>
 	)
+}
+
+SliderLogo.propTypes = {
+	title: PropTypes.string.isRequired, 
+	subtitle: PropTypes.string.isRequired, 
+	className: PropTypes.string,
+}
+
+SliderLogo.defaultProps = {
+	title: 'Заголовок', 
+	subtitle: 'Опис', 
+	className: '',
 }
 
 export default SliderLogo

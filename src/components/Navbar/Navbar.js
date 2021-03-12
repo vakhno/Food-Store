@@ -3,6 +3,8 @@ import React from 'react'
 import './Navbar.sass'
 // router
 import {NavLink} from 'react-router-dom'
+// prop-types
+import PropTypes from 'prop-types'
 
 function Navbar({desktopResolution, menuStatus, closeMenuClick}) {
 	const availablePages = [
@@ -26,7 +28,7 @@ function Navbar({desktopResolution, menuStatus, closeMenuClick}) {
 				{
 					availablePages.map( (elem, index) => {
 						return (
-							<NavLink exact to={elem.link} className='navbar__link' onClick={closeMenuClick}> 
+							<NavLink exact to={elem.link} className='navbar__link' onClick={closeMenuClick} key={`${elem.title}_${index}`}> 
 								<li className='navbar__item' key={index}>
 									{elem.title}
 								</li>
@@ -37,6 +39,18 @@ function Navbar({desktopResolution, menuStatus, closeMenuClick}) {
 			</ul>
 		</nav>
 	)
+}
+
+Navbar.propTypes = {
+	desktopResolution: PropTypes.bool,
+	menuStatus: PropTypes.bool, 
+	closeMenuClick: PropTypes.func,
+}
+
+Navbar.defaultProps = {
+	desktopResolution: '',
+	menuStatus: '', 
+	closeMenuClick: () => {},
 }
 
 export default Navbar

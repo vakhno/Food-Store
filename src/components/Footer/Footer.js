@@ -1,5 +1,7 @@
 import React from 'react'
+// styles
 import './Footer.sass'
+// visual content
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
 import {faMapMarkerAlt} from "@fortawesome/free-solid-svg-icons";
@@ -8,8 +10,6 @@ import {faTwitter} from "@fortawesome/free-brands-svg-icons";
 import {faInstagram} from "@fortawesome/free-brands-svg-icons";
 import {faTripadvisor} from "@fortawesome/free-brands-svg-icons";
 import {faFacebook} from "@fortawesome/free-brands-svg-icons";
-import {Title, Map} from '../index'
-import {ReservationCard} from '../index'
 
 function Footer() {
 	const info = [
@@ -73,26 +73,24 @@ function Footer() {
 		}
 	]
 
-
-
 	return (
 		<div className='footer'>
 			<div className="footer__info">
 				<div className="footer__about">
-					{info.map(block => {
-						return	<div className="footer__about-block">
+					{info.map( (block, index) => {
+						return	<div className="footer__about-block" key={index}>
 									<div className="footer__about-block-title">{block.title}</div>
 									<div className="footer__about-block-data">
 										{
 											block.type === 'link' ?  
-												block.data.map( link => {
-													return	<a className='footer__about-block-data-social-link' href={link.url} key={link.alt}> 
+												block.data.map( (link, index) => {
+													return	<a className='footer__about-block-data-social-link' href={link.url} key={`${link.alt}_${index}`}> 
 																{link.image}
 															</a>
 												})
 											:
-												block.data.map( info => {
-													return <div className='footer__about-block-data-info'>{info.text}</div>
+												block.data.map( (info, index) => {
+													return <div className='footer__about-block-data-info' key={index}>{info.text}</div>
 												})
 										}
 									</div>

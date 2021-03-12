@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 // styles
 import './ReservationCard.sass'
 // components
-import {Button, ModalReservationCard} from '../index'
+import {Button, ModalReservation} from '../index'
 // classNames
 import classNames from 'classnames'
+// prop-types
+import PropTypes from 'prop-types'
 
 function ReservationCard({dark, light}) {
 	const [name, setName] = useState('')
@@ -83,9 +85,14 @@ function ReservationCard({dark, light}) {
 						Зарезервувати
 					</Button>
 			</form>
-			<ModalReservationCard isOpen={formValid} onClose={closeForm}/>
+			<ModalReservation isOpen={formValid} onClose={closeForm}/>
 		</div>
 	)
+}
+
+ReservationCard.propTypes = {
+	dark: PropTypes.bool, 
+	light: PropTypes.bool,
 }
 
 export default ReservationCard

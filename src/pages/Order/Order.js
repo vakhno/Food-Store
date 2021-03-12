@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react'
-import {Map, Input, Button, OrderItem} from '../../components'
-import {useForm} from 'react-hook-form'
-import {useHistory} from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
-import {clearCart} from '../../redux/actions/cart'
-import ModalOrder from '../../pages/Order/ModalOrder'
+import React, {useState} from 'react'
 // styles
 import './Order.sass'
+// components
+import {Map, Button, OrderItem, ModalOrder} from '../../components'
+// react-hook-form
+import {useForm} from 'react-hook-form'
+// react-router-dom
+import {useHistory} from 'react-router-dom'
+// redux
+import {useSelector, useDispatch} from 'react-redux'
+import {clearCart} from '../../redux/actions/cart'
 
 function Order() {
 	const history = useHistory()
@@ -14,7 +17,7 @@ function Order() {
 	const {items} = useSelector( ({cart}) => cart)
 	const orderDishes = Object.values(items).map( dish => Object.values(dish).map( elem => Object.values(elem).map(elem => elem ) ) ) 	
 	const {totalPrice} = useSelector( ({cart}) => cart)
-	const {register, handleSubmit, getValues, setValues, watch, formState: { isValid, isDirty}, errors} = useForm({  })
+	const {register, handleSubmit, getValues, watch, formState: {isValid}, errors} = useForm({  })
 	const [destinationAddress, setDestinationAddress] = useState('')
 	const [allUserInfo, setAllUserInfo] = useState(null)
 	const [formValid, setFormValid] = useState(false)
@@ -89,8 +92,9 @@ function Order() {
 							className={`input input__solid input__light destination__frontDoor ${errors.frontDoor ? 'input__error' : ''}`}
 							disabled={getValues("apartment") ? false : true} 
 							ref={register({required: watchApartments ? true : false})}
+							defaultValue={"default"}
 						>
-							<option defaultValue="" disabled selected={watchApartments ? false : true} >Парадна</option>
+							<option value="default" disabled selected={watchApartments ? false : true} >Парадна</option>
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
@@ -139,7 +143,7 @@ function Order() {
 				</div>
 				<div className="order__dish-items">
 					{
-						orderDishes.map(elem => elem.map( (elem) => <OrderItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length}></OrderItem> ))
+						orderDishes.map(elem => elem.map( (elem, index) => <OrderItem id={elem[0].id} categoryId={elem[0].categoryId} name={elem[0].name} image={elem[0].imageUrl} toggle1={elem[0].toggle1} toggle2={elem[0].toggle2} count={elem.length} price={elem[0].price * elem.length} key={index}></OrderItem> ))
 					}
 				</div>
 				<div className="details">

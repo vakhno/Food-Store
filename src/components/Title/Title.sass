@@ -1,0 +1,32 @@
+@import '../../sass/_variables.sass'
+
+.title
+	text-align: center
+	&__title,
+	&__subtitle
+		text-transform: uppercase
+	&__title
+		position: relative
+		margin-bottom: 8px
+		line-height: 44px
+		padding-bottom: 4px
+		&::after
+			transform: translateX(-50%)
+			width: 60px
+			height: 1px
+	&__subtitle
+		line-height: 20px
+	&--light
+		.title__title
+			@include title($white, 28px, 100)
+			&::after
+				@include pseudo-element($orange, 100%, 50%, 0, 0)
+		.title__subtitle
+			@include title($white, 14px, 100)
+	&--dark
+		.title__title
+			@include title($black, 28px, 100)
+			&::after
+				@include pseudo-element(lighten($orange, 15%), 100%, 50%, 0, 0)
+		.title__subtitle
+			@include title($black, 14px, 100)

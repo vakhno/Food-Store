@@ -3,8 +3,10 @@ import React from 'react'
 import './CartItem.sass'
 // components
 import {Button} from '../index'
+// prop-types
+import PropTypes from 'prop-types'
 
-function CartItem({id, categoryId, name, category, image, toggle1, toggle2, count, price, removeDish, plusCartItem, minusCartItem}) {
+function CartItem({categoryId, name, category, image, toggle1, toggle2, count, price, removeDish, plusCartItem, minusCartItem}) {
 	const deleteDishFromList = () => {
 		removeDish(categoryId)
 	}
@@ -62,6 +64,31 @@ function CartItem({id, categoryId, name, category, image, toggle1, toggle2, coun
 				</Button>		
 		</div>
 	)
+}
+
+CartItem.propTypes = {
+	categoryId: PropTypes.number.isRequired,
+	name: PropTypes.string.isRequired,
+	category: PropTypes.string.isRequired,
+	image: PropTypes.string.isRequired,
+	toggle1: PropTypes.oneOfType([PropTypes.string, PropTypes.number,  PropTypes.array]).isRequired,
+	toggle2: PropTypes.oneOfType([PropTypes.string, PropTypes.number,  PropTypes.array]).isRequired,
+	count: PropTypes.number.isRequired,
+	price: PropTypes.number.isRequired, 
+	removeDish: PropTypes.func.isRequired, 
+	plusCartItem: PropTypes.func.isRequired, 
+	minusCartItem: PropTypes.func.isRequired,
+}
+
+CartItem.defaultProps = {
+	name: 'Назва страви',
+	toggle1: [],
+	toggle2: [],
+	count: 0,
+	price: 0,
+	removeDish: () => {},
+	plusCartItem: () => {},
+	minusCartItem: () => {},
 }
 
 export default CartItem

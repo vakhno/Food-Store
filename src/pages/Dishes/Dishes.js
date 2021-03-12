@@ -1,6 +1,9 @@
 import React, {useEffect, useCallback} from 'react'
+// styles
 import './Dishes.sass'
+// components
 import {Categories, DishesSort, DishesBlock, DishesLoadingBlock} from '../../components'
+// redux
 import {useSelector, useDispatch} from 'react-redux'
 import {setCategory, setSortBy} from '../../redux/actions/filters'
 import {fetchDishes} from '../../redux/actions/dishesRequest'

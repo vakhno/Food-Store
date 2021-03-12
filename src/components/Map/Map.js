@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, memo} from 'react'
 // google-map
 import { GoogleMap, Marker, Polygon, withScriptjs, withGoogleMap } from 'react-google-maps'
 // area style
@@ -6,9 +6,10 @@ import mapStyle from './MapStyle'
 // marker
 import iconRestaurant from '../../images/restaurant-marker.svg'
 import iconDestination from '../../images/destination-marker.svg'
-// import iconDelivery
 // axios
 import axios from 'axios'
+// prop-types
+import PropTypes from 'prop-types'
 
 function Map({className, address}) {
 	const key = 'AIzaSyDHsBvb0Wq3AaQV-vYjxdeSM_16enhTrTk'
@@ -198,4 +199,14 @@ function Map({className, address}) {
 	)
 }
 
-export default React.memo(Map)
+Map.propTypes = {
+	className: PropTypes.string, 
+	address: PropTypes.string.isRequired,
+}
+
+Map.defaultProps = {
+	className: '', 
+	address: '',
+}
+
+export default memo(Map)

@@ -1,6 +1,8 @@
 import React from 'react'
 // styles
 import './FeatureItem.sass'
+// prop-types
+import PropTypes from 'prop-types'
 
 function FeatureItem({icon, title, subtitle}) {
 	return (
@@ -10,6 +12,18 @@ function FeatureItem({icon, title, subtitle}) {
 			<div className="feature__subtitle">{subtitle}</div>
 		</div>
 	)
+}
+
+FeatureItem.propTypes = {
+	icon: PropTypes.object.isRequired,
+	title: PropTypes.string.isRequired,
+	subtitle: PropTypes.string.isRequired,
+}
+
+FeatureItem.defaultProps = {
+	icon: '',
+	title: 'Заголовок',
+	subtitle: 'Опис',
 }
 
 export default FeatureItem
